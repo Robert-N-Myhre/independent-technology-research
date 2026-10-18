@@ -17,7 +17,8 @@ nav:
       - Conceptual Investigations:
           - Project Bridging:
               - Overview: projects/project-bridging.md
-              - Research Paper: research/project-bridging/ai-as-a-scaffold-for-human-connection.md
+              - Paper 1 — Conceptual Framework: research/project-bridging/ai-as-a-scaffold-for-human-connection.md
+              - Paper 2 — Research Concept: research/project-bridging/empowerment-preserving-ai-mediation.md
           - Monitor → Classify → Escalate: reference-architectures/monitor-classify-escalate.md
           - Plan → Approve → Execute → Verify: reference-architectures/plan-approve-execute-verify.md
   - Research-Derived Architectures:

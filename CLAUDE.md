@@ -1,6 +1,6 @@
 # Repository guidance — Independent Technology Research
 
-This is the source of a public **independent technology research** site built with MkDocs Material and published at https://robert-n-myhre.github.io/architecture-portfolio/.
+This is the source of a public **independent technology research** site built with MkDocs Material and published at https://robert-n-myhre.github.io/independent-technology-research/.
 
 ## Purpose and boundaries
 

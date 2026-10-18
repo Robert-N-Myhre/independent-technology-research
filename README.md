@@ -2,7 +2,7 @@
 
 This repository publishes my independent technology investigations at:
 
-**https://robert-n-myhre.github.io/architecture-portfolio/**
+**https://robert-n-myhre.github.io/independent-technology-research/**
 
 I explore questions about AI infrastructure, human–AI collaboration, distributed systems, networking, security, automation, and emerging technologies through prototypes, experiments, and architectural analysis.
 
@@ -21,5 +21,5 @@ Projects explicitly identify what was proposed, observed, validated, or remains 
 
 The site uses MkDocs Material with GitHub Pages deployment. Content is under `docs/`; navigation is defined in `mkdocs.yml`.
 
-See [Research Methodology](https://robert-n-myhre.github.io/architecture-portfolio/research-methodology/) for the editorial and evidence approach.
+See [Research Methodology](https://robert-n-myhre.github.io/independent-technology-research/research-methodology/) for the editorial and evidence approach.
 

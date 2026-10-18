@@ -12,7 +12,8 @@ tags:
 
 **Research status:** Conceptual investigation — proposed framework and falsifiable research agenda. **Not implemented or empirically validated.**
 
-**Working paper:** [*AI as a Scaffold for Human Connection: A Framework for Discovery and Communication*](../research/project-bridging/ai-as-a-scaffold-for-human-connection.md) (v0.4.2, 17 October 2026; not peer reviewed).
+**Paper 1 — Conceptual framework:** [*AI as a Scaffold for Human Connection: A Framework for Discovery and Communication*](../research/project-bridging/ai-as-a-scaffold-for-human-connection.md) (v0.4.2, 17 October 2026; not peer reviewed).  
+**Paper 2 — Research concept:** [*Empowerment-Preserving AI Mediation*](../research/project-bridging/empowerment-preserving-ai-mediation.md) (proposed empirical investigation; no study conducted).
 
 ## The question that started it
 
@@ -55,10 +56,11 @@ A single meaningful conversation could count as a positive outcome even if it do
 
 No Project Bridging dataset, matching implementation, deployed introduction system, or effectiveness study is reported. Whether inferred conversational patterns generalize from AI conversations to human encounters, improve discovery, avoid privacy and interpersonal harms, or justify a three-plane architecture remains untested. A simpler system may prove better.
 
-A separately scoped empirical proposal, *Empowerment-Preserving AI Mediation*, is a proposed direction for investigating communication assistance; it is **not** presented here as completed or published research.
+A separately scoped [Paper 2 research concept, *Empowerment-Preserving AI Mediation*](../research/project-bridging/empowerment-preserving-ai-mediation.md), proposes an empirical investigation of communication assistance and human agency. It is **not a completed study or peer-reviewed empirical paper**.
 
 ## Read the research
 
-[**Read the full working paper →**](../research/project-bridging/ai-as-a-scaffold-for-human-connection.md)
+[**Read Paper 1 — Conceptual working paper →**](../research/project-bridging/ai-as-a-scaffold-for-human-connection.md)  
+[**Read Paper 2 — Proposed empirical research concept →**](../research/project-bridging/empowerment-preserving-ai-mediation.md)
 
 The publication includes the research agenda, nine open research questions, methodological limitations, disclosure statement, and external references. The foundational *Empathy Bridge* hypothesis (2025) and July 2026 Project Bridging whitepaper are identified as unpublished origins, not represented as prior published research.

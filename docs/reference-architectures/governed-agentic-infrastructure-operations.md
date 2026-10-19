@@ -1,5 +1,5 @@
 ---
-title: "Project Sentinel — Governed Agentic Infrastructure Operations"
+title: "Project Boundary — Governed Agentic Infrastructure Operations"
 summary: "Reference architecture for consequential AI in infrastructure operations, separating probabilistic reasoning from deterministic control and human-governed authority."
 tags:
   - AI architecture
@@ -10,7 +10,7 @@ tags:
   - Human-in-the-loop
 ---
 
-# Project Sentinel
+# Project Boundary
 
 ## A Reference Architecture for Governed Agentic Infrastructure Operations
 
@@ -19,11 +19,11 @@ tags:
 **Version:** 1.0 public  
 **Status:** Proposed reference architecture; not production-validated  
 **Author:** Robert N. Myhre  
-**Source baseline:** Project Sentinel Reference Architecture v3.5
+**Research baseline:** Internal Reference Architecture v3.5 (historical working title retired)
 
-**Relationship to Project Boundary.** [Project Boundary](../projects/project-boundary.md) is the public case study for the architecture research effort in which Project Sentinel was developed. This document is the distilled public Reference Architecture from that same work. [Selected supporting evidence](https://github.com/Robert-N-Myhre/project-boundary-evidence){ target="_blank" rel="noopener noreferrer" } is published separately so architecture intent, research narrative, and implementation evidence remain distinct artifacts.
+**Relationship to the investigation.** [Project Boundary](../projects/project-boundary.md) is the public case study of the research behind this architecture. This document is the distilled public Reference Architecture from that work. [Selected supporting evidence](https://github.com/Robert-N-Myhre/project-boundary-evidence){ target="_blank" rel="noopener noreferrer" } is published separately so architecture intent, research narrative, and implementation evidence remain distinct artifacts.
 
-> **Status and claims.** This is a proposed reference architecture distilled from Project Sentinel v3.5. It does not claim production deployment, measured reduction in operating effort, or proven immunity to prompt injection. Some controls have prototype realizations, but production safety, effectiveness, and portability remain subjects of verification. The diagrams describe logical boundaries, not a single mandated product topology.
+> **Status and claims.** This is a proposed reference architecture distilled from the internal Reference Architecture v3.5 baseline and published under the Project Boundary name. It does not claim production deployment, measured reduction in operating effort, or proven immunity to prompt injection. Some controls have prototype realizations, but production safety, effectiveness, and portability remain subjects of verification. The diagrams describe logical boundaries, not a single mandated product topology.
 
 ## 1. Executive overview
 
@@ -31,7 +31,7 @@ tags:
 
 Infrastructure automation already executes well-defined actions. The harder problem is deciding *what should happen, to which systems, in which order, under what evidence, and with what recourse when reality differs from expectation*. Enterprise Linux patching illustrates this gap. A technically successful package installation can still break an application because ownership, dependencies, availability constraints, or validation were misunderstood.
 
-Project Sentinel proposes a governed control system around existing patch tooling. Specialized reasoning agents interpret requests, resolve ambiguous scope, select bounded patch waves, recognize anomalies, and propose lessons from observed outcomes. Deterministic controls acquire required evidence independently, verify claims and constraints, apply human-governed authorization, and manage progression and recovery. An approved execution engine—not the agents—changes infrastructure.
+Project Boundary proposes a governed control system around existing patch tooling. Specialized reasoning agents interpret requests, resolve ambiguous scope, select bounded patch waves, recognize anomalies, and propose lessons from observed outcomes. Deterministic controls acquire required evidence independently, verify claims and constraints, apply human-governed authorization, and manage progression and recovery. An approved execution engine—not the agents—changes infrastructure.
 
 The central thesis is:
 
@@ -45,7 +45,7 @@ The intended benefit is less human *between-decision labor*, followed by fewer t
 
 A patching engine can run jobs but cannot independently prove that a wave preserves a service's quorum, that a host belongs to the intended application, or that post-change health is acceptable. An unconstrained AI agent may reason about those questions, but that reasoning does not itself establish authority or factual correctness. A permanent human sign-off for every machine choice avoids some authority problems but leaves much of the labor untouched.
 
-Sentinel therefore makes six quality attributes central to the design:
+Boundary therefore makes six quality attributes central to the design:
 
 | Attribute | Architectural requirement |
 |---|---|
@@ -183,7 +183,7 @@ The learning loop records executed scope, actual outcomes, exceptions, recovery,
 
 ## 6. Authority and earned autonomy
 
-Sentinel distinguishes **transaction authorization** for a particular plan from **standing authorization** granted to a narrow operation class. Each mutation must cite exactly one valid authorization source. A recovery mutation requires a **distinct human recovery authorization** bound to the verified plan and selected recovery strategy; it does not widen, replace, or modify the original patch authorization.
+Boundary distinguishes **transaction authorization** for a particular plan from **standing authorization** granted to a narrow operation class. Each mutation must cite exactly one valid authorization source. A recovery mutation requires a **distinct human recovery authorization** bound to the verified plan and selected recovery strategy; it does not widen, replace, or modify the original patch authorization.
 
 ```mermaid
 flowchart TD
@@ -222,7 +222,7 @@ The operation class—not a host or model in isolation—is the unit of autonomy
 
 ## 7. Evidence and AI context integrity
 
-Sentinel treats prompt-injection resistance as an architectural boundary problem, not a classifier-accuracy problem.
+Boundary treats prompt-injection resistance as an architectural boundary problem, not a classifier-accuracy problem.
 
 ```mermaid
 flowchart LR
@@ -326,7 +326,7 @@ The success criteria should separate (a) **control conformance**—proof that gu
 
 ## 12. Applicability, limitations, and conclusion
 
-Sentinel is best suited to operational activities with repeatable execution contracts, governable safety constraints, observable outcomes, and meaningful opportunities for agent judgment. It is less suitable where safe execution cannot be verified, rollback is speculative, identity and ownership are fundamentally unresolved, or the authority regime does not allow standing policy delegation.
+Boundary is best suited to operational activities with repeatable execution contracts, governable safety constraints, observable outcomes, and meaningful opportunities for agent judgment. It is less suitable where safe execution cannot be verified, rollback is speculative, identity and ownership are fundamentally unresolved, or the authority regime does not allow standing policy delegation.
 
 The reference architecture remains intentionally bounded. It does not specify a production HA/fencing realization, every source-specific freshness rule, every policy exception, an exhaustive implementation state machine, or a generalized multi-operation workflow platform. These belong to further architecture decisions and engineering verification rather than being assumed solved.
 
@@ -339,4 +339,4 @@ The reference architecture remains intentionally bounded. It does not specify a 
 
 ---
 
-*Document provenance: public-facing synthesis of Project Sentinel Reference Architecture v3.5. This document is intentionally readable without access to the underlying repository or private architecture history. Detailed contracts, implementation evidence, and research artifacts should be published separately where cleared for public release.*
+*Document provenance: public-facing synthesis of the internal Reference Architecture v3.5, published under the Project Boundary name. The earlier working title is retired; historical drafts retain their original identifiers. This document is intentionally readable without access to the underlying repository or private architecture history. Detailed contracts, implementation evidence, and research artifacts should be published separately where cleared for public release.*

@@ -1,0 +1,1597 @@
+/* Portfolio-wide typography */
+.md-typeset h1 {
+  margin-bottom: 0.3em !important;
+}
+
+.md-typeset h1 + p {
+  margin-top: 0.3em !important;
+}
+
+@media screen {
+  .md-typeset {
+    font-size: 0.75rem;
+  }
+}
+
+/* Snapshot landing page */
+.snapshot-shell {
+  --snap-bg: #071426;
+  --snap-bg-2: #0b2340;
+  --snap-panel: rgba(12, 38, 68, 0.88);
+  --snap-panel-2: rgba(17, 53, 91, 0.76);
+  --snap-text: #f4f8fc;
+  --snap-muted: #b9c9d9;
+  --snap-accent: #45b8ff;
+  --snap-accent-2: #8bd7ff;
+  --snap-line: rgba(116, 201, 255, 0.28);
+  margin-top: 0.25rem;
+}
+
+.snapshot-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 2.2rem 2.2rem 2rem;
+  border: 1px solid var(--snap-line);
+  border-radius: 1rem;
+  background:
+    radial-gradient(circle at 78% 28%, rgba(58, 174, 255, 0.22), transparent 28%),
+    radial-gradient(circle at 92% 70%, rgba(56, 125, 255, 0.18), transparent 35%),
+    linear-gradient(135deg, #071426 0%, #0b2340 55%, #0d3159 100%);
+  box-shadow: 0 18px 50px rgba(0, 20, 40, 0.18);
+  color: var(--snap-text);
+}
+
+.snapshot-hero::before,
+.snapshot-hero::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.snapshot-hero::before {
+  width: 320px;
+  height: 320px;
+  right: -70px;
+  top: -75px;
+  border-radius: 50%;
+  background:
+    linear-gradient(rgba(103, 200, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103, 200, 255, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  transform: rotate(18deg);
+  mask-image: radial-gradient(circle, #000 30%, transparent 72%);
+}
+
+.snapshot-hero::after {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  background: linear-gradient(90deg, transparent, var(--snap-accent), transparent);
+  opacity: 0.85;
+}
+
+.snapshot-kicker {
+  margin: 0 0 0.45rem;
+  color: var(--snap-accent-2);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.snapshot-name {
+  margin: 0 !important;
+  color: #fff !important;
+  font-size: clamp(1.85rem, 5vw, 3rem) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.025em;
+}
+
+.snapshot-role {
+  max-width: 760px;
+  margin: 0.65rem 0 0 !important;
+  color: var(--snap-accent) !important;
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.snapshot-lede {
+  max-width: 760px;
+  margin: 1.2rem 0 0 !important;
+  color: var(--snap-text);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.snapshot-tagline {
+  max-width: 760px;
+  margin: 1rem 0 0 !important;
+  color: var(--snap-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.snapshot-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.35rem;
+}
+
+.snapshot-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.35rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid rgba(92, 193, 255, 0.52);
+  border-radius: 999px;
+  color: #fff !important;
+  background: rgba(55, 164, 235, 0.12);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: 160ms ease;
+}
+
+.snapshot-actions a:hover {
+  transform: translateY(-1px);
+  border-color: var(--snap-accent);
+  background: rgba(55, 164, 235, 0.22);
+}
+
+.snapshot-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1rem;
+  margin-top: 1.25rem;
+  color: var(--snap-muted);
+  font-size: 0.72rem;
+}
+
+.snapshot-meta a {
+  color: var(--snap-accent-2) !important;
+}
+
+.snapshot-section {
+  margin-top: 2.2rem;
+}
+
+.snapshot-section-head {
+  margin-bottom: 0.95rem;
+}
+
+.snapshot-section-head h2 {
+  margin: 0 !important;
+  font-size: 1.3rem;
+}
+
+.snapshot-section-head p {
+  max-width: 800px;
+  margin: 0.4rem 0 0 !important;
+  color: var(--md-default-fg-color--light);
+}
+
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.snapshot-card {
+  display: block;
+  height: 100%;
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(48, 118, 168, 0.22);
+  border-radius: 0.8rem;
+  background: linear-gradient(150deg, rgba(18, 65, 104, 0.08), rgba(37, 135, 198, 0.04));
+  box-shadow: 0 7px 22px rgba(0, 30, 60, 0.06);
+  text-decoration: none !important;
+  transition: 160ms ease;
+}
+
+.snapshot-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(69, 184, 255, 0.56);
+  box-shadow: 0 10px 28px rgba(0, 55, 95, 0.1);
+}
+
+.snapshot-card .eyebrow {
+  margin: 0 0 0.35rem;
+  color: #2387c7;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.snapshot-card h3 {
+  margin: 0 !important;
+  color: var(--md-default-fg-color) !important;
+  font-size: 0.94rem;
+  line-height: 1.35;
+}
+
+.snapshot-card p {
+  margin: 0.5rem 0 0 !important;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.snapshot-card .card-link {
+  display: inline-block;
+  margin-top: 0.7rem;
+  color: #1689cf;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.snapshot-wide-card {
+  padding: 1.1rem 1.2rem;
+  border: 1px solid rgba(48, 118, 168, 0.22);
+  border-radius: 0.8rem;
+  background: linear-gradient(135deg, rgba(8, 33, 59, 0.98), rgba(12, 55, 93, 0.94));
+  color: #eef7ff;
+}
+
+.snapshot-wide-card h3 {
+  margin: 0 !important;
+  color: #fff !important;
+}
+
+.snapshot-wide-card p,
+.snapshot-wide-card li {
+  color: #c8d8e8;
+}
+
+.snapshot-wide-card a {
+  color: #7ed0ff !important;
+}
+
+.snapshot-domain-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.snapshot-domain {
+  padding: 0.38rem 0.65rem;
+  border: 1px solid rgba(69, 184, 255, 0.28);
+  border-radius: 999px;
+  color: #d8efff;
+  background: rgba(69, 184, 255, 0.08);
+  font-size: 0.68rem;
+  font-weight: 650;
+}
+
+.snapshot-footer {
+  margin-top: 2rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.66rem;
+}
+
+@media (max-width: 760px) {
+  .snapshot-hero {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .snapshot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .snapshot-meta {
+    display: block;
+  }
+
+  .snapshot-meta span {
+    display: block;
+    margin-top: 0.25rem;
+  }
+}
+
+
+/* About page extensions */
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 120px;
+  gap: 1.35rem;
+  align-items: center;
+}
+
+.about-photo-wrap {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.about-photo {
+  width: 96px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 2px solid rgba(139, 215, 255, 0.62);
+  border-radius: 1rem;
+  box-shadow: 0 14px 34px rgba(0, 14, 30, 0.35), 0 0 0 6px rgba(69, 184, 255, 0.07);
+}
+
+.about-photo-wrap p {
+  margin: 0.8rem 0 0 !important;
+  color: #b9c9d9;
+  font-size: 0.7rem;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.about-card {
+  cursor: default;
+}
+
+.about-card:hover {
+  transform: none;
+  border-color: rgba(69, 184, 255, 0.34);
+  box-shadow: 0 7px 22px rgba(0, 30, 60, 0.06);
+}
+
+.about-communication {
+  padding: 1.15rem 1.2rem;
+}
+
+.about-communication h3 {
+  font-size: 1rem !important;
+}
+
+.about-closing {
+  padding: 1.35rem 1.4rem;
+  border-left: 4px solid #45b8ff;
+  border-radius: 0 0.8rem 0.8rem 0;
+  background: linear-gradient(90deg, rgba(69, 184, 255, 0.09), rgba(69, 184, 255, 0.02));
+}
+
+.about-closing h2 {
+  margin: 0 !important;
+  font-size: 1.2rem;
+}
+
+.about-closing p:last-child {
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo-wrap {
+    order: -1;
+    text-align: left;
+  }
+
+  .about-photo {
+    width: 76px;
+    border-radius: 0.75rem;
+  }
+
+  .about-photo-wrap p {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   Architecture document pages
+   Shared visual system for projects, reference architectures,
+   philosophy, and practice pages. Intentionally restrained so
+   long-form technical content remains easy to read.
+   ========================================================= */
+
+@media screen {
+  .md-typeset {
+    font-size: 0.82rem;
+    line-height: 1.68;
+  }
+}
+
+/* Direct-child selectors keep these rules off the custom
+   Snapshot and About page components. */
+.md-typeset > h1 {
+  position: relative;
+  margin: 0 0 1.15rem !important;
+  padding: 1.25rem 1.35rem 1.15rem;
+  border: 1px solid rgba(69, 184, 255, 0.24);
+  border-radius: 0.85rem;
+  background:
+    radial-gradient(circle at 88% 15%, rgba(69, 184, 255, 0.16), transparent 26%),
+    linear-gradient(135deg, #071426 0%, #0b2340 58%, #0d3159 100%);
+  box-shadow: 0 12px 34px rgba(0, 28, 52, 0.12);
+  color: #fff !important;
+  font-size: clamp(1.55rem, 3.5vw, 2.2rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.018em;
+}
+
+.md-typeset > h1::after {
+  content: "";
+  position: absolute;
+  left: 1.35rem;
+  bottom: 0.72rem;
+  width: 3.1rem;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #45b8ff, #8bd7ff);
+}
+
+.md-typeset > h1 + p {
+  margin-top: 0.9rem !important;
+}
+
+/* Many case studies use bold metadata immediately below H1. */
+.md-typeset > h1 + p strong,
+.md-typeset > h1 + p + p strong,
+.md-typeset > h1 + p + p + p strong,
+.md-typeset > h1 + p + p + p + p strong {
+  color: #176f9f;
+}
+
+.md-typeset > h2 {
+  margin-top: 2.15rem !important;
+  margin-bottom: 0.75rem !important;
+  padding-bottom: 0.38rem;
+  border-bottom: 1px solid rgba(30, 117, 167, 0.18);
+  color: #0b3554;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.md-typeset > h3 {
+  margin-top: 1.45rem !important;
+  margin-bottom: 0.45rem !important;
+  color: #155d87;
+  font-size: 1rem;
+}
+
+.md-typeset > hr {
+  margin: 1.8rem 0;
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(38, 130, 184, 0.28), transparent);
+}
+
+/* Architectural lessons and caveats become deliberate callouts. */
+.md-typeset > blockquote {
+  margin: 1.15rem 0;
+  padding: 0.9rem 1rem;
+  border-left: 4px solid #45b8ff;
+  border-radius: 0 0.65rem 0.65rem 0;
+  background: linear-gradient(90deg, rgba(69, 184, 255, 0.09), rgba(69, 184, 255, 0.025));
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset > blockquote p:first-child {
+  margin-top: 0;
+}
+
+.md-typeset > blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.md-typeset > blockquote strong {
+  color: #0c5d8d;
+}
+
+/* Lists read more like architecture criteria than default docs lists. */
+.md-typeset > ul,
+.md-typeset > ol {
+  padding-left: 1.25rem;
+}
+
+.md-typeset li::marker {
+  color: #2387c7;
+}
+
+.md-typeset li {
+  margin-bottom: 0.2rem;
+}
+
+/* Tables */
+.md-typeset table:not([class]) {
+  width: 100%;
+  border: 1px solid rgba(26, 101, 145, 0.18);
+  border-radius: 0.65rem;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0, 35, 65, 0.045);
+}
+
+.md-typeset table:not([class]) th {
+  background: #0b2e4f;
+  color: #f5fbff;
+  font-weight: 700;
+}
+
+.md-typeset table:not([class]) td {
+  border-top-color: rgba(26, 101, 145, 0.12);
+}
+
+.md-typeset table:not([class]) tr:nth-child(even) td {
+  background: rgba(34, 123, 177, 0.035);
+}
+
+/* Code and preformatted content */
+.md-typeset code {
+  border-radius: 0.3rem;
+}
+
+.md-typeset pre > code {
+  line-height: 1.55;
+}
+
+.md-typeset .highlight {
+  margin: 1rem 0;
+  border: 1px solid rgba(27, 100, 143, 0.18);
+  border-radius: 0.65rem;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0, 35, 65, 0.04);
+}
+
+/* Diagrams and screenshots */
+.md-typeset > p > img,
+.md-typeset > figure img {
+  display: block;
+  margin: 1.2rem auto;
+  border: 1px solid rgba(31, 107, 153, 0.18);
+  border-radius: 0.7rem;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(0, 35, 65, 0.08);
+}
+
+.md-typeset figure figcaption {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+}
+
+/* Material admonitions */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 0.65rem;
+  box-shadow: 0 6px 18px rgba(0, 35, 65, 0.05);
+}
+
+/* Make inline links visually consistent without overwhelming prose. */
+.md-typeset a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.13em;
+}
+
+/* PDF/download links in reference architectures often appear as a
+   standalone paragraph near the top. Give them a quiet CTA treatment. */
+.md-typeset > p > a[href$=".pdf"]:only-child {
+  display: inline-flex;
+  align-items: center;
+  margin: 0.25rem 0 0.75rem;
+  padding: 0.5rem 0.78rem;
+  border: 1px solid rgba(35, 135, 199, 0.32);
+  border-radius: 999px;
+  background: rgba(69, 184, 255, 0.07);
+  color: #126f9f;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.md-typeset > p > a[href$=".pdf"]:only-child:hover {
+  border-color: rgba(35, 135, 199, 0.6);
+  background: rgba(69, 184, 255, 0.13);
+}
+
+/* Architecture philosophy/practice pages use the same document shell,
+   but benefit from slightly more editorial breathing room. */
+.md-typeset > h1 ~ p {
+  max-width: 54rem;
+}
+
+@media (max-width: 760px) {
+  .md-typeset > h1 {
+    padding: 1rem 1rem 1.05rem;
+    border-radius: 0.7rem;
+  }
+
+  .md-typeset > h1::after {
+    left: 1rem;
+    bottom: 0.58rem;
+  }
+
+  .md-typeset > h2 {
+    margin-top: 1.7rem !important;
+  }
+
+  .md-typeset table:not([class]) {
+    font-size: 0.72rem;
+  }
+}
+
+
+/* =========================================================
+   Document density + persistent navigation refinement
+   ========================================================= */
+
+@media screen {
+  /* Bring long-form pages back to a compact technical-document scale. */
+  .md-typeset {
+    font-size: 0.70rem;
+    line-height: 1.58;
+  }
+
+  .md-nav {
+    font-size: 0.65rem;
+  }
+
+  .md-header__title {
+    font-size: 0.70rem;
+  }
+}
+
+.md-typeset > h1 {
+  padding: 0.9rem 1rem 0.9rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.55rem) !important;
+  line-height: 1.16 !important;
+}
+
+.md-typeset > h1::after {
+  left: 1rem;
+  bottom: 0.52rem;
+  width: 2.45rem;
+  height: 2px;
+}
+
+.md-typeset > h2 {
+  margin-top: 1.6rem !important;
+  margin-bottom: 0.55rem !important;
+  padding-bottom: 0.28rem;
+  font-size: 1rem;
+}
+
+.md-typeset > h3 {
+  margin-top: 1.1rem !important;
+  margin-bottom: 0.35rem !important;
+  font-size: 0.84rem;
+}
+
+.md-typeset > hr {
+  margin: 1.3rem 0;
+}
+
+.md-typeset > blockquote {
+  margin: 0.9rem 0;
+  padding: 0.68rem 0.82rem;
+}
+
+.md-typeset table:not([class]) {
+  font-size: 0.66rem;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  font-size: 0.68rem;
+}
+
+/*
+  Material switches the primary navigation to a drawer below 76.25rem.
+  For a portfolio viewed on normal laptop/desktop widths, keep the
+  left-hand navigation visible sooner and temporarily hide the right TOC.
+*/
+@media screen and (min-width: 60em) and (max-width: 76.234375em) {
+  .md-sidebar--primary {
+    display: block !important;
+    position: sticky !important;
+    top: 2.4rem !important;
+    left: auto !important;
+    right: auto !important;
+    width: 11rem !important;
+    height: calc(100vh - 2.4rem) !important;
+    transform: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    z-index: 1 !important;
+  }
+
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    height: calc(100vh - 4.4rem) !important;
+    overflow-y: auto !important;
+  }
+
+  .md-sidebar--secondary {
+    display: none !important;
+  }
+
+  .md-header__button[for="__drawer"] {
+    display: none !important;
+  }
+
+  [dir="ltr"] .md-sidebar--primary:not([hidden]) ~ .md-content > .md-content__inner {
+    margin-left: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 59.984375em) {
+  .md-typeset {
+    font-size: 0.72rem;
+  }
+}
+
+
+/* Snapshot evidence strip */
+.snapshot-evidence {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.snapshot-evidence-item {
+  padding: 0.78rem 0.85rem;
+  border: 1px solid rgba(48, 118, 168, 0.22);
+  border-radius: 0.7rem;
+  background: linear-gradient(150deg, rgba(18, 65, 104, 0.07), rgba(37, 135, 198, 0.035));
+  box-shadow: 0 5px 16px rgba(0, 35, 65, 0.045);
+}
+
+.snapshot-evidence-value,
+.snapshot-evidence-label {
+  display: block;
+}
+
+.snapshot-evidence-value {
+  color: #0b3554;
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.snapshot-evidence-label {
+  margin-top: 0.22rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.62rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 760px) {
+  .snapshot-evidence {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* Balance snapshot evidence tiles with mixed text lengths. */
+.snapshot-evidence-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/*
+  Project Boundary case-study components
+
+  These rules extend the existing independent technology research visual language.
+  They intentionally avoid redefining global typography, headings, tables,
+  blockquotes, navigation, or page chrome already owned by extra.css.
+*/
+
+/* Executive orientation */
+.boundary-lede {
+  margin: 0.85rem 0 1rem;
+  padding: 0.78rem 0.9rem;
+  border-left: 4px solid #45b8ff;
+  border-radius: 0 0.65rem 0.65rem 0;
+  background: linear-gradient(
+    90deg,
+    rgba(69, 184, 255, 0.10),
+    rgba(69, 184, 255, 0.025)
+  );
+  color: #0b3554;
+  line-height: 1.55;
+}
+
+/* Paired question model */
+.boundary-question-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0 1.25rem;
+}
+
+.boundary-question-card {
+  padding: 0.9rem 0.95rem;
+  border: 1px solid rgba(35, 135, 199, 0.24);
+  border-radius: 0.7rem;
+  background: linear-gradient(
+    150deg,
+    rgba(18, 65, 104, 0.065),
+    rgba(37, 135, 198, 0.025)
+  );
+  box-shadow: 0 5px 16px rgba(0, 35, 65, 0.045);
+}
+
+.boundary-question-card--input {
+  border-top: 3px solid #2387c7;
+}
+
+.boundary-question-card--consequence {
+  border-top: 3px solid #0b587d;
+}
+
+.boundary-question-card__eyebrow {
+  margin: 0 0 0.3rem !important;
+  color: #176f9f;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.boundary-question-card h3 {
+  margin: 0 !important;
+  color: #0b3554 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.32;
+}
+
+.boundary-question-card p {
+  margin: 0.45rem 0 0 !important;
+}
+
+.boundary-question-card__concepts {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.64rem;
+  font-weight: 650;
+}
+
+.boundary-question-grid--compact {
+  margin: 0.8rem 0 1rem;
+}
+
+.boundary-question-grid--compact .boundary-question-card {
+  padding: 0.72rem 0.8rem;
+}
+
+/* Research-method strip */
+.boundary-research-strip {
+  margin: 1rem 0 1.35rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid rgba(35, 135, 199, 0.20);
+  border-radius: 0.65rem;
+  background: rgba(69, 184, 255, 0.045);
+}
+
+.boundary-research-strip__flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.55rem;
+  color: #155d87;
+  font-size: 0.67rem;
+  font-weight: 750;
+}
+
+.boundary-research-strip p {
+  margin: 0.42rem 0 0 !important;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.68rem;
+}
+
+/* Repeated architecture-turn navigation cue */
+.boundary-turn__label {
+  margin: 1.45rem 0 -0.72rem !important;
+  color: #2387c7;
+  font-size: 0.58rem;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+/* P3 architecture-at-a-glance visual */
+.boundary-architecture {
+  margin: 1rem 0 1.05rem;
+  padding: 0.8rem;
+  border: 1px solid rgba(35, 135, 199, 0.22);
+  border-radius: 0.75rem;
+  background: linear-gradient(
+    160deg,
+    rgba(18, 65, 104, 0.035),
+    rgba(69, 184, 255, 0.015)
+  );
+}
+
+.boundary-architecture__zone {
+  padding: 0.72rem;
+  border: 1px solid rgba(26, 101, 145, 0.16);
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.boundary-architecture__zone-label {
+  margin: 0 0 0.55rem !important;
+  color: #176f9f;
+  font-size: 0.58rem;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.boundary-architecture__node {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid rgba(35, 135, 199, 0.20);
+  border-radius: 0.55rem;
+  background: #fff;
+  text-align: center;
+}
+
+.boundary-architecture__node strong,
+.boundary-architecture__node span {
+  display: block;
+}
+
+.boundary-architecture__node span {
+  margin-top: 0.18rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.62rem;
+}
+
+.boundary-architecture__node--boundary {
+  border-width: 2px;
+  border-color: rgba(35, 135, 199, 0.44);
+  background: rgba(69, 184, 255, 0.055);
+}
+
+.boundary-architecture__node--reasoning {
+  border-style: dashed;
+}
+
+.boundary-architecture__node--control {
+  border-width: 2px;
+  border-color: rgba(11, 88, 125, 0.38);
+}
+
+.boundary-architecture__node--authority-boundary {
+  max-width: 40rem;
+  border-width: 2px;
+  border-color: rgba(11, 88, 125, 0.52);
+  background: rgba(11, 88, 125, 0.055);
+}
+
+.boundary-architecture__node--consequence {
+  border-width: 2px;
+  border-color: rgba(11, 88, 125, 0.42);
+}
+
+.boundary-architecture__node--validation {
+  border-style: dashed;
+}
+
+.boundary-architecture__eyebrow {
+  margin-bottom: 0.2rem !important;
+  color: #176f9f !important;
+  font-size: 0.56rem !important;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.boundary-architecture__arrow,
+.boundary-architecture__connector {
+  margin: 0.28rem auto;
+  color: #2387c7;
+  font-weight: 850;
+  line-height: 1;
+  text-align: center;
+}
+
+.boundary-architecture__connector {
+  margin: 0.4rem auto;
+  font-size: 1rem;
+}
+
+.boundary-authority-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.7fr);
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  align-items: start;
+}
+
+.boundary-authority-stop,
+.boundary-authority-go {
+  padding: 0.65rem;
+  border-radius: 0.6rem;
+}
+
+.boundary-authority-stop {
+  border: 1px dashed rgba(35, 135, 199, 0.34);
+  background: rgba(18, 65, 104, 0.025);
+}
+
+.boundary-authority-go {
+  border: 1px solid rgba(35, 135, 199, 0.22);
+  background: rgba(69, 184, 255, 0.025);
+}
+
+.boundary-authority-branch-label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.56rem;
+  font-weight: 750;
+  letter-spacing: 0.035em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.boundary-authority-lanes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.boundary-authority-lane {
+  min-height: 4.1rem;
+  padding: 0.58rem 0.62rem;
+  border-radius: 0.52rem;
+  text-align: center;
+}
+
+.boundary-authority-lane strong,
+.boundary-authority-lane span {
+  display: block;
+}
+
+.boundary-authority-lane span {
+  margin-top: 0.18rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.59rem;
+  line-height: 1.35;
+}
+
+.boundary-authority-lane--advisory {
+  border: 1px dashed rgba(35, 135, 199, 0.42);
+  background: #fff;
+}
+
+.boundary-authority-lane--authorized {
+  border: 1px solid rgba(11, 88, 125, 0.28);
+  background: #fff;
+}
+
+.boundary-authorized-flow {
+  max-width: 25rem;
+  margin: 0.28rem auto 0;
+}
+
+.boundary-authorized-flow .boundary-architecture__node {
+  max-width: none;
+}
+
+
+.boundary-post-consequence {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.boundary-post-consequence__path {
+  padding: 0.52rem 0.58rem;
+  border: 1px solid rgba(35, 135, 199, 0.18);
+  border-radius: 0.5rem;
+  background: #fff;
+  text-align: center;
+}
+
+.boundary-post-consequence__path strong,
+.boundary-post-consequence__path span {
+  display: block;
+}
+
+.boundary-post-consequence__path span:not(.boundary-architecture__eyebrow) {
+  margin-top: 0.18rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.58rem;
+  line-height: 1.35;
+}
+
+.boundary-post-consequence__path--recovery {
+  border-style: dashed;
+}
+
+/* P3 Turn 2 trust-evolution visual */
+.boundary-trust-evolution {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr) auto
+    minmax(0, 1fr) auto
+    minmax(0, 1fr) auto
+    minmax(0, 1fr);
+  gap: 0.4rem;
+  align-items: stretch;
+  margin: 0.95rem 0 1rem;
+  padding: 0.72rem;
+  border: 1px solid rgba(35, 135, 199, 0.20);
+  border-radius: 0.7rem;
+  background: rgba(69, 184, 255, 0.025);
+}
+
+.boundary-trust-step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 6.2rem;
+  padding: 0.62rem;
+  border: 1px solid rgba(35, 135, 199, 0.22);
+  border-radius: 0.55rem;
+  background: #fff;
+}
+
+.boundary-trust-step--pressure {
+  border-style: dashed;
+}
+
+.boundary-trust-step--revision {
+  border-width: 2px;
+  border-color: rgba(35, 135, 199, 0.42);
+}
+
+.boundary-trust-step--operationalized {
+  border-width: 2px;
+  border-color: rgba(11, 88, 125, 0.38);
+}
+
+.boundary-trust-step strong,
+.boundary-trust-step span {
+  display: block;
+}
+
+.boundary-trust-step span:not(.boundary-trust-step__label) {
+  margin-top: 0.3rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.6rem;
+  line-height: 1.35;
+}
+
+.boundary-trust-step__label {
+  margin-bottom: 0.25rem;
+  color: #176f9f;
+  font-size: 0.54rem;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.boundary-trust-arrow {
+  align-self: center;
+  color: #2387c7;
+  font-weight: 850;
+}
+
+.boundary-trust-evolution__caption {
+  grid-column: 1 / -1;
+  margin: 0.25rem 0 0 !important;
+  padding-top: 0.45rem;
+  border-top: 1px solid rgba(26, 101, 145, 0.14);
+  color: #0b3554;
+  font-size: 0.64rem;
+  text-align: center;
+}
+
+/* Evidence labels remain text-first; color is secondary. */
+.boundary-evidence-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.5rem;
+  margin: 0.8rem 0 0.9rem !important;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgba(26, 101, 145, 0.16);
+  border-radius: 0.6rem;
+  background: rgba(18, 65, 104, 0.035);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.64rem;
+  line-height: 1.45;
+}
+
+.boundary-evidence-chip {
+  display: inline-block;
+  padding: 0.28rem 0.45rem;
+  border: 1px solid rgba(35, 135, 199, 0.20);
+  border-radius: 999px;
+  background: rgba(69, 184, 255, 0.04);
+}
+
+
+/* Evidence table wrapper keeps the status matrix readable without relying on
+   the Python-Markdown tables extension in the live portfolio. */
+.boundary-evidence-table {
+  margin: 0.8rem 0 1rem;
+  overflow-x: auto;
+  border-radius: 0.65rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.boundary-evidence-table:focus {
+  outline: 2px solid rgba(35, 135, 199, 0.55);
+  outline-offset: 2px;
+}
+
+.boundary-evidence-table table {
+  margin: 0 !important;
+  min-width: 38rem;
+}
+
+/* Claims and limits receive equal visual weight. */
+.boundary-claims-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 0.9rem 0 1rem;
+}
+
+.boundary-claim-panel {
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(35, 135, 199, 0.20);
+  border-radius: 0.7rem;
+  background: rgba(18, 65, 104, 0.035);
+}
+
+.boundary-claim-panel--demonstrates,
+.boundary-claim-panel--limits {
+  border-top: 3px solid #2387c7;
+}
+
+.boundary-claim-panel h3 {
+  margin: 0 0 0.5rem !important;
+  color: #0b3554 !important;
+  font-size: 0.82rem !important;
+}
+
+.boundary-claim-panel ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.boundary-claim-panel li {
+  margin-bottom: 0.26rem;
+}
+
+/* Closing questions: concise echo of the opening, not a second hero. */
+.boundary-closing-questions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin: 0.85rem 0 1rem;
+}
+
+.boundary-closing-questions p {
+  margin: 0 !important;
+  padding: 0.65rem 0.75rem;
+  border-left: 3px solid #45b8ff;
+  border-radius: 0 0.55rem 0.55rem 0;
+  background: rgba(69, 184, 255, 0.055);
+  color: #0b3554;
+}
+
+/* Future link to the reusable Reference Architecture. */
+.boundary-next {
+  margin-top: 1.35rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(35, 135, 199, 0.24);
+  border-radius: 0.7rem;
+  background: linear-gradient(
+    135deg,
+    rgba(8, 33, 59, 0.96),
+    rgba(12, 55, 93, 0.92)
+  );
+  color: #eef7ff;
+}
+
+.boundary-next h2 {
+  margin: 0 !important;
+  border: 0 !important;
+  color: #fff !important;
+}
+
+.boundary-next p {
+  color: #c8d8e8;
+}
+
+.boundary-next a {
+  color: #7ed0ff !important;
+  font-weight: 700;
+}
+
+/* Responsive behavior */
+@media (max-width: 760px) {
+  .boundary-question-grid,
+  .boundary-claims-grid,
+  .boundary-closing-questions,
+  .boundary-authority-split,
+  .boundary-authority-lanes,
+  .boundary-post-consequence {
+    grid-template-columns: 1fr;
+  }
+
+  .boundary-research-strip__flow {
+    align-items: flex-start;
+  }
+
+  .boundary-turn__label {
+    margin-top: 1.2rem !important;
+  }
+
+  .boundary-architecture {
+    padding: 0.58rem;
+  }
+
+  .boundary-architecture__zone {
+    padding: 0.58rem;
+  }
+
+  .boundary-trust-evolution {
+    grid-template-columns: 1fr;
+  }
+
+  .boundary-trust-arrow {
+    transform: rotate(90deg);
+    justify-self: center;
+  }
+
+  .boundary-trust-step {
+    min-height: 0;
+  }
+}
+
+
+/* Print compaction: keep the architecture visual coherent on A4/Letter
+   without changing its screen presentation. */
+@media print {
+  .boundary-architecture {
+    margin: 0.45rem 0;
+    padding: 0.42rem;
+    font-size: 0.92em;
+  }
+
+  .boundary-architecture__zone {
+    padding: 0.38rem;
+  }
+
+  .boundary-architecture__zone-label {
+    margin-bottom: 0.25rem !important;
+  }
+
+  .boundary-architecture__node {
+    padding: 0.28rem 0.45rem;
+  }
+
+  .boundary-architecture__node span {
+    margin-top: 0.08rem;
+  }
+
+  .boundary-architecture__arrow {
+    margin: 0.10rem auto;
+  }
+
+  .boundary-architecture__connector {
+    margin: 0.16rem auto;
+  }
+
+  .boundary-authority-split {
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+  }
+
+  .boundary-authority-stop,
+  .boundary-authority-go {
+    padding: 0.35rem;
+  }
+
+  .boundary-authority-branch-label {
+    margin-bottom: 0.22rem;
+  }
+
+  .boundary-authority-lanes,
+  .boundary-post-consequence {
+    gap: 0.3rem;
+  }
+
+  .boundary-authority-lane {
+    min-height: 0;
+    padding: 0.3rem 0.35rem;
+  }
+
+  .boundary-authorized-flow {
+    margin-top: 0.12rem;
+  }
+
+  .boundary-post-consequence__path {
+    padding: 0.28rem 0.35rem;
+  }
+
+  .boundary-trust-evolution {
+    margin: 0.45rem 0;
+    padding: 0.4rem;
+    gap: 0.25rem;
+  }
+
+  .boundary-trust-step {
+    min-height: 0;
+    padding: 0.35rem;
+  }
+
+  .boundary-trust-step span:not(.boundary-trust-step__label) {
+    margin-top: 0.15rem;
+  }
+
+  .boundary-evidence-table {
+    overflow: visible;
+  }
+
+  .boundary-evidence-table table {
+    min-width: 0;
+    font-size: 8.5px !important;
+  }
+
+  .boundary-question-card,
+  .boundary-architecture,
+  .boundary-trust-evolution,
+  .boundary-claim-panel {
+    box-shadow: none;
+  }
+}
+
+/* Integration overrides must outrank the portfolio's global table treatment. */
+.md-typeset .boundary-evidence-table table:not([class]) {
+  min-width: 38rem;
+}
+
+/* Material adds nested scroll wrappers at runtime; retain one keyboard target. */
+.boundary-evidence-table .md-typeset__scrollwrap {
+  margin: 0;
+  overflow: visible;
+}
+
+.boundary-evidence-table .md-typeset__table {
+  display: block;
+  padding: 0;
+}
+
+@media print {
+  .md-typeset .boundary-evidence-table table:not([class]) {
+    min-width: 0;
+  }
+
+  .boundary-architecture,
+  .boundary-trust-evolution {
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+
+  #architecture-at-a-glance {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  /* Material uses rem-based type; explicitly apply the existing print scale. */
+  .md-content .md-typeset {
+    font-size: 10.25px !important;
+    line-height: 1.30;
+  }
+}
+
+/* Project Bridging — descriptive title and featured researcher's note.
+   The page title remains the single primary hero; the personal note is a
+   quieter editorial panel, not a second competing header. */
+.md-typeset > h1 .bridging-page-title {
+  display: block;
+  color: #ffffff;
+  font-size: clamp(1.65rem, 3.2vw, 2.1rem);
+  font-weight: 670;
+  letter-spacing: -0.016em;
+  line-height: 1.12;
+}
+
+.md-typeset > h1 .bridging-page-subtitle {
+  display: block;
+  max-width: 39rem;
+  margin-top: 0.72rem;
+  letter-spacing: normal;
+  line-height: 1.45;
+}
+
+.md-typeset > h1 .bridging-page-subtitle__concept {
+  display: block;
+  color: #d7e7f2;
+  font-size: clamp(0.96rem, 1.65vw, 1.12rem);
+  font-weight: 530;
+}
+
+.md-typeset > h1 .bridging-page-subtitle__description {
+  display: block;
+  margin-top: 0.18rem;
+  color: #b7d2e2;
+  font-size: clamp(0.82rem, 1.4vw, 0.96rem);
+  font-weight: 400;
+}
+
+.bridging-research-note {
+  margin: 1.8rem 0 2rem;
+  padding: 1.3rem 1.55rem;
+  border: 1px solid rgba(37, 123, 170, 0.23);
+  border-left: 4px solid #2387c7;
+  border-radius: 0.85rem;
+  background: linear-gradient(135deg, rgba(45, 131, 182, 0.075), rgba(69, 184, 255, 0.018));
+  box-shadow: 0 9px 26px rgba(0, 40, 70, 0.045);
+}
+
+.bridging-research-note__eyebrow {
+  margin: 0 0 0.35rem !important;
+  color: #176f9f;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.bridging-research-note h2 {
+  margin: 0 0 0.95rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  color: var(--md-default-fg-color) !important;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.bridging-research-note > p:not(.bridging-research-note__eyebrow) {
+  margin: 0.7rem 0;
+  line-height: 1.72;
+}
+
+.bridging-research-note > p:last-child {
+  margin-bottom: 0;
+}
+
+.bridging-research-note__quote {
+  margin: 0.95rem 0 !important;
+  padding: 0.6rem 0 0.3rem;
+  border-top: 1px solid rgba(37, 123, 170, 0.2);
+  border-left: 0;
+  color: #0b557d;
+  font-size: 0.87rem;
+  font-style: italic;
+  font-weight: 550;
+  line-height: 1.55;
+}
+
+.bridging-research-note__quote p {
+  margin: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .bridging-research-note {
+    padding: 1.05rem 1.08rem;
+  }
+  .bridging-research-note__quote {
+    font-size: 0.83rem;
+  }
+}
+
+@media print {
+  .bridging-research-note {
+    box-shadow: none;
+    break-inside: auto;
+  }
+}

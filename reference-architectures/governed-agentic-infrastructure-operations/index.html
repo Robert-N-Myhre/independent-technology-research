@@ -1,0 +1,2152 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Independent investigations into AI systems, human–AI collaboration, distributed systems, networking, security, automation, and emerging technology.">
+      
+      
+        <meta name="author" content="Robert N. Myhre">
+      
+      
+        <link rel="canonical" href="https://robert-n-myhre.github.io/independent-technology-research/reference-architectures/governed-agentic-infrastructure-operations/">
+      
+      
+        <link rel="prev" href="../plan-approve-execute-verify/">
+      
+      
+        <link rel="next" href="../../research-methodology/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Project Boundary — Governed Agentic Infrastructure Operations - Robert N. Myhre | Independent Technology Research</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/styles/print.css">
+    
+      <link rel="stylesheet" href="../../assets/styles/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <meta name="author" content="Robert N. Myhre">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Robert N. Myhre | Independent Technology Research">
+  <meta property="og:title" content="Governed Agentic Infrastructure Operations | Robert N. Myhre | Independent Technology Research">
+  
+  <meta property="og:description" content="Independent investigations into AI systems, human–AI collaboration, distributed systems, networking, security, automation, and emerging technology.">
+  
+  <meta property="og:url" content="https://robert-n-myhre.github.io/independent-technology-research/reference-architectures/governed-agentic-infrastructure-operations/">
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Governed Agentic Infrastructure Operations | Robert N. Myhre | Independent Technology Research">
+  <meta name="twitter:description" content="Independent investigations into AI systems, human–AI collaboration, distributed systems, networking, security, automation, and emerging technology.">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#project-boundary" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Robert N. Myhre | Independent Technology Research" class="md-header__button md-logo" aria-label="Robert N. Myhre | Independent Technology Research" data-md-component="logo">
+      
+  <img src="../../assets/images/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Robert N. Myhre | Independent Technology Research
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Project Boundary — Governed Agentic Infrastructure Operations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Robert N. Myhre | Independent Technology Research" class="md-nav__button md-logo" aria-label="Robert N. Myhre | Independent Technology Research" data-md-component="logo">
+      
+  <img src="../../assets/images/favicon.svg" alt="logo">
+
+    </a>
+    Robert N. Myhre | Independent Technology Research
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Investigations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Investigations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experimental & Prototype Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Experimental & Prototype Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/project-boundary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Boundary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/gpu-communication-boundaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Communication Boundaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/moe-routing-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoE Routing Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/mcp-platform-case-study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Platform Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/prompt-guardrail-single-gpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Security Guardrails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architectural Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architectural Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/intelligence-placement-under-constraint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intelligence Placement Under Constraint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptual Investigations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Conceptual Investigations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Bridging
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project Bridging
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/project-bridging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/project-bridging/ai-as-a-scaffold-for-human-connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paper 1 — Conceptual Framework
+  
+
+    
+      <br>
+      <small>A Framework for Discovery and Communication</small>
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--Independent research working paper; not peer reviewed"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/project-bridging/empowerment-preserving-ai-mediation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paper 2 — Research Concept
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitor-classify-escalate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitor → Classify → Escalate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plan-approve-execute-verify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan → Approve → Execute → Verify
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research-Derived Architectures
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research-Derived Architectures
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governed Agentic Infrastructure Operations
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governed Agentic Infrastructure Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-reference-architecture-for-governed-agentic-infrastructure-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Reference Architecture for Governed Agentic Infrastructure Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-executive-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Executive overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-architectural-context-and-quality-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Architectural context and quality attributes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-architectural-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Architectural principles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-conceptual-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Conceptual architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Conceptual architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#component-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component responsibilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-operational-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Operational lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Operational lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-intake-is-an-admission-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Intake is an admission boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-scope-is-evidence-grounded-not-merely-plausible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Scope is evidence-grounded, not merely plausible
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-planning-is-consequential-but-constrained" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Planning is consequential but constrained
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-authority-disposition-and-execution-remain-separate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Authority disposition and execution remain separate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-validation-is-affirmative-evidence-plus-subtractive-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Validation is affirmative evidence plus subtractive reasoning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-learning-is-bounded-by-what-happened" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Learning is bounded by what happened
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-authority-and-earned-autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Authority and earned autonomy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Authority and earned autonomy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authority-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authority hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autonomy-ladder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy ladder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-evidence-and-ai-context-integrity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Evidence and AI context integrity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-failure-interruption-and-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Failure, interruption, and recovery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-worked-example-patching-a-redundant-application-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Worked example: patching a redundant application service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-architectural-tradeoffs-and-rejected-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Architectural tradeoffs and rejected shortcuts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-validation-strategy-and-research-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Validation strategy and research questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Validation strategy and research questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operational-efficacy-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operational efficacy measures
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-applicability-limitations-and-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Applicability, limitations, and conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-public-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related public artifacts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research-methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-reference-architecture-for-governed-agentic-infrastructure-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Reference Architecture for Governed Agentic Infrastructure Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-executive-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Executive overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-architectural-context-and-quality-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Architectural context and quality attributes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-architectural-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Architectural principles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-conceptual-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Conceptual architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Conceptual architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#component-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component responsibilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-operational-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Operational lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Operational lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-intake-is-an-admission-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Intake is an admission boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-scope-is-evidence-grounded-not-merely-plausible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Scope is evidence-grounded, not merely plausible
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-planning-is-consequential-but-constrained" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Planning is consequential but constrained
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-authority-disposition-and-execution-remain-separate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Authority disposition and execution remain separate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-validation-is-affirmative-evidence-plus-subtractive-reasoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Validation is affirmative evidence plus subtractive reasoning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-learning-is-bounded-by-what-happened" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Learning is bounded by what happened
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-authority-and-earned-autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Authority and earned autonomy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Authority and earned autonomy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authority-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authority hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autonomy-ladder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy ladder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-evidence-and-ai-context-integrity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Evidence and AI context integrity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-failure-interruption-and-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Failure, interruption, and recovery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-worked-example-patching-a-redundant-application-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Worked example: patching a redundant application service
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-architectural-tradeoffs-and-rejected-shortcuts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Architectural tradeoffs and rejected shortcuts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-validation-strategy-and-research-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Validation strategy and research questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Validation strategy and research questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operational-efficacy-measures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operational efficacy measures
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-applicability-limitations-and-conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Applicability, limitations, and conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-public-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related public artifacts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="project-boundary">Project Boundary</h1>
+<h2 id="a-reference-architecture-for-governed-agentic-infrastructure-operations">A Reference Architecture for Governed Agentic Infrastructure Operations</h2>
+<p><em>An evidence-based autonomy and deterministic-control model, illustrated through Linux patching</em></p>
+<p><strong>Version:</strong> 1.0 public<br />
+<strong>Status:</strong> Proposed reference architecture; not production-validated<br />
+<strong>Author:</strong> Robert N. Myhre<br />
+<strong>Research baseline:</strong> Internal Reference Architecture v3.5 (historical working title retired)</p>
+<p><strong>Relationship to the investigation.</strong> <a href="../../projects/project-boundary/">Project Boundary</a> is the public case study of the research behind this architecture. This document is the distilled public Reference Architecture from that work. <a href="https://github.com/Robert-N-Myhre/project-boundary-evidence" rel="noopener noreferrer" target="_blank">Selected supporting evidence</a> is published separately so architecture intent, research narrative, and implementation evidence remain distinct artifacts.</p>
+<blockquote>
+<p><strong>Status and claims.</strong> This is a proposed reference architecture distilled from the internal Reference Architecture v3.5 baseline and published under the Project Boundary name. It does not claim production deployment, measured reduction in operating effort, or proven immunity to prompt injection. Some controls have prototype realizations, but production safety, effectiveness, and portability remain subjects of verification. The diagrams describe logical boundaries, not a single mandated product topology.</p>
+</blockquote>
+<h2 id="1-executive-overview">1. Executive overview</h2>
+<p><strong>Architectural question:</strong> How can an AI system make consequential decisions about production infrastructure without receiving uncontrolled authority over that infrastructure?</p>
+<p>Infrastructure automation already executes well-defined actions. The harder problem is deciding <em>what should happen, to which systems, in which order, under what evidence, and with what recourse when reality differs from expectation</em>. Enterprise Linux patching illustrates this gap. A technically successful package installation can still break an application because ownership, dependencies, availability constraints, or validation were misunderstood.</p>
+<p>Project Boundary proposes a governed control system around existing patch tooling. Specialized reasoning agents interpret requests, resolve ambiguous scope, select bounded patch waves, recognize anomalies, and propose lessons from observed outcomes. Deterministic controls acquire required evidence independently, verify claims and constraints, apply human-governed authorization, and manage progression and recovery. An approved execution engine—not the agents—changes infrastructure.</p>
+<p>The central thesis is:</p>
+<blockquote>
+<p><strong>AI may choose within the envelope. It may not define, widen, waive, or escape the envelope.</strong></p>
+</blockquote>
+<p>The intended benefit is less human <em>between-decision labor</em>, followed by fewer transaction approvals only where a specific operation class has earned standing authorization. Human responsibility shifts toward policy design, exceptional decisions, source correction, and recovery. This is a design hypothesis to measure, not an established operational outcome.</p>
+<p><strong>Scope.</strong> The concrete workload is orchestrated Linux patching through existing enterprise facilities such as Ansible Automation Platform (AAP), package-management services, application checks, and SME-authored playbooks. The underlying control patterns may apply more broadly, but transfer to other operation classes has not yet been established.</p>
+<h2 id="2-architectural-context-and-quality-attributes">2. Architectural context and quality attributes</h2>
+<p>A patching engine can run jobs but cannot independently prove that a wave preserves a service's quorum, that a host belongs to the intended application, or that post-change health is acceptable. An unconstrained AI agent may reason about those questions, but that reasoning does not itself establish authority or factual correctness. A permanent human sign-off for every machine choice avoids some authority problems but leaves much of the labor untouched.</p>
+<p>Boundary therefore makes six quality attributes central to the design:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Architectural requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Safety</strong></td>
+<td>Mutation is bounded by current, verified service and execution constraints.</td>
+</tr>
+<tr>
+<td><strong>Authority integrity</strong></td>
+<td>Reasoning cannot self-authorize, rewrite policy, or invoke a mutator.</td>
+</tr>
+<tr>
+<td><strong>Context integrity</strong></td>
+<td>Untrusted text is screened, provenance-bound, and cannot create permissions.</td>
+</tr>
+<tr>
+<td><strong>Auditability</strong></td>
+<td>Every consequential decision has attributable inputs, policy basis, identity, and outcome.</td>
+</tr>
+<tr>
+<td><strong>Recoverability</strong></td>
+<td>Interruptions preserve durable state and yield explicit, authorized operator exits.</td>
+</tr>
+<tr>
+<td><strong>Progressive autonomy</strong></td>
+<td>Evidence can support narrowly scoped promotion; deteriorating evidence forces demotion.</td>
+</tr>
+</tbody>
+</table>
+<p>The architecture protects two interconnected planes: <strong>patch safety</strong>, concerned with what may happen to hosts and applications, and <strong>AI context integrity</strong>, concerned with what may influence reasoning and consequential selections. Neither plane substitutes for the other.</p>
+<h2 id="3-architectural-principles">3. Architectural principles</h2>
+<p>These principles are normative design intent; a deployment must demonstrate their enforcement.</p>
+<ol>
+<li><strong>Consequential reasoning without self-authorization.</strong> Agents may choose among governed alternatives, but may not grant or extend their own authority.</li>
+<li><strong>Deterministic progression and single mutation control.</strong> One logically authoritative orchestrator controls a run; only an approved execution interface mutates the estate. Active host mutation authority is exclusive across runs.</li>
+<li><strong>Required evidence is not discretionary.</strong> A deterministic gate or defense independently acquires the evidence it needs. Agent-selected retrieval adds context but cannot starve the gate.</li>
+<li><strong>Trust belongs to the content field, not its source label.</strong> Free text from a ticket, runbook, or governed inventory is still untrusted prose; verified provenance establishes origin, not factual truth.</li>
+<li><strong>Reconcile before touch.</strong> Recorded intended state is checked against current operational facts and independently governed constraints before mutation.</li>
+<li><strong>Autonomy is earned by operation class.</strong> Workload tier, evidence quality, provenance, and approved grants bound the effective lane. Promotion requires governance; demotion can occur deterministically.</li>
+<li><strong>Consequential actions must be attributable, stoppable, and recoverable.</strong> Authorization binds a defined plan and scope; failure and recovery follow recorded paths with independent authority where required.</li>
+</ol>
+<h2 id="4-conceptual-architecture">4. Conceptual architecture</h2>
+<p>The model has three paths: <strong>reasoning</strong> (probabilistic judgments), <strong>control</strong> (deterministic state and constraint enforcement), and <strong>authority</strong> (human-governed policy and recorded human decisions). Agents influence operations by emitting typed, evidence-cited artifacts; they do not own credentials or reach execution endpoints directly.</p>
+<pre class="mermaid"><code>flowchart TB
+    H[Requester / operator / SME] --&gt; I[Intake interface]
+    P[Human-governed policy and authority] --&gt; O
+    I --&gt; O[Deterministic orchestrator]
+    O &lt;--&gt;|candidate interpretation| IA[Intake Understanding Agent]
+    O &lt;--&gt;|bounded typed proposals| A[Phase-eligible reasoning agents]
+    O --&gt; G[Shared acquisition gateway]
+    A --&gt;|enumerated read-only requests| G
+    G --&gt;|bounded queries| S[(Governed sources / live facts)]
+    G --&gt;|screened permitted prose / typed facts| A
+    G --&gt;|recorded evidence| O
+    O --&gt; V[Deterministic verification and authorization]
+    V --&gt;|authorized transition only| E[Approved execution engine]
+    E --&gt; X[(Linux estate)]
+    X --&gt;|observations| G
+    O --&gt; L[(Durable accounts and evidence ledger)]
+    V --&gt; L
+    E --&gt; L
+    classDef think fill:#dbeafe,stroke:#2563eb,color:#172554;
+    classDef control fill:#d1fae5,stroke:#047857,color:#064e3b;
+    classDef source fill:#f1f5f9,stroke:#64748b,color:#0f172a;
+    class IA,A think;
+    class O,G,V control;
+    class S,X,L source;</code></pre>
+<p><strong>Diagram reading note.</strong> The Intake Understanding Agent is deliberately outside the governed-source acquisition path. The grouped <strong>phase-eligible reasoning agents</strong> represent only reasoning roles that are permitted to use a gateway roster in their current phase. Each phase has a separately enforced tool roster, source context, content policy, evidence-account identity, and call budget; one phase cannot inherit another phase's source reach. The arrows are logical information/control relationships, not unmediated network paths, and no agent can direct gateway results around orchestrator verification.</p>
+<h3 id="component-responsibilities">Component responsibilities</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Responsibility</th>
+<th>Explicit limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Intake Understanding Agent</strong></td>
+<td>Structures permitted requester intent into a candidate contract with gaps and source references.</td>
+<td>Cannot admit its own request or access enterprise sources.</td>
+</tr>
+<tr>
+<td><strong>Context &amp; Scope Agent</strong></td>
+<td>Selects bounded read-only lookups; proposes host identities, application mapping, sufficiency, and gaps.</td>
+<td>Cannot adjudicate hard source conflicts or invent authoritative facts.</td>
+</tr>
+<tr>
+<td><strong>Planning &amp; Risk Agent</strong></td>
+<td>Selects wave grouping, order, validation packages, and recovery strategies from governed options.</td>
+<td>Cannot expand policy constraints or authorize its plan.</td>
+</tr>
+<tr>
+<td><strong>Validation Anomaly Agent</strong></td>
+<td>Interprets bounded post-change evidence and flags anomalies or insufficient context.</td>
+<td><strong>Veto-only:</strong> never creates affirmative PASS.</td>
+</tr>
+<tr>
+<td><strong>Learning &amp; Evidence Agent</strong></td>
+<td>Proposes risk associations, source corrections, and autonomy evidence from actual outcomes.</td>
+<td>Cannot rewrite policy, grant autonomy, or invent observed executions.</td>
+</tr>
+<tr>
+<td><strong>Acquisition gateway</strong></td>
+<td>Enforces read-only enumerated tools, phase isolation, field-level text screening, provenance, and recording.</td>
+<td>Cannot provide arbitrary unrestricted agent access or pass flagged prose by default.</td>
+</tr>
+<tr>
+<td><strong>Orchestrator and gates</strong></td>
+<td>Owns admission, stage transitions, required evidence floor, verification, authorization checks, bounded retries, and stops.</td>
+<td>Cannot treat an unverified proposal as authority.</td>
+</tr>
+<tr>
+<td><strong>Execution engine</strong></td>
+<td>Runs approved patch/recovery capabilities against named targets.</td>
+<td>Receives authorized typed operations, not free-form agent commands.</td>
+</tr>
+<tr>
+<td><strong>Durable records</strong></td>
+<td>Preserve correlations, stage accounts, decisions, evidence identity, execution and recovery outcomes.</td>
+<td>Recorded content is not automatically reusable prompt context.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-operational-lifecycle">5. Operational lifecycle</h2>
+<p>A complete change proceeds through distinct stages. A successful earlier stage never silently authorizes a later one.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[1. Intake: prepare, screen, interpret] --&gt; B{Admission gate}
+    B --&gt;|accepted| C[2. Scope: acquire, reconcile, resolve]
+    B --&gt;|clarify / reject / escalate| H[Requester or internal review]
+    C --&gt; D{Scope verified and sufficient?}
+    D --&gt;|no| SME[SME referral / source correction]
+    SME --&gt; C
+    D --&gt;|yes| E[3. Planning: select and verify waves]
+    E --&gt; F{Safe, eligible plan?}
+    F --&gt;|no| SME
+    F --&gt;|yes| G{4. Effective autonomy lane}
+    G --&gt;|Manual / Advisory| ADV[Advisory delivered / no mutation]
+    G --&gt;|Assisted| TA{Transaction authorization?}
+    G --&gt;|Policy-authorized| PA{One covering policy + current grant?}
+    TA --&gt;|approved and still valid| J[5. Execute bounded wave]
+    TA --&gt;|declined / expired / changed| STOP[Recorded stop or deferred state]
+    PA --&gt;|exact match and still valid| J
+    PA --&gt;|no match / expired / changed| STOP
+    J --&gt; K[6. Deterministic validation + agent veto / soak]
+    K --&gt;|eligible to continue| N{More waves?}
+    N --&gt;|yes| J
+    N --&gt;|no| Z[7. Close, record, learn]
+    K --&gt;|fail / unknown| R[Durable stop / governed operator disposition]
+    R --&gt;|defer / cancel| STOP
+    R --&gt;|recovery eligible + separately authorized| RR[Execute bounded recovery]
+    RR --&gt; Q{Recovery outcome}
+    Q --&gt;|completed| RV[Validate and record recovery outcome]
+    RV --&gt; Z
+    Q --&gt;|failed| RF[Recovery failed: remain stopped / cancel / defer]</code></pre>
+<h3 id="51-intake-is-an-admission-boundary">5.1 Intake is an admission boundary</h3>
+<p>Every submission receives a pre-acceptance correlation identity, but not a durable change/run identity until accepted. Incoming free text is prepared, bounded, screened, and tied to exact content digests. The screener returns a verdict and coverage—not a replacement copy of the content. An Intake Understanding Agent produces a <strong>candidate</strong> interpretation; the orchestrator separately validates structure and provenance and determines whether the contract is <strong>sufficient</strong>. Unverified interpretation fields become explicit gaps rather than accepted facts. Free-text clarification re-enters the same controls.</p>
+<p>Scheduled requests do <strong>not</strong> bypass intake because they came from a scheduler. Their failure disposition is stricter where unattended submissions might otherwise overwhelm human review. Infrastructure processing outages remain visible failures, not silent request rejections.</p>
+<h3 id="52-scope-is-evidence-grounded-not-merely-plausible">5.2 Scope is evidence-grounded, not merely plausible</h3>
+<p>Before reasoning, the orchestrator directs acquisition of the gate-required minimum, including recorded absence when a governed lookup has no result. The Context Agent may request more evidence via bounded read-only gateway tools. Claims are checked against the recorded results for that invocation. Identity and tier require appropriate Source-of-Truth evidence; source conflicts and hard blockers are handled deterministically. Missing or withheld evidence is a gap, not license to guess. An unresolved accepted run is <strong>referred to an SME</strong>, rather than casually discarded or silently trimmed.</p>
+<h3 id="53-planning-is-consequential-but-constrained">5.3 Planning is consequential but constrained</h3>
+<p>The Planning Agent chooses which eligible hosts form waves, their sequence, and appropriate governed validation and recovery options. Required safety inputs are acquired independently of agent discretion. The orchestrator checks failure domains, quorum, concurrency, hard constraints, allowed option identifiers, and policy eligibility. If a relevant governed constraint is genuinely absent, an attributable, run-scoped SME supplement can fill that absence, but cannot override an existing governed rule; the system then replans. Missing-constraint work remains visible for later governance.</p>
+<h3 id="54-authority-disposition-and-execution-remain-separate">5.4 Authority disposition and execution remain separate</h3>
+<p>A verified plan is not an executable permission. The effective autonomy lane first determines what consequence is available. <strong>Manual</strong> and <strong>Advisory</strong> have no agent-directed mutation authorization path; Advisory may end as a useful, recorded delivery outcome without implying full run completion. <strong>Assisted</strong> requires a transaction authorization for the specific plan. <strong>Policy-authorized</strong> requires one exact, current standing-policy match and an eligible operation-class grant.</p>
+<p>Where mutation is permitted, authorization binds the precise scope and plan identity. The execution interface receives only a typed, authorized transition. Before mutation, applicable current conditions must still satisfy the required safety and authorization rules. The control model provides logically single-run authority and exclusive active mutation authority for a host across runs.</p>
+<h3 id="55-validation-is-affirmative-evidence-plus-subtractive-reasoning">5.5 Validation is affirmative evidence plus subtractive reasoning</h3>
+<p>Mandatory deterministic checks constitute affirmative health evidence. The Validation Agent may flag an anomaly or declare insufficient context but may not turn a failed check into PASS. Wave-level outcomes are composed into the run-level disposition. Soak periods distinguish immediate technical recovery from delayed application impact. A stop is durable and has an explicit operator exit; recovery mutation requires separately recorded authority. A prototype may operate with deterministic-only validation and a human continuation decision, but that is not equivalent to the full target-state automatic-continuation contract.</p>
+<h3 id="56-learning-is-bounded-by-what-happened">5.6 Learning is bounded by what happened</h3>
+<p>The learning loop records executed scope, actual outcomes, exceptions, recovery, and validation coverage. It may propose better planning or candidate autonomy promotion based on relevant outcome evidence, but cannot alter governed hard rules or promote its own lane. A future increase in autonomy remains a human-governed decision.</p>
+<h2 id="6-authority-and-earned-autonomy">6. Authority and earned autonomy</h2>
+<p>Boundary distinguishes <strong>transaction authorization</strong> for a particular plan from <strong>standing authorization</strong> granted to a narrow operation class. Each mutation must cite exactly one valid authorization source. A recovery mutation requires a <strong>distinct human recovery authorization</strong> bound to the verified plan and selected recovery strategy; it does not widen, replace, or modify the original patch authorization.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[Typed, verified wave plan] --&gt; B[Check current required evidence and constraints]
+    B --&gt;|missing / conflict / violation| H[Halt, defer, or human/SME referral]
+    B --&gt;|satisfied| C{Applicable governed autonomy lane}
+    C --&gt;|Manual / Advisory| M[No autonomous mutation]
+    C --&gt;|Assisted| D{Specific transaction approval?}
+    C --&gt;|Policy-authorized| E{One covering valid policy envelope and earned grant?}
+    D --&gt;|approved and still valid| X[Authorized typed execution]
+    D --&gt;|no| H
+    E --&gt;|yes, current conditions satisfied| X
+    E --&gt;|no| H
+    X --&gt; V[Validate, observe, record]</code></pre>
+<h3 id="authority-hierarchy">Authority hierarchy</h3>
+<p>The Reference Architecture defines the authority structure and invariants. Organization-governed policy instantiates the permitted workload-tier ceilings, operation classes, policy envelopes, thresholds, and evidence-backed grants. Runtime deterministic logic derives the effective lane from those governed inputs and current evidence. Runtime state may narrow or suspend authority when conditions deteriorate; it may not widen the authority established by governed policy.</p>
+<p>An authorization-relevant operation or change classification must come from an attributable governed declaration or bounded confirmation. A reasoning model may infer a candidate classification for interpretation, but a model-only classification is insufficient to establish standing authority.</p>
+<h3 id="autonomy-ladder">Autonomy ladder</h3>
+<table>
+<thead>
+<tr>
+<th>Lane</th>
+<th>Agent contribution</th>
+<th>Consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Manual</strong></td>
+<td>May be observed for evaluation.</td>
+<td>Human-led work; no agent-driven mutation path.</td>
+</tr>
+<tr>
+<td><strong>Advisory</strong></td>
+<td>Produces proposals for consideration.</td>
+<td>Human acts outside agent-directed mutation.</td>
+</tr>
+<tr>
+<td><strong>Assisted</strong></td>
+<td>Provides a verified, bounded operation package.</td>
+<td>Human authorizes the specific mutation.</td>
+</tr>
+<tr>
+<td><strong>Policy-authorized</strong></td>
+<td>Selects within a previously governed envelope.</td>
+<td>Matching operations may proceed without a new approval click.</td>
+</tr>
+<tr>
+<td><strong>Suspended</strong></td>
+<td>May help diagnose and propose remediation.</td>
+<td>Mutation eligibility is revoked.</td>
+</tr>
+</tbody>
+</table>
+<p>The operation class—not a host or model in isolation—is the unit of autonomy. Tier policy establishes a ceiling; provenance and representative operational evidence determine the attainable position. Tier 1 retains CAB-governed treatment; a narrow standard-change designation is required before standing authorization is possible. An agent-extracted eligibility claim cannot itself establish policy-authorized standing. Promotion is a governed human act; loss of required evidence can cause immediate deterministic demotion or suspension.</p>
+<p><strong>Policy selection must not be arbitrary.</strong> An eligible wave requires one unambiguous covering envelope rather than silently combining convenient clauses from multiple overlapping policies. A mixed-tier run without one such cover is referred rather than auto-authorized. This is a current deliberate boundary, not an implicit promise of multi-policy composition.</p>
+<h2 id="7-evidence-and-ai-context-integrity">7. Evidence and AI context integrity</h2>
+<p>Boundary treats prompt-injection resistance as an architectural boundary problem, not a classifier-accuracy problem.</p>
+<pre class="mermaid"><code>flowchart LR
+    S[Ticket / runbook / source prose] --&gt; P[Bounded preparation and digest]
+    P --&gt; C[Adversarial-content screening]
+    C --&gt;|CLEAN / explicitly reviewed release| G[Acquisition gateway: provenance and typed delivery]
+    C --&gt;|SUSPECT / MALFORMED| W[Withheld evidence marker / review]
+    G --&gt; A[Reasoning agent]
+    A --&gt;|typed evidence-cited proposal| V[Independent gate verification]
+    V --&gt;|valid plus authorized| E[Execution control]
+    V --&gt;|gap / conflict / violation| H[No mutation; refer / halt]
+    W --&gt; V</code></pre>
+<p>The gateway distinguishes enumerable typed fields from free text—even within a governed Source-of-Truth system. Free text takes the screening path. Flagged prose is withheld from ordinary model context, leaving a digest-linked marker and an explicit evidence gap. A human release is a separately recorded disposition that does not erase the original verdict. The exact text actually delivered to an agent is durably accounted for; that audit store is <strong>not</strong> an alternate retrieval route back into a prompt.</p>
+<p>Provenance has distinct meanings: the cited content must exist in the bound artifact (<strong>integrity</strong>); it must support the interpretation (<strong>adequacy</strong>); and an operational claim must independently reflect reality (<strong>truth</strong>). A CLEAN verdict is not a grant of trust or autonomy. A missed injection could corrupt an agent's <em>proposal</em>, but the surrounding controls are designed to prevent it from directly becoming policy, credentials, or mutation authority.</p>
+<p>The design also constrains inference-runtime state, model tool access, credentials, consequential configuration, and records of each security control that actually ran. Merely claiming that content was screened is not evidence of screening.</p>
+<h2 id="8-failure-interruption-and-recovery">8. Failure, interruption, and recovery</h2>
+<p>The default response to uncertainty is a recorded stop or referral, not optimistic continuation. Distinct failures require distinct dispositions:</p>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Required behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unparseable intake or unavailable security control</td>
+<td>Recorded processing failure or review; do not pretend the input passed.</td>
+</tr>
+<tr>
+<td>Scope conflict or missing minimum host evidence</td>
+<td>Refer accepted work for source correction/reassessment; no silent host deletion.</td>
+</tr>
+<tr>
+<td>Missing or contradictory safety constraint</td>
+<td>Stop planning; supplement only genuine absences and replan.</td>
+</tr>
+<tr>
+<td>Policy expired, scope changed, or authority insufficient</td>
+<td>No mutation under the obsolete or insufficient authority basis.</td>
+</tr>
+<tr>
+<td>Execution interruption or ambiguous external outcome</td>
+<td>Reconcile external state and prior durable account before retrying.</td>
+</tr>
+<tr>
+<td>Required validation fails or is undetermined</td>
+<td>Halt/hold according to governed conditions; don't infer PASS.</td>
+</tr>
+<tr>
+<td>Recovery needed</td>
+<td>Obtain a specifically scoped recovery decision and reconcile before recovery mutation.</td>
+</tr>
+</tbody>
+</table>
+<p>The design requires crash-safe correlation of planned work, dispatched jobs, observed effects, and recovery decisions. An interrupted coordinator must not restart mutation simply because it lost its own transient state. Operator exits are explicitly enumerated, attributable, and constrained by the type of stop. Successful recovery ends further patch-wave progression for that run but still permits validation, outcome recording, and learning to describe what actually occurred. Failed recovery remains an explicit stopped state; it does not authorize an automatic retry or continuation.</p>
+<p><strong>Open architecture question:</strong> The exact requirements for refreshing all authorization-defining evidence between early scope assessment, plan verification, approval, and the instant of mutation still need a single unified validity contract. The reference model requires rechecking critical current conditions; the full invalidation and selective revalidation semantics are not yet claimed as complete.</p>
+<h2 id="9-worked-example-patching-a-redundant-application-service">9. Worked example: patching a redundant application service</h2>
+<p>Consider four Linux hosts serving a fictional application, spread across two failure domains. The requester asks to apply routine security updates. The example is illustrative, not evidence of a successful field deployment.</p>
+<ol>
+<li><strong>Intake:</strong> The request is screened and interpreted. A missing service name is clarified; the accepted contract retains references to the original text and the confirmation.</li>
+<li><strong>Scope:</strong> Governed inventory establishes the four host identities and tiers. Live facts are obtained independently. An uncertain ownership note remains screened, source-cited untrusted prose; it cannot override a typed inventory record.</li>
+<li><strong>Planning:</strong> The agent selects two waves that avoid simultaneous mutation of correlated failure domains and selects allowed validation/recovery packages. The gate independently checks the source-backed failure-domain constraints.</li>
+<li><strong>Authorization:</strong> If the operation class has a current earned standing grant and one valid covering envelope, the bounded waves may be policy-authorized. Otherwise, a human approves the verified plan at the appropriate lane; the plan is not silently recomputed after approval.</li>
+<li><strong>Execution and validation:</strong> The executor patches Wave 1. Deterministic health checks establish that service behavior remains inside the required envelope; the anomaly agent may still stop progression if it detects unexplained changes.</li>
+<li><strong>Exception:</strong> Suppose an application check fails after the first wave. The system halts the remaining work. It records which hosts were actually changed and requests a separately scoped recovery decision rather than treating the original patch authorization as unrestricted rollback permission.</li>
+<li><strong>Learning:</strong> Only observed hosts and actual outcomes feed the record. This failure may reduce operation-class eligibility until corrected and revalidated.</li>
+</ol>
+<p>The point is not that an AI guessed the correct wave order. It is that <strong>a real AI selection can influence execution, while independent evidence, policy, and recovery boundaries determine what the selection is allowed to cause</strong>.</p>
+<h2 id="10-architectural-tradeoffs-and-rejected-shortcuts">10. Architectural tradeoffs and rejected shortcuts</h2>
+<table>
+<thead>
+<tr>
+<th>Design choice</th>
+<th>Why</th>
+<th>Cost / limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Separate intake from context resolution</td>
+<td>Minimize raw-request agent reach and preserve admission semantics.</td>
+<td>More contracts and distinct pre-acceptance records.</td>
+</tr>
+<tr>
+<td>Require deterministic evidence acquisition</td>
+<td>A safety defense cannot rely on an agent choosing to fetch its trigger.</td>
+<td>More predictable acquisition load and gate-specific source dependencies.</td>
+</tr>
+<tr>
+<td>Screen free text from governed systems</td>
+<td>A trusted system can still store attacker-controlled prose.</td>
+<td>Withheld context may increase unresolved gaps and referrals.</td>
+</tr>
+<tr>
+<td>Keep authority outside reasoning</td>
+<td>Prevent model output and confidence from granting mutation permission.</td>
+<td>More deterministic contracts, policy governance, and operator interaction initially.</td>
+</tr>
+<tr>
+<td>Require a single covering envelope</td>
+<td>Avoid ambiguous policy precedence and privilege composition.</td>
+<td>Mixed-tier or complex scopes may require referral or separate work.</td>
+</tr>
+<tr>
+<td>Separate recovery authorization</td>
+<td>Patch permission does not imply unlimited undo capability.</td>
+<td>Explicit human decisions during exceptional recovery.</td>
+</tr>
+<tr>
+<td>Earn standing authorization</td>
+<td>Reduce approval count only where outcome evidence warrants it.</td>
+<td>Initial manual/advisory/assisted cycles remain necessary.</td>
+</tr>
+</tbody>
+</table>
+<p>The system deliberately does <strong>not</strong> attempt to replace established patch mechanics or SME-defined service safety with model improvisation. It also does not assume all operational knowledge can be converted into clean, authoritative facts.</p>
+<h2 id="11-validation-strategy-and-research-questions">11. Validation strategy and research questions</h2>
+<p>The architecture is a set of testable control claims. A conformance or research program should seek disconfirming evidence, especially when source data are stale, hostile, contradictory, or incomplete.</p>
+<table>
+<thead>
+<tr>
+<th>Claim to test</th>
+<th>Representative proof obligation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent output cannot authorize its own mutation</td>
+<td>Inject forged approvals or policy IDs into all agent outputs; verify execution rejects them.</td>
+</tr>
+<tr>
+<td>Required gate evidence is not discretionary</td>
+<td>Suppress all optional agent tool calls; verify hard blockers still activate from deterministic acquisition.</td>
+</tr>
+<tr>
+<td>Untrusted text cannot silently become a privileged fact</td>
+<td>Place hostile prose in tickets, inventory comments, and retrieved notes; confirm withholding, provenance, and bounded consequences.</td>
+</tr>
+<tr>
+<td>Source conflicts fail safely</td>
+<td>Make governed inventory disagree with live facts; verify no unsupported automatic scope acceptance or mutation.</td>
+</tr>
+<tr>
+<td>Mutation authority is exclusive</td>
+<td>Introduce simultaneous runs and coordinator failover; prove fencing or equivalent host ownership control.</td>
+</tr>
+<tr>
+<td>Approval binds immutable scope</td>
+<td>Change wave membership or a governing policy after approval; verify the old authorization cannot silently cover a new plan.</td>
+</tr>
+<tr>
+<td>Validation cannot manufacture PASS</td>
+<td>Remove mandatory evidence or return an agent <code>NO_ANOMALY</code> alongside failed deterministic checks.</td>
+</tr>
+<tr>
+<td>Recovery is separately governed</td>
+<td>Interrupt execution, duplicate callbacks, and replay recovery requests; prove no unauthorized second mutation.</td>
+</tr>
+<tr>
+<td>Earned autonomy depends on representative evidence</td>
+<td>Supply mismatched historical outcomes or agent-only eligibility claims; confirm no promotion.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Additional research questions</strong> include the cost of false screening positives, semantic provenance adequacy, human review burden, freshness windows for current authority, and whether the model transfers to operation classes other than Linux patching without eroding its boundaries.</p>
+<h3 id="operational-efficacy-measures">Operational efficacy measures</h3>
+<p>The intended reduction in human between-decision labor should be evaluated independently from control conformance. Representative measures include:</p>
+<ul>
+<li>human hours per patch cycle;</li>
+<li>human decisions per hundred hosts or waves;</li>
+<li>approval-preparation time;</li>
+<li>agent-selected plan rewrite or override rate;</li>
+<li>referral and exception rate;</li>
+<li>recovery and rollback rate;</li>
+<li>false-pass or delayed-failure rate;</li>
+<li>and the percentage of eligible waves that progress under standing authorization without a transaction-level human act.</li>
+</ul>
+<p>These measures test whether the architecture is reducing operational effort without hiding additional risk or merely moving work into exception handling.</p>
+<p>The success criteria should separate (a) <strong>control conformance</strong>—proof that guards cannot be bypassed in tested scenarios—from (b) <strong>operational efficacy</strong>—measured patch outcomes, recovery, lead time, and human effort. A functioning prototype or extensive test suite alone establishes neither generalized production safety nor realized human-time savings.</p>
+<h2 id="12-applicability-limitations-and-conclusion">12. Applicability, limitations, and conclusion</h2>
+<p>Boundary is best suited to operational activities with repeatable execution contracts, governable safety constraints, observable outcomes, and meaningful opportunities for agent judgment. It is less suitable where safe execution cannot be verified, rollback is speculative, identity and ownership are fundamentally unresolved, or the authority regime does not allow standing policy delegation.</p>
+<p>The reference architecture remains intentionally bounded. It does not specify a production HA/fencing realization, every source-specific freshness rule, every policy exception, an exhaustive implementation state machine, or a generalized multi-operation workflow platform. These belong to further architecture decisions and engineering verification rather than being assumed solved.</p>
+<p><strong>Concluding position.</strong> The architectural contribution is not an AI agent that patches Linux. It is a proposed way to let AI reasoning <strong>matter</strong> operationally while withholding from that reasoning the authority to define what is allowed. If independent evidence, constrained selection, governable authorization, deterministic progression, and recoverable execution all hold, higher autonomy becomes an evidence-backed consequence of operating well rather than a privilege asserted by a model.</p>
+<h2 id="related-public-artifacts">Related public artifacts</h2>
+<ul>
+<li><a href="../../projects/project-boundary/">Project Boundary — Governing Consequential Automation</a> — the case study describing the architecture investigation, key discoveries, and why implementation stopped.</li>
+<li><a href="https://github.com/Robert-N-Myhre/project-boundary-evidence" rel="noopener noreferrer" target="_blank">Project Boundary Evidence</a> — selected contemporaneous decisions, executable validation, run artifacts, negative evidence, and project stop-state records supporting the public claims.</li>
+</ul>
+<hr />
+<p><em>Document provenance: public-facing synthesis of the internal Reference Architecture v3.5, published under the Project Boundary name. The earlier working title is retired; historical drafts retain their original identifiers. This document is intentionally readable without access to the underlying repository or private architecture history. Detailed contracts, implementation evidence, and research artifacts should be published separately where cleared for public release.</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

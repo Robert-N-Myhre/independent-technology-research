@@ -1,0 +1,1714 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Independent investigations into AI systems, human–AI collaboration, distributed systems, networking, security, automation, and emerging technology.">
+      
+      
+        <meta name="author" content="Robert N. Myhre">
+      
+      
+        <link rel="canonical" href="https://robert-n-myhre.github.io/independent-technology-research/reference-architectures/monitor-classify-escalate/">
+      
+      
+        <link rel="prev" href="../../research/project-bridging/empowerment-preserving-ai-mediation/">
+      
+      
+        <link rel="next" href="../plan-approve-execute-verify/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Monitor → Classify → Escalate - Robert N. Myhre | Independent Technology Research</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/styles/print.css">
+    
+      <link rel="stylesheet" href="../../assets/styles/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <meta name="author" content="Robert N. Myhre">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Robert N. Myhre | Independent Technology Research">
+  <meta property="og:title" content="Monitor → Classify → Escalate | Robert N. Myhre | Independent Technology Research">
+  
+  <meta property="og:description" content="Independent investigations into AI systems, human–AI collaboration, distributed systems, networking, security, automation, and emerging technology.">
+  
+  <meta property="og:url" content="https://robert-n-myhre.github.io/independent-technology-research/reference-architectures/monitor-classify-escalate/">
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Monitor → Classify → Escalate | Robert N. Myhre | Independent Technology Research">
+  <meta name="twitter:description" content="Independent investigations into AI systems, human–AI collaboration, distributed systems, networking, security, automation, and emerging technology.">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#monitor-classify-escalate" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Robert N. Myhre | Independent Technology Research" class="md-header__button md-logo" aria-label="Robert N. Myhre | Independent Technology Research" data-md-component="logo">
+      
+  <img src="../../assets/images/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Robert N. Myhre | Independent Technology Research
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Monitor → Classify → Escalate
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Robert N. Myhre | Independent Technology Research" class="md-nav__button md-logo" aria-label="Robert N. Myhre | Independent Technology Research" data-md-component="logo">
+      
+  <img src="../../assets/images/favicon.svg" alt="logo">
+
+    </a>
+    Robert N. Myhre | Independent Technology Research
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Investigations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Investigations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experimental & Prototype Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Experimental & Prototype Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/project-boundary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Boundary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/gpu-communication-boundaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Communication Boundaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/moe-routing-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoE Routing Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/mcp-platform-case-study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Platform Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/prompt-guardrail-single-gpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Security Guardrails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architectural Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architectural Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/intelligence-placement-under-constraint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intelligence Placement Under Constraint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptual Investigations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Conceptual Investigations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Bridging
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project Bridging
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/project-bridging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/project-bridging/ai-as-a-scaffold-for-human-connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paper 1 — Conceptual Framework
+  
+
+    
+      <br>
+      <small>A Framework for Discovery and Communication</small>
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--Independent research working paper; not peer reviewed"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/project-bridging/empowerment-preserving-ai-mediation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paper 2 — Research Concept
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitor → Classify → Escalate
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitor → Classify → Escalate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reference-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference scenario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-this-pattern-fits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When this pattern fits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-implementation-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference implementation stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-architectural-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key architectural principles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key architectural principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constrained-ai-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constrained AI output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deterministic-confidence-scoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deterministic confidence scoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pluggable-enrichment-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pluggable enrichment agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#human-approval-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human approval gates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-auditability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete auditability
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-and-audit-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision and audit flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differentiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Differentiation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vertical-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vertical adaptation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-reference-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full reference architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plan-approve-execute-verify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan → Approve → Execute → Verify
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research-Derived Architectures
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research-Derived Architectures
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../governed-agentic-infrastructure-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governed Agentic Infrastructure Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research-methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reference-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference scenario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-this-pattern-fits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When this pattern fits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-implementation-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference implementation stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-architectural-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key architectural principles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key architectural principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constrained-ai-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constrained AI output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deterministic-confidence-scoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deterministic confidence scoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pluggable-enrichment-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pluggable enrichment agents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#human-approval-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human approval gates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-auditability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete auditability
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-and-audit-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision and audit flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differentiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Differentiation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vertical-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vertical adaptation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-reference-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full reference architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="monitor-classify-escalate">Monitor → Classify → Escalate</h1>
+<p><strong>Research status:</strong> Conceptual investigation — proposed, unproven reference architecture. The implementation stack and operational patterns below are design proposals, not evidence of an implemented or production-validated system.</p>
+<p><strong>Continuous Event Stream Triage with AI-Assisted Classification and Human Escalation</strong></p>
+<p>The <strong>Monitor → Classify → Escalate</strong> pattern addresses business processes that operate on continuous event streams rather than discrete submitted documents. Events arrive unpredictably, require interpretation, often need context from external systems, and may only become meaningful when viewed as part of a larger pattern.</p>
+<p>This reference architecture uses <strong>AI-assisted classification</strong>, <strong>deterministic confidence scoring</strong>, <strong>pluggable enrichment agents</strong>, <strong>human approval gates</strong>, and <strong>complete auditability</strong> to support event triage in environments where routing accuracy, operational context, and escalation discipline matter.</p>
+<p><a href="../../assets/reference-architectures/monitor-classify-escalate/mce-reference-architecture.pdf">Download the full reference architecture PDF</a></p>
+<blockquote>
+<p>This is a reference architecture, not a turnkey implementation. Production use requires adaptation to the target organization's event sources, data classification policy, operational workflow, security model, SLA requirements, and staffing model.</p>
+</blockquote>
+<hr />
+<h2 id="reference-scenario">Reference scenario</h2>
+<p>The reference scenario is <strong>AI-assisted network operations event triage</strong>.</p>
+<p>The pattern applies to incoming network alarms, operator or customer fault reports, telemetry events, syslog/trap streams, and ambiguous operational events that require classification and routing under time pressure.</p>
+<p>The same architecture can be adapted to other verticals, but the vocabulary, enrichment sources, governance model, and confidence scoring thresholds must be tuned to the organization.</p>
+<hr />
+<h2 id="when-this-pattern-fits">When this pattern fits</h2>
+<p>This pattern is useful when at least two of the following are true:</p>
+<ul>
+<li>Events arrive continuously and cannot wait for batch processing.</li>
+<li>Event descriptions include free-text or inconsistent terminology.</li>
+<li>Correct classification depends on context outside the original event.</li>
+<li>Related events across time or source may indicate a larger incident.</li>
+<li>Misrouting creates measurable time, SLA, or operational cost.</li>
+<li>Ambiguous or high-risk cases can pause for human review.</li>
+</ul>
+<p>This pattern is a poor fit when events are fully structured, deterministic rules can express all routing logic, and no external context changes the outcome. In those cases, a simpler rule-based system is usually faster, cheaper, and easier to audit.</p>
+<hr />
+<h2 id="architecture-overview">Architecture overview</h2>
+<p>The logical architecture has three main layers:</p>
+<ol>
+<li><strong>Core classification pipeline</strong> — monitors incoming events, normalizes them, classifies them using constrained AI output, and computes confidence signals.</li>
+<li><strong>Enrichment bus and agents</strong> — asynchronously gathers additional context from independent enrichment agents such as CMDB, incident history, and network tooling.</li>
+<li><strong>Escalation and audit layer</strong> — applies deterministic routing logic, invokes human review when required, identifies patterns, and records the full decision trail.</li>
+</ol>
+<p><img alt="Logical architecture showing event sources, core classification pipeline, enrichment bus, pluggable agents, routing outcomes, and audit record." src="../../assets/reference-architectures/monitor-classify-escalate/mce-logical-architecture.png" /></p>
+<hr />
+<h2 id="technical-architecture">Technical architecture</h2>
+<p>The reference implementation uses <strong>LangGraph</strong> for orchestration, <strong>FastAPI</strong> for the intake/API layer, <strong>Redis Streams</strong> as the default enrichment bus, and <strong>Kafka</strong> as the recommended production path where replay, durability, or compliance audit requirements are stronger.</p>
+<p>Classification may run through a local LLM served by <strong>Ollama</strong> or through a cloud API, depending on data classification policy, latency requirements, and operational cost. Enrichment agents are independently deployable Python workers that connect to existing operational systems.</p>
+<p><img alt="Technical architecture showing LangGraph orchestration, event ingress, enrichment bus, agent workers, persistence stores, observability, and reference implementation stack." src="../../assets/reference-architectures/monitor-classify-escalate/mce-technical-architecture.png" /></p>
+<h3 id="reference-implementation-stack">Reference implementation stack</h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Reference technologies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Orchestration</td>
+<td>LangGraph, FastAPI</td>
+</tr>
+<tr>
+<td>Classification</td>
+<td>Ollama/local LLM or cloud API</td>
+</tr>
+<tr>
+<td>Enrichment bus</td>
+<td>Redis Streams default, Kafka production path</td>
+</tr>
+<tr>
+<td>Agent workers</td>
+<td>Python workers, CMDB connector, history connector, Netmiko/NAPALM/NMS API</td>
+</tr>
+<tr>
+<td>Persistence</td>
+<td>LangGraph checkpointer, SQLite default, PostgreSQL production</td>
+</tr>
+<tr>
+<td>Observability</td>
+<td>LangSmith or equivalent tracing</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Docker Compose or container platform</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-architectural-principles">Key architectural principles</h2>
+<h3 id="constrained-ai-output">Constrained AI output</h3>
+<p>The LLM does not produce routing narratives. It produces structured output from a defined schema: event type, severity, affected layer, affected device, and recommended action. Downstream systems consume structured fields, not free-form explanation.</p>
+<h3 id="deterministic-confidence-scoring">Deterministic confidence scoring</h3>
+<p>Confidence is not based on the model's self-reported certainty. It is computed from observable signals such as classification consistency, affected-device identifiability, severity signal consistency, layer classification confidence, ambiguity flags, and enrichment agreement.</p>
+<h3 id="pluggable-enrichment-agents">Pluggable enrichment agents</h3>
+<p>Enrichment agents subscribe to the bus, retrieve context, and publish their contribution back. The classification pipeline does not need to know which agents exist. Adding a new enrichment source means deploying a new worker, not modifying the core pipeline.</p>
+<h3 id="human-approval-gates">Human approval gates</h3>
+<p>Low-confidence, ambiguous, schema-failed, or high-risk events are routed to human review. Pattern detection produces a cluster alert for review; it does not automatically declare a major incident.</p>
+<h3 id="complete-auditability">Complete auditability</h3>
+<p>Every classification attempt, schema validation result, confidence signal, enrichment contribution, routing decision, and human action is recorded. Explainability comes from structured evidence, not model-generated reasoning.</p>
+<hr />
+<h2 id="decision-and-audit-flow">Decision and audit flow</h2>
+<p>The decision and audit flow shows how one event moves through the architecture: it is received, classified, scored, enriched, re-evaluated, routed or escalated, and recorded for audit.</p>
+<p><img alt="Decision and audit flow showing one event moving through classification, confidence scoring, asynchronous enrichment, revised confidence, escalation decision, human gate, final outcome, and audit record." src="../../assets/reference-architectures/monitor-classify-escalate/mce-decision-audit-flow.png" /></p>
+<hr />
+<h2 id="production-considerations">Production considerations</h2>
+<p>Before implementation, the architecture must be adapted to the organization's operating model. Key decisions include:</p>
+<ul>
+<li><strong>Data classification:</strong> whether event data can be sent to a cloud LLM or must remain local.</li>
+<li><strong>Integration systems:</strong> which CMDB, incident history, network management, and event sources will be used.</li>
+<li><strong>Entity resolution:</strong> how events map to devices, services, circuits, users, or assets across systems.</li>
+<li><strong>Workflow ownership:</strong> who owns triage review, pattern escalation, and response SLAs.</li>
+<li><strong>Model hosting:</strong> local model, cloud API, or private GPU environment.</li>
+<li><strong>Human escalation policy:</strong> when events require human approval and whether P1 provisional escalation is required.</li>
+<li><strong>Audit retention:</strong> how long decision records must be retained and whether Kafka-level replay is required.</li>
+<li><strong>Access controls:</strong> role-based access for triage reviewers, audit reviewers, and enrichment agents.</li>
+<li><strong>Operational support:</strong> monitoring for bus failures, agent timeouts, schema validation failures, and enrichment latency.</li>
+<li><strong>Historical validation:</strong> testing the classification model against representative historical events before production use.</li>
+</ul>
+<hr />
+<h2 id="differentiation">Differentiation</h2>
+<p>This architecture is not differentiated by any single technology. Existing AIOps platforms, event correlation engines, and rules systems address overlapping capabilities.</p>
+<p>The differentiation is the combination of:</p>
+<ul>
+<li>constrained AI classification,</li>
+<li>deterministic confidence scoring,</li>
+<li>pluggable enrichment through a bus architecture,</li>
+<li>human gates within the safety model,</li>
+<li>categorized failure handling,</li>
+<li>complete audit traceability.</li>
+</ul>
+<p>That combination makes the design easier to reason about, govern, adapt, and review than a black-box AI routing workflow.</p>
+<hr />
+<h2 id="limitations">Limitations</h2>
+<p>This reference architecture intentionally defines boundaries:</p>
+<ul>
+<li>It classifies and routes events; it does not resolve them.</li>
+<li>Confidence scoring weights must be calibrated against real event samples.</li>
+<li>Dual-run classification increases inference cost and latency.</li>
+<li>Pattern detection is threshold-based and does not learn new patterns autonomously.</li>
+<li>Enrichment quality depends on source-system quality and identifier normalization.</li>
+<li>Live operational state introduces non-determinism; the audit record is required to reproduce why a decision was made.</li>
+</ul>
+<hr />
+<h2 id="vertical-adaptation">Vertical adaptation</h2>
+<p>The logical pattern is stable across verticals. What changes is the vocabulary, schema fields, enrichment systems, governance model, and confidence calibration.</p>
+<table>
+<thead>
+<tr>
+<th>Vertical</th>
+<th>Example process</th>
+<th>Adaptation focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network operations</td>
+<td>Alarm triage, fault reports, circuit events</td>
+<td>Network inventory, NMS/telemetry, alarm history</td>
+</tr>
+<tr>
+<td>IT operations</td>
+<td>Service ticket triage, incident routing</td>
+<td>ITSM context, open incidents, change windows</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td>Patient support events, clinical/facilities alerts</td>
+<td>Stronger data classification and regulatory review</td>
+</tr>
+<tr>
+<td>Manufacturing</td>
+<td>Equipment faults, production line alerts</td>
+<td>OT monitoring, historian/SCADA/DCS integrations</td>
+</tr>
+<tr>
+<td>Financial services</td>
+<td>Trading system alerts, fraud/infrastructure events</td>
+<td>Compliance review, stricter audit retention, Kafka likely</td>
+</tr>
+<tr>
+<td>Telecommunications</td>
+<td>Customer fault triage, service degradation</td>
+<td>OSS/BSS, network inventory, alarm correlation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="full-reference-architecture">Full reference architecture</h2>
+<p>The complete PDF includes fit criteria, component responsibilities, message schemas, failure modes, timeout categories, production considerations, security and governance controls, implementation options, auditability model, demonstration scenarios, and vertical adaptation notes.</p>
+<p><a href="../../assets/reference-architectures/monitor-classify-escalate/mce-reference-architecture.pdf">Download the full reference architecture PDF</a></p>
+<hr />
+<p><em>Requires adaptation before implementation. Not for redistribution without attribution.</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

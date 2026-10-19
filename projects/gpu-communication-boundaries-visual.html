@@ -1,0 +1,323 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Two Platforms, One Boundary | Robert N. Myhre</title><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<style>
+:root{
+  color-scheme:light;
+  --plane:#f7f6f2; --surface:#fcfcfb; --ink:#141412; --ink-2:#56544e; --muted:#8a877f;
+  --grid:#e2e0d8; --axis:#c4c2b8; --ring:rgba(20,20,18,.10);
+  --p2p:#2a78d6; --shm:#eb6834; --p2p-wash:rgba(42,120,214,.10); --shm-wash:rgba(235,104,52,.10);
+  --na:#d9d7cf; --na-ink:#8a877f;
+  --display:"Archivo",system-ui,sans-serif; --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --plane:#111110; --surface:#1a1a19; --ink:#f4f3ee; --ink-2:#c3c2b7; --muted:#8f8d85;
+    --grid:#2c2c2a; --axis:#3a3a37; --ring:rgba(255,255,255,.10);
+    --p2p:#3987e5; --shm:#d95926; --p2p-wash:rgba(57,135,229,.14); --shm-wash:rgba(217,89,38,.14);
+    --na:#2f2f2c; --na-ink:#8f8d85;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --plane:#111110; --surface:#1a1a19; --ink:#f4f3ee; --ink-2:#c3c2b7; --muted:#8f8d85;
+  --grid:#2c2c2a; --axis:#3a3a37; --ring:rgba(255,255,255,.10);
+  --p2p:#3987e5; --shm:#d95926; --p2p-wash:rgba(57,135,229,.14); --shm-wash:rgba(217,89,38,.14);
+  --na:#2f2f2c; --na-ink:#8f8d85;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;padding-block:28px 56px;padding-inline:16px}
+.wrap{max-width:980px;margin:0 auto;display:grid;gap:36px}
+header h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,4.6vw,40px);line-height:1.08;margin:0 0 10px;text-wrap:balance;letter-spacing:-.01em}
+header p{margin:0;max-width:66ch;color:var(--ink-2)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+section{background:var(--surface);border:1px solid var(--ring);border-radius:10px;padding:22px 22px 18px}
+section h2{font-family:var(--display);font-weight:600;font-size:21px;margin:0 0 6px;text-wrap:balance}
+section > p.lede{margin:0 0 18px;color:var(--ink-2);max-width:70ch}
+.legend{display:flex;flex-wrap:wrap;gap:16px 22px;font-size:14px;color:var(--ink-2);margin:0 0 14px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.key{display:inline-block;width:22px;height:2px;border-radius:1px}
+.key.p2p{background:var(--p2p)} .key.shm{background:var(--shm)}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px}
+.sw.p2p{background:var(--p2p)} .sw.shm{background:var(--shm)}
+code,.mono{font-family:var(--mono);font-size:.92em}
+.src{font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.45}
+.src code{font-size:12px}
+
+/* path map */
+.pathmap{display:grid;grid-template-columns:minmax(150px,1.1fr) 1fr 1fr;gap:6px 14px;align-items:center}
+.pathmap .colhead{font-family:var(--display);font-weight:600;font-size:15px;text-align:center;padding-bottom:4px}
+.pathmap .colhead small{display:block;font-family:var(--body);font-weight:400;font-size:12.5px;color:var(--muted)}
+.pathmap .rowhead{font-size:14px;color:var(--ink-2);line-height:1.35;padding-right:4px}
+.pathmap .rowhead b{display:block;color:var(--ink);font-weight:600}
+.pathmap .rowhead code{font-size:12.5px}
+.cell{aspect-ratio:9/5;max-width:100%;border-radius:8px;background:var(--plane);border:1px solid var(--ring);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.cell svg{width:100%;height:100%;display:block}
+.cell.na{color:var(--na-ink);font-size:13px;text-align:center;padding:8px;line-height:1.3;background:repeating-linear-gradient(135deg,transparent 0 7px,var(--ring) 7px 8px)}
+.cell.na b{display:block;font-family:var(--display);font-weight:600;color:var(--ink-2)}
+.pathmap .sep{grid-column:1/-1;height:1px;background:var(--grid);margin:6px 0}
+@media (max-width:560px){
+  .pathmap{grid-template-columns:1fr 1fr}
+  .pathmap .rowhead{grid-column:1/-1;padding-top:8px}
+  .pathmap .colhead.first{grid-column:1}
+}
+
+/* tiles */
+.tilegrids{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media (max-width:640px){.tilegrids{grid-template-columns:1fr}}
+.tg h3{font-family:var(--display);font-weight:600;font-size:16px;margin:0 0 2px}
+.tg .unit{font-size:12.5px;color:var(--muted);margin:0 0 10px}
+.grid22{display:grid;grid-template-columns:auto 1fr 1fr;gap:6px;align-items:stretch}
+.grid22 .h{font-size:12.5px;color:var(--muted);text-align:center;align-self:end;padding-bottom:2px;letter-spacing:.02em}
+.grid22 .rh{font-size:12.5px;color:var(--muted);writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;padding:4px 0;display:flex;align-items:center;justify-content:center}
+.tile{border-radius:8px;padding:12px 12px 10px;background:var(--plane);border:1px solid var(--ring);position:relative;min-height:84px}
+.tile .v{font-family:var(--display);font-weight:600;font-size:28px;line-height:1;letter-spacing:-.01em}
+.tile .arm{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:8px}
+.tile .mk{position:absolute;top:10px;right:10px;width:10px;height:10px;border-radius:3px}
+.tile.p2p{background:var(--p2p-wash)} .tile.p2p .mk{background:var(--p2p)}
+.tile.shm{background:var(--shm-wash)} .tile.shm .mk{background:var(--shm)}
+.tile.na{background:repeating-linear-gradient(135deg,transparent 0 7px,var(--ring) 7px 8px);color:var(--na-ink)}
+.tile.na .v{font-size:15px;font-weight:500;line-height:1.25;padding-top:4px;color:var(--ink-2)}
+.readout{margin:14px 0 0;font-size:14.5px;color:var(--ink-2)}
+.readout b{color:var(--ink)}
+
+/* bars */
+.chart{width:100%;overflow-x:auto}
+.chart svg{display:block;width:100%;height:auto;min-width:760px;font-family:var(--body)}
+.chart text{fill:var(--ink-2);font-size:13px}
+.chart text.val{fill:var(--ink);font-size:12.5px}
+.chart text.note{fill:var(--muted);font-size:11.5px;font-style:italic}
+.chart text.grp{fill:var(--muted);font-size:11.5px;letter-spacing:.06em;font-weight:600}
+.chart text.axis{fill:var(--muted);font-size:11.5px}
+.chart text.row{fill:var(--ink);font-size:13px}
+.chart text.rowsub{fill:var(--muted);font-size:11.5px;font-family:var(--mono)}
+.chart .grid{stroke:var(--grid);stroke-width:1}
+.chart .zero{stroke:var(--axis);stroke-width:1}
+.chart rect.p2p{fill:var(--p2p)} .chart rect.shm{fill:var(--shm)}
+.chart rect.hit{fill:transparent}
+.chart rect.hit:hover + rect, .chart rect.hit:focus + rect{opacity:.8}
+details{margin-top:14px}
+summary{cursor:pointer;color:var(--ink-2);font-size:14px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;margin-top:10px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--grid)}
+th{color:var(--muted);font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+td.num,th.num{text-align:right}
+
+/* progression */
+ol.prog{list-style:none;margin:0;padding:0;display:grid;gap:0}
+ol.prog li{display:grid;grid-template-columns:86px 1fr;gap:14px;padding:12px 0;border-top:1px solid var(--grid)}
+ol.prog li:first-child{border-top:0}
+ol.prog .id{font-family:var(--mono);font-size:13px;color:var(--ink);padding-top:2px}
+ol.prog .id small{display:block;font-family:var(--body);color:var(--muted);font-size:12px}
+ol.prog .what{font-size:15px}
+ol.prog .what b{font-weight:600}
+ol.prog .what span{color:var(--ink-2)}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;padding:1px 7px;border-radius:999px;border:1px solid var(--ring);color:var(--ink-2);margin-left:6px;vertical-align:middle}
+footer{font-size:13px;color:var(--muted);max-width:76ch}
+a{color:var(--p2p);text-underline-offset:3px}nav{font-size:14px;margin-bottom:18px}.chart:focus-visible{outline:2px solid var(--p2p);outline-offset:4px}.table-scroll{overflow-x:auto}
+@media print{body{padding:0}section{break-inside:avoid}.chart svg{min-width:0}details{display:block}}
+@media (prefers-reduced-motion: no-preference){ .chart rect.p2p,.chart rect.shm{transition:opacity .15s} }
+</style>
+
+<div class="wrap">
+<header>
+  <nav aria-label="Related work"><a href="./gpu-communication-boundaries/">Portfolio spotlight</a> · <a href="https://github.com/Robert-N-Myhre/gpu-communication-boundaries-case-study">Public research repository</a></nav>
+  <div class="eyebrow">GPU Communication Boundaries · LAB-01 → LAB-05 · V100 box and 4× L40S cloud</div>
+  <h1>Two Platforms, One Boundary</h1>
+  <p>The investigation asked what a socket boundary costs GPU-to-GPU traffic. Five labs on a four-V100 workstation and one paid session on four L40S answered it, and the answer turned out to be about <em>mechanism</em>, not placement. Every number here is read from a file under <code>results/</code>; the page is a picture of the evidence, not the evidence. Cross-platform comparisons are patterns, never a controlled experiment.</p>
+</header>
+
+<section id="paths">
+  <h2>What NCCL actually chose, per platform and setting</h2>
+  <p class="lede">The driver's P2P matrix says what is <em>possible</em>. NCCL's debug log says what it <em>used</em>. The two disagreed on both machines, and on the L40S the choice depended on how many GPUs were in the communicator.</p>
+  <div class="legend">
+    <span><i class="key p2p"></i>P2P: one GPU writes straight into the other's memory</span>
+    <span><i class="key shm"></i>SHM: each hop bounces through host memory</span>
+  </div>
+  <div class="pathmap" id="pathmap"></div>
+  <noscript><p>The transport map and comparison chart require JavaScript. The full case study and selected evidence linked below remain available.</p></noscript>
+  <p class="src">These schematics show selected transport classes, not exact physical routing. Sources: V100 pairs <code>results/lab-03/lab-03-nccl-transports.txt</code>; V100 rings <code>results/lab-03/lab-03-nccl-graph.txt</code>; V100 P2P matrix <code>results/lab-03/lab-03-preflight.txt</code> (cross-socket <code>TNS</code>); L40S rings <code>results/lab-05/lab-05-nccl-graph.txt</code>; L40S pairs <code>results/lab-05/nccl/{A,B,AL,BL}-run-*.log</code>. GPU0/1 share NUMA node 0 and GPU2/3 share node 1 on both machines.</p>
+</section>
+
+<section id="tiles">
+  <h2>Boundary or mechanism? Hold one, change the other</h2>
+  <p class="lede">All-reduce bus bandwidth at 256 MB, median of the protocol runs. Matched-transport comparisons showed no measurable boundary penalty. Changing transport produced approximately 15 to 18 percent bandwidth differences. The V100 could never fill its fourth cell; the L40S filled it and the pattern held.</p>
+  <div class="tilegrids">
+    <div class="tg">
+      <h3>V100 workstation</h3>
+      <p class="unit">GB/s busbw · LAB-03, 5 runs per arm · AU/U unbound; C bound to NUMA 0 · NCCL 2.26.2</p>
+      <div class="grid22">
+        <div></div><div class="h">same NUMA {0,1}</div><div class="h">across the boundary {0,2}</div>
+        <div class="rh">P2P</div>
+        <div class="tile p2p"><i class="mk"></i><div class="v">7.66</div><div class="arm">arm C · PHB forced, bound</div></div>
+        <div class="tile na"><div class="v">not possible: driver reports TNS across sockets</div></div>
+        <div class="rh">host-staged</div>
+        <div class="tile shm"><i class="mk"></i><div class="v">6.64</div><div class="arm">arm AU · default, unbound</div></div>
+        <div class="tile shm"><i class="mk"></i><div class="v">6.70</div><div class="arm">arm U · default, unbound</div></div>
+      </div>
+      <p class="readout">Mechanism: <b>+15 %</b> for P2P. Boundary (host-staged): <b>+0.9 %</b>, the cross-NUMA pair slightly ahead.</p>
+    </div>
+    <div class="tg">
+      <h3>L40S cloud instance</h3>
+      <p class="unit">GB/s busbw · LAB-05, 10 runs per arm, unbound · NCCL 2.31.2</p>
+      <div class="grid22">
+        <div></div><div class="h">same NUMA {0,1}</div><div class="h">across the boundary {0,2}</div>
+        <div class="rh">P2P</div>
+        <div class="tile p2p"><i class="mk"></i><div class="v">21.11</div><div class="arm">arm A · default</div></div>
+        <div class="tile p2p"><i class="mk"></i><div class="v">21.05</div><div class="arm">arm B · default</div></div>
+        <div class="rh">host-staged</div>
+        <div class="tile shm"><i class="mk"></i><div class="v">17.28</div><div class="arm">arm AL · LOC forced</div></div>
+        <div class="tile shm"><i class="mk"></i><div class="v">17.32</div><div class="arm">arm BL · LOC forced</div></div>
+      </div>
+      <p class="readout">Mechanism: <b>−18 %</b> for host-staging, both columns. Boundary: <b>within spread</b>, both rows.</p>
+    </div>
+  </div>
+  <p class="src">Sources: <code>results/lab-03/lab-03-nccl-analysis.txt</code> (AU 6.64, U 6.70, C 7.66; C ran bound to NUMA node 0, and binding moved the same-socket pair by nothing: A vs AU 0.998); <code>results/lab-05/lab-05-nccl-analysis.txt</code> (A 21.11, B 21.05, AL 17.28, BL 17.32; A/B and AL/BL within spread at every size). Different silicon, PCIe generations and NCCL versions: compare the shape of each grid, not the two grids.</p>
+</section>
+
+<section id="reach">
+  <h2>What the collective won, and what the training step kept</h2>
+  <p class="lede">Each row forces a transport away from NCCL's default and measures the same change twice: in the all-reduce benchmark, and in the 124 M-parameter DDP training step. The benchmark moves a lot. The step barely moves, and twice it moves the other way.</p>
+  <div class="legend">
+    <span><i class="sw p2p"></i>All-reduce bus bandwidth, 256 MB</span>
+    <span><i class="sw shm"></i>Training throughput per GPU</span>
+  </div>
+  <div class="chart" id="reach-chart" tabindex="0" role="region" aria-label="Transport comparison chart; scroll horizontally on narrow screens"></div>
+  <details>
+    <summary>Table view</summary>
+    <div class="table-scroll"><table id="reach-table"><thead><tr><th>Platform</th><th>Change forced</th><th>Arms</th><th class="num">Busbw ratio</th><th class="num">Busbw %</th><th class="num">Per-GPU rate ratio</th><th class="num">App %</th><th>Note</th></tr></thead><tbody></tbody></table></div>
+  </details>
+  <p class="src">Sources: V100 <code>results/lab-03/lab-03-nccl-analysis.txt</code> (C/A 7.66/6.65, P/Q 7.48/8.27) and <code>results/lab-04/lab-04-analysis.txt</code> (tok/s/GPU C2/A2 0.968, P4/Q4 0.962). L40S <code>results/lab-05/lab-05-nccl-analysis.txt</code> (AL/A 0.819, BL/B 0.823, QH/Q 0.630, QS/Q 1.048) and <code>results/lab-05/lab-05-analysis.txt</code> (A2L/A2 1.001 within spread, B2L/B2 0.983, QH4/Q4 0.951, QS4/Q4 0.989). Sign convention: positive is better for both measures.</p>
+</section>
+
+<section id="prog">
+  <h2>How the investigation got here</h2>
+  <p class="lede">Six labs, in order. Each one changed what the next one asked.</p>
+  <ol class="prog">
+    <li><div class="id">LAB-01<small>2026-08-23</small></div><div class="what"><b>The instrument works.</b> <span>Protocol, controls, and the first V100 baseline (8.30 GB/s, 4 GPUs). Run-to-run spread under 1 percent at every size.</span><span class="pill">V100</span></div></li>
+    <li><div class="id">LAB-02<small>2026-08-23</small></div><div class="what"><b>The boundary looked expensive, then didn't.</b> <span>A 2 percent cross-socket deficit traced to CPU binding, not the socket. NCCL's default ran SHM on a pair whose P2P the driver allowed; PHB forced P2P and bought +16 percent.</span><span class="pill">V100</span></div></li>
+    <li><div class="id">LAB-A1<small>2026-08-24</small></div><div class="what"><b>A coin flip per launch.</b> <span>Small-message latency sits at one of two levels, chosen per process, machine-wide, about one launch in seven high. No gap dependence.</span><span class="pill">V100</span></div></li>
+    <li><div class="id">LAB-03<small>2026-08-25</small></div><div class="what"><b>Unbound, no boundary penalty was measured; the forced ring lost bandwidth.</b> <span>Cross-socket matched same-socket. Forcing PHB on the four-GPU ring cost 10 percent of bandwidth. A NUMA prefix on the ring cost 33 percent.</span><span class="pill">V100</span></div></li>
+    <li><div class="id">LAB-04<small>2026-08-27</small></div><div class="what"><b>The application disagrees with the benchmark.</b> <span>The +15 percent pair-bandwidth gain accompanied 3.2 percent lower training throughput. Four-micro-batch accumulation improved throughput by 12 percent, but also changed optimizer-update frequency. A thermal gate was born after the chassis hit 84 °C.</span><span class="pill">V100</span></div></li>
+    <li><div class="id">LAB-05<small>2026-10-04</small></div><div class="what"><b>Same question, second row of the table.</b> <span>NCCL's default used P2P for two GPUs and SHM for four. No measurable boundary penalty under matched transports; host-staging reduced pair bandwidth by 18 percent; the mixed ring loses 37 percent. 81 metered minutes.</span><span class="pill">L40S</span></div></li>
+  </ol>
+  <p class="src">Sources: <code>findings/LAB-01.md</code> through <code>findings/LAB-05.md</code> and <code>findings/LAB-A1.md</code>, each citing its <code>results/</code> files.</p>
+</section>
+
+<footer>Robert N. Myhre · Study completed October 4, 2026. Figures: medians over the protocol runs; "within spread" means at least one median falls within the other configuration's observed min–max range. This is a descriptive rule, not a statistical equivalence test. Transport labels reflect NCCL debug captures. The lab progression includes historical observations outside the selected public evidence package. No cross-node communication, NVLink, RDMA, or network fabric was tested.<br><br><a href="https://github.com/Robert-N-Myhre/gpu-communication-boundaries-case-study/blob/main/evidence/README.md">Selected evidence and interpretation</a> · <a href="https://github.com/Robert-N-Myhre/gpu-communication-boundaries-case-study/blob/main/gpu-communication-boundaries-case-study.md">Full case study</a></footer>
+</div>
+
+<script>
+(function(){
+  // ---------- Path map ----------
+  // GPU positions in a 180x100 viewBox; host memory bar in the middle.
+  const G = {0:[36,28],1:[36,72],2:[144,28],3:[144,72]};
+  const HOST = {x:90, y:50};
+  function cell(links, opts){
+    opts = opts || {};
+    const dim = opts.dim || [];
+    let s = '<svg viewBox="0 0 180 100" role="img" aria-label="'+(opts.label||'')+'">';
+    // NUMA boxes
+    s += '<rect x="10" y="10" width="54" height="80" rx="7" fill="none" stroke="var(--grid)" stroke-width="1"/>';
+    s += '<rect x="116" y="10" width="54" height="80" rx="7" fill="none" stroke="var(--grid)" stroke-width="1"/>';
+    s += '<text x="37" y="96" text-anchor="middle" font-size="7" fill="var(--muted)">NUMA 0</text>';
+    s += '<text x="143" y="96" text-anchor="middle" font-size="7" fill="var(--muted)">NUMA 1</text>';
+    // host memory
+    s += '<rect x="82" y="30" width="16" height="40" rx="4" fill="var(--na)" stroke="none"/>';
+    s += '<text x="90" y="53" text-anchor="middle" font-size="6.5" fill="var(--na-ink)">host</text>';
+    // links
+    links.forEach(function(l){
+      const a=G[l[0]], b=G[l[1]], c = l[2]==='p2p' ? 'var(--p2p)' : 'var(--shm)';
+      if(l[2]==='p2p'){
+        s += '<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+b[0]+'" y2="'+b[1]+'" stroke="'+c+'" stroke-width="2.4" stroke-linecap="round"/>';
+      } else {
+        // bounce through host memory: a -> host -> b, slight y offset so parallel hops stay visible
+        const off = (l[3]||0);
+        const hx = HOST.x, hy = HOST.y + off;
+        s += '<polyline points="'+a[0]+','+a[1]+' '+hx+','+hy+' '+b[0]+','+b[1]+'" fill="none" stroke="'+c+'" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>';
+      }
+    });
+    // GPUs
+    [0,1,2,3].forEach(function(i){
+      const p=G[i], isDim = dim.indexOf(i)>=0;
+      s += '<rect x="'+(p[0]-11)+'" y="'+(p[1]-9)+'" width="22" height="18" rx="4" fill="var(--surface)" stroke="'+(isDim?'var(--grid)':'var(--axis)')+'" stroke-width="1.2"/>';
+      s += '<text x="'+p[0]+'" y="'+(p[1]+3)+'" text-anchor="middle" font-size="8" font-weight="600" fill="'+(isDim?'var(--na-ink)':'var(--ink)')+'">G'+i+'</text>';
+    });
+    s += '</svg>';
+    return '<div class="cell">'+s+'</div>';
+  }
+  function na(title, why){ return '<div class="cell na"><b>'+title+'</b>'+why+'</div>'; }
+  const ring = function(t){ return [[0,1,t,-10],[1,2,t,6],[2,3,t,10],[3,0,t,-6]]; };
+  const rows = [
+    { head:'<b>Default, two GPUs</b>pair <code>{0,1}</code> and pair <code>{0,2}</code>, each its own run',
+      v100: cell([[0,1,'shm',-6],[0,2,'shm',4]], {dim:[3], label:'V100 default pairs: both SHM'}),
+      l40s: cell([[0,1,'p2p'],[0,2,'p2p']], {dim:[3], label:'L40S default pairs: both P2P'}) },
+    { head:'<b>Default, four-GPU ring</b>0 → 1 → 2 → 3 → 0',
+      v100: cell(ring('shm'), {label:'V100 default ring: all SHM'}),
+      l40s: cell(ring('shm'), {label:'L40S default ring: all SHM'}) },
+    { head:'<b><code>NCCL_P2P_LEVEL=PHB</code></b>four-GPU ring',
+      v100: cell([[0,1,'p2p'],[1,2,'shm',6],[2,3,'p2p'],[3,0,'shm',-6]], {label:'V100 PHB ring: pairs P2P, crossings SHM'}),
+      l40s: cell([[0,1,'p2p'],[1,2,'shm',6],[2,3,'p2p'],[3,0,'shm',-6]], {label:'L40S PHB ring: pairs P2P, crossings SHM'}) },
+    { head:'<b><code>NCCL_P2P_LEVEL=SYS</code></b>four-GPU ring',
+      v100: na('All-P2P unavailable', 'driver reports <code>TNS</code> across the sockets'),
+      l40s: cell(ring('p2p'), {label:'L40S SYS ring: all P2P'}) },
+    { head:'<b><code>NCCL_P2P_LEVEL=LOC</code></b>pairs, P2P disabled',
+      v100: na('Not run', 'default already chose SHM on every pair'),
+      l40s: cell([[0,1,'shm',-6],[0,2,'shm',4]], {dim:[3], label:'L40S LOC pairs: both SHM'}) },
+  ];
+  let h = '<div></div><div class="colhead first">V100 workstation<small>4× V100 PCIe · NCCL 2.26.2</small></div><div class="colhead">L40S cloud instance<small>4× L40S · NCCL 2.31.2 (wheel 2.27.5 agreed)</small></div>';
+  rows.forEach(function(r,i){
+    if(i>0) h += '<div class="sep"></div>';
+    h += '<div class="rowhead">'+r.head+'</div>'+r.v100+r.l40s;
+  });
+  document.getElementById('pathmap').innerHTML = h;
+
+  // ---------- Reach chart ----------
+  const data = [
+    {plat:'V100', what:'Force P2P on the pair', arms:'C vs A · C2 vs A2', bw:7.66/6.65, app:0.968, note:''},
+    {plat:'V100', what:'Force PHB on the ring', arms:'P vs Q · P4 vs Q4', bw:7.48/8.27, app:0.962, note:''},
+    {plat:'L40S', what:'Disable P2P on the same-NUMA pair', arms:'AL vs A · A2L vs A2', bw:0.819, app:1.001, note:'app within spread'},
+    {plat:'L40S', what:'Disable P2P across the boundary', arms:'BL vs B · B2L vs B2', bw:0.823, app:0.983, note:''},
+    {plat:'L40S', what:'Mixed ring (PHB)', arms:'QH vs Q · QH4 vs Q4', bw:0.630, app:0.951, note:''},
+    {plat:'L40S', what:'All-P2P ring (SYS)', arms:'QS vs Q · QS4 vs Q4', bw:1.048, app:0.989, note:''},
+  ];
+  const pct = function(r){ return (r-1)*100; };
+  const W=860, L=340, R=40, rowH=46, top=34, groupGap=18;
+  let H = top + data.length*rowH + groupGap + 30;
+  const xmin=-40, xmax=20, sx = function(v){ return L + (v-xmin)/(xmax-xmin)*(W-L-R); };
+  let s = '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Percent change in all-reduce bandwidth versus training throughput per GPU for six forced-transport comparisons">';
+  // grid
+  for(let v=xmin; v<=xmax; v+=10){
+    s += '<line class="'+(v===0?'zero':'grid')+'" x1="'+sx(v)+'" y1="'+(top-10)+'" x2="'+sx(v)+'" y2="'+(H-26)+'"/>';
+    s += '<text class="axis" x="'+sx(v)+'" y="'+(H-10)+'" text-anchor="middle">'+(v>0?'+':'')+v+'%</text>';
+  }
+  s += '<text class="axis" x="'+sx(xmin)+'" y="'+(top-16)+'">worse ←</text>';
+  s += '<text class="axis" x="'+sx(xmax)+'" y="'+(top-16)+'" text-anchor="end">→ better</text>';
+  let y = top, lastPlat = null;
+  const tbody = [];
+  data.forEach(function(d){
+    if(lastPlat && d.plat!==lastPlat) y += groupGap;
+    if(d.plat!==lastPlat){ s += '<text class="grp" x="8" y="'+(y+4)+'">'+d.plat.toUpperCase()+'</text>'; }
+    lastPlat = d.plat;
+    const bwp = pct(d.bw), app = pct(d.app);
+    s += '<text class="row" x="48" y="'+(y+14)+'">'+d.what+'</text>';
+    s += '<text class="rowsub" x="48" y="'+(y+30)+'">'+d.arms+'</text>';
+    [[bwp,'p2p',y+4,'All-reduce bus bandwidth'],[app,'shm',y+22,'Training throughput per GPU']].forEach(function(b){
+      const v=b[0], x0=sx(Math.min(0,v)), x1=sx(Math.max(0,v)), w=Math.max(1.5, x1-x0), yy=b[2], hh=14;
+      const rx = (v>=0) ? ' rx="4"' : ' rx="4"';
+      s += '<rect class="hit" x="'+(Math.min(x0,x1)-4)+'" y="'+(yy-5)+'" width="'+(w+8)+'" height="'+(hh+10)+'" tabindex="0"><title>'+d.plat+' · '+d.what+' · '+b[3]+': '+(v>=0?'+':'')+v.toFixed(1)+'%</title></rect>';
+      s += '<rect class="'+b[1]+'" x="'+x0+'" y="'+yy+'" width="'+w+'" height="'+hh+'"'+rx+'/>';
+      // value label at the data end
+      const lx = v>=0 ? x1+6 : x0-6, anchor = v>=0 ? 'start' : 'end';
+      s += '<text class="val" x="'+lx+'" y="'+(yy+11)+'" text-anchor="'+anchor+'">'+(v>=0?'+':'')+v.toFixed(1)+'%</text>';
+    });
+    if(d.note){ s += '<text class="note" x="'+(sx(pct(d.app))+52)+'" y="'+(y+33)+'">'+d.note+'</text>'; }
+    tbody.push('<tr><td>'+d.plat+'</td><td>'+d.what+'</td><td class="mono">'+d.arms+'</td><td class="num">'+d.bw.toFixed(3)+'</td><td class="num">'+(bwp>=0?'+':'')+bwp.toFixed(1)+'</td><td class="num">'+d.app.toFixed(3)+'</td><td class="num">'+(app>=0?'+':'')+app.toFixed(1)+'</td><td>'+(d.note||'')+'</td></tr>');
+    y += rowH;
+  });
+  s += '</svg>';
+  document.getElementById('reach-chart').innerHTML = s;
+  document.querySelector('#reach-table tbody').innerHTML = tbody.join('');
+})();
+</script>
+
+</body></html>

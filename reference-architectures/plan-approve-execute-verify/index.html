@@ -1,0 +1,1755 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Independent investigations into AI systems, human–AI collaboration, distributed systems, networking, security, automation, and emerging technology.">
+      
+      
+        <meta name="author" content="Robert N. Myhre">
+      
+      
+        <link rel="canonical" href="https://robert-n-myhre.github.io/independent-technology-research/reference-architectures/plan-approve-execute-verify/">
+      
+      
+        <link rel="prev" href="../monitor-classify-escalate/">
+      
+      
+        <link rel="next" href="../governed-agentic-infrastructure-operations/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Plan → Approve → Execute → Verify - Robert N. Myhre | Independent Technology Research</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/styles/print.css">
+    
+      <link rel="stylesheet" href="../../assets/styles/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <meta name="author" content="Robert N. Myhre">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Robert N. Myhre | Independent Technology Research">
+  <meta property="og:title" content="Plan → Approve → Execute → Verify | Robert N. Myhre | Independent Technology Research">
+  
+  <meta property="og:description" content="Independent investigations into AI systems, human–AI collaboration, distributed systems, networking, security, automation, and emerging technology.">
+  
+  <meta property="og:url" content="https://robert-n-myhre.github.io/independent-technology-research/reference-architectures/plan-approve-execute-verify/">
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Plan → Approve → Execute → Verify | Robert N. Myhre | Independent Technology Research">
+  <meta name="twitter:description" content="Independent investigations into AI systems, human–AI collaboration, distributed systems, networking, security, automation, and emerging technology.">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#plan-approve-execute-verify" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Robert N. Myhre | Independent Technology Research" class="md-header__button md-logo" aria-label="Robert N. Myhre | Independent Technology Research" data-md-component="logo">
+      
+  <img src="../../assets/images/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Robert N. Myhre | Independent Technology Research
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Plan → Approve → Execute → Verify
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Robert N. Myhre | Independent Technology Research" class="md-nav__button md-logo" aria-label="Robert N. Myhre | Independent Technology Research" data-md-component="logo">
+      
+  <img src="../../assets/images/favicon.svg" alt="logo">
+
+    </a>
+    Robert N. Myhre | Independent Technology Research
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Investigations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Investigations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experimental & Prototype Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Experimental & Prototype Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/project-boundary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Boundary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/gpu-communication-boundaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Communication Boundaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/moe-routing-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoE Routing Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/mcp-platform-case-study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Platform Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/prompt-guardrail-single-gpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Security Guardrails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architectural Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architectural Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/intelligence-placement-under-constraint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intelligence Placement Under Constraint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptual Investigations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Conceptual Investigations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Bridging
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project Bridging
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/project-bridging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/project-bridging/ai-as-a-scaffold-for-human-connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paper 1 — Conceptual Framework
+  
+
+    
+      <br>
+      <small>A Framework for Discovery and Communication</small>
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--Independent research working paper; not peer reviewed"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/project-bridging/empowerment-preserving-ai-mediation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paper 2 — Research Concept
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitor-classify-escalate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitor → Classify → Escalate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan → Approve → Execute → Verify
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan → Approve → Execute → Verify
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reference-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference scenario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-this-pattern-fits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When this pattern fits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-implementation-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference implementation stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-architectural-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key architectural principles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key architectural principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constrained-ai-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constrained AI output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deterministic-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deterministic validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-guardrails-before-approval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy guardrails before approval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-bypassable-human-approval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-bypassable human approval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback-generated-at-plan-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback generated at plan time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-auditability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete auditability
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-and-audit-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision and audit flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differentiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Differentiation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vertical-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vertical adaptation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-reference-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full reference architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research-Derived Architectures
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research-Derived Architectures
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../governed-agentic-infrastructure-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governed Agentic Infrastructure Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research-methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reference-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference scenario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-this-pattern-fits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When this pattern fits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-implementation-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference implementation stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-architectural-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key architectural principles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key architectural principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constrained-ai-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constrained AI output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deterministic-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deterministic validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#policy-guardrails-before-approval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy guardrails before approval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-bypassable-human-approval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-bypassable human approval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback-generated-at-plan-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rollback generated at plan time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-auditability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete auditability
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision-and-audit-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision and audit flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#production-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Production considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differentiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Differentiation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vertical-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vertical adaptation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-reference-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full reference architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="plan-approve-execute-verify">Plan → Approve → Execute → Verify</h1>
+<p><strong>Research status:</strong> Conceptual investigation — proposed, unproven reference architecture. The design has not been validated as an end-to-end production system. For prototype-informed research into related authority boundaries, see <a href="../../projects/project-boundary/">Project Boundary</a> and its <a href="../governed-agentic-infrastructure-operations/">research-derived architecture</a>.</p>
+<p><strong>AI-Assisted Infrastructure Change Automation with Human Approval Gates</strong></p>
+<p>The <strong>Plan → Approve → Execute → Verify</strong> pattern addresses infrastructure and IT operations workflows where configuration changes must be interpreted, planned, reviewed, executed, verified, and recorded with a clear rollback path.</p>
+<p>This reference architecture uses <strong>AI-assisted intent interpretation</strong>, <strong>structured change planning</strong>, <strong>deterministic plan validation</strong>, <strong>policy guardrails</strong>, <strong>non-bypassable human approval</strong>, <strong>simulator or staging execution</strong>, and a <strong>complete Change Record Store</strong> to support governed infrastructure change automation.</p>
+<p><a href="../../assets/reference-architectures/plan-approve-execute-verify/paev-reference-architecture.pdf">Download the full reference architecture PDF</a></p>
+<blockquote>
+<p>This is a reference architecture, not a turnkey implementation. Production use requires adaptation to the target organization's infrastructure environment, data classification policy, operational workflow, security model, SLA requirements, approval model, and staffing capacity.</p>
+</blockquote>
+<hr />
+<h2 id="reference-scenario">Reference scenario</h2>
+<p>The reference scenario is <strong>AI-assisted infrastructure change automation</strong>.</p>
+<p>In the network operations example, a user submits a natural language request to add a VLAN, create gateway configuration, update trunk paths, validate the change in a simulation environment, and produce a production-ready change package for authorized execution.</p>
+<p>The same architecture can be adapted to cloud, DevOps, IT operations, healthcare, financial services, and telecommunications workflows, but the execution tooling, policy model, verification criteria, and governance requirements must be tuned to the organization.</p>
+<hr />
+<h2 id="when-this-pattern-fits">When this pattern fits</h2>
+<p>This pattern is useful when at least two of the following are true:</p>
+<ul>
+<li>Change requests contain free-text or inconsistent terminology.</li>
+<li>The change type is repeatable enough to be expressed as a structured template.</li>
+<li>Policy constraints can be expressed as deterministic checks.</li>
+<li>The organization requires human approval before production execution.</li>
+<li>Success can be verified through measurable pre/post checks.</li>
+<li>A simulation, staging, dry-run, or canary environment is available.</li>
+<li>Rollback can be defined before execution begins.</li>
+<li>Auditability and decision traceability are required.</li>
+</ul>
+<p>This pattern is a poor fit when each change is novel, success criteria are subjective, rollback cannot be known in advance, or the organization wants fully autonomous execution without a human approval gate.</p>
+<hr />
+<h2 id="architecture-overview">Architecture overview</h2>
+<p>The logical architecture has four major concerns:</p>
+<ol>
+<li><strong>Plan</strong> — interpret the request, create a structured change specification, generate the forward plan, generate the rollback plan, and define pre/post checks.</li>
+<li><strong>Approve</strong> — validate the plan, apply policy guardrails, collect the pre-change baseline, and present the complete Change Package to a human approver.</li>
+<li><strong>Execute</strong> — execute the approved plan in a simulation or staging environment and capture every action and response.</li>
+<li><strong>Verify</strong> — run post-checks, compute the before/after delta, mark the package production-ready, or recommend rollback when verification fails.</li>
+</ol>
+<p><img alt="Executive pattern overview showing change request sources, core change automation pipeline, Change Package, Change Record Store, and key outcomes." src="../../assets/reference-architectures/plan-approve-execute-verify/paev-executive-overview.png" /></p>
+<hr />
+<h2 id="technical-architecture">Technical architecture</h2>
+<p>The reference implementation uses <strong>LangGraph</strong> for orchestration, <strong>FastAPI</strong> for request intake and approval interfaces, <strong>Pydantic</strong> for schema validation, a policy guardrail engine for deterministic checks, and a persistent Change Record Store for auditability.</p>
+<p>The LLM is used only in two places: interpreting the natural language request and generating the proposed change plan. Everything after planning is deterministic: validation, policy evaluation, pre-check collection, approval routing, simulator execution, post-check verification, rollback recommendation, and audit persistence.</p>
+<p><img alt="Technical architecture showing LangGraph orchestration, interpretation, planning, validation, policy guardrails, approval, simulator execution, post-check verification, Change Package, policy/context sources, persistence, and implementation stack." src="../../assets/reference-architectures/plan-approve-execute-verify/paev-technical-architecture.png" /></p>
+<h3 id="reference-implementation-stack">Reference implementation stack</h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Reference technologies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Orchestration</td>
+<td>LangGraph, FastAPI</td>
+</tr>
+<tr>
+<td>Intent and planning</td>
+<td>Ollama/local LLM or cloud API</td>
+</tr>
+<tr>
+<td>Schema validation</td>
+<td>Pydantic</td>
+</tr>
+<tr>
+<td>Policy / context</td>
+<td>SQLite, CMDB, assignment database, maintenance schedule, authorization scope table</td>
+</tr>
+<tr>
+<td>Execution</td>
+<td>Netmiko, NAPALM, RESTCONF, infrastructure API</td>
+</tr>
+<tr>
+<td>Simulation / staging</td>
+<td>Cisco CML, EVE-NG, Containerlab, Terraform staging workspace, Ansible check mode, or equivalent</td>
+</tr>
+<tr>
+<td>Persistence</td>
+<td>LangGraph checkpointer, SQLite reference, PostgreSQL production</td>
+</tr>
+<tr>
+<td>Observability</td>
+<td>LangSmith or equivalent tracing</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Docker Compose or container platform</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="key-architectural-principles">Key architectural principles</h2>
+<h3 id="constrained-ai-output">Constrained AI output</h3>
+<p>The LLM does not directly execute infrastructure changes. It produces structured outputs: a change specification and a proposed change plan. Downstream components consume schema-validated fields, not free-form model narratives.</p>
+<h3 id="deterministic-validation">Deterministic validation</h3>
+<p>Plan validation checks completeness, syntax, dependency ordering, rollback completeness, and rollback ordering. These checks reduce risk, but they do not prove production safety. Operational correctness remains a human approval responsibility.</p>
+<h3 id="policy-guardrails-before-approval">Policy guardrails before approval</h3>
+<p>The policy engine evaluates authorization scope, change-type conflict, maintenance window, and blast radius before the change reaches an approver. Blocked changes do not consume human review time.</p>
+<h3 id="non-bypassable-human-approval">Non-bypassable human approval</h3>
+<p>The approval gate is a structural interrupt in the pipeline, not a configurable threshold. The approver sees the exact commands, configuration delta, policy results, pre-check baseline, rollback plan, execution target, and change identifier before approving.</p>
+<h3 id="rollback-generated-at-plan-time">Rollback generated at plan time</h3>
+<p>Rollback is generated before execution, not after failure. The rollback plan travels with the Change Package and is visible during approval. If post-check verification fails, the rollback recommendation interface presents the already-reviewed rollback steps.</p>
+<h3 id="complete-auditability">Complete auditability</h3>
+<p>Every request, interpretation, plan, validation result, policy result, pre-check snapshot, approval decision, execution log, post-check result, and final outcome is retained in the Change Record Store.</p>
+<hr />
+<h2 id="decision-and-audit-flow">Decision and audit flow</h2>
+<p>The decision and audit flow shows how one change request moves through the architecture: it is received, interpreted, planned, validated, policy-checked, approved, executed in simulation, verified, and recorded.</p>
+<p>The same flow also shows where the process can stop: validation failure, policy block, approval rejection, execution failure, or post-check failure. Every path terminates in the audit record.</p>
+<p><img alt="Decision and audit flow showing one change request moving through interpretation, planning, validation, policy evaluation, human approval, simulator execution, verification, outcome recording, and audit trail." src="../../assets/reference-architectures/plan-approve-execute-verify/paev-decision-audit-flow.png" /></p>
+<hr />
+<h2 id="production-considerations">Production considerations</h2>
+<p>Before implementation, the architecture must be adapted to the organization's operating model. Key decisions include:</p>
+<ul>
+<li><strong>Data classification:</strong> whether change data can be sent to a cloud LLM or must remain local.</li>
+<li><strong>Integration systems:</strong> which CMDB, assignment databases, maintenance schedules, ITSM systems, and inventory sources are authoritative.</li>
+<li><strong>Workflow ownership:</strong> who owns approval, rollback review, and production handoff.</li>
+<li><strong>Model hosting:</strong> local model, cloud API, or private GPU environment.</li>
+<li><strong>Command generation quality:</strong> whether the model can reliably generate useful plans for the target change vocabulary.</li>
+<li><strong>Simulation fidelity:</strong> whether the simulator, staging workspace, dry-run mode, or canary environment is representative enough to be useful.</li>
+<li><strong>Human approval capacity:</strong> whether approvers can review the expected change volume within the required SLA.</li>
+<li><strong>Rollback policy:</strong> who is authorized to initiate rollback and under what conditions.</li>
+<li><strong>Audit retention:</strong> how long Change Record Store entries must be retained and whether tamper-evident storage is required.</li>
+<li><strong>Access controls:</strong> who can submit changes, approve changes, view records, maintain policy data, and manage execution credentials.</li>
+<li><strong>Operational support:</strong> who monitors the pipeline, simulation environment, policy data freshness, validation failures, and audit store health.</li>
+</ul>
+<hr />
+<h2 id="differentiation">Differentiation</h2>
+<p>This architecture is not differentiated by any single technology. Existing automation platforms, ITSM tools, workflow engines, and infrastructure-as-code pipelines address overlapping capabilities.</p>
+<p>The differentiation is the combination of:</p>
+<ul>
+<li>AI-assisted intent interpretation,</li>
+<li>structured change planning,</li>
+<li>deterministic plan validation,</li>
+<li>policy guardrails before human review,</li>
+<li>non-bypassable approval of exact commands,</li>
+<li>simulator or staging execution before production handoff,</li>
+<li>rollback generated at plan time,</li>
+<li>complete Change Package auditability.</li>
+</ul>
+<p>That combination makes the design easier to govern, review, adapt, and explain than an opaque AI automation workflow.</p>
+<hr />
+<h2 id="limitations">Limitations</h2>
+<p>This reference architecture intentionally defines boundaries:</p>
+<ul>
+<li>Plan validation does not prove production safety.</li>
+<li>LLM command generation quality is change-type dependent.</li>
+<li>Simulator or staging fidelity is an implementation prerequisite.</li>
+<li>The policy engine depends on accurate authorization, assignment, maintenance, and context data.</li>
+<li>Human approval can degrade under high volume, time pressure, or poor interface design.</li>
+<li>Automated rollback is not included in the base pattern.</li>
+<li>The architecture produces a production-ready package; production execution still requires organization-specific controls, credentials, change windows, and operational procedures.</li>
+<li>ITSM write-back, CAB integration, incident workflow, and change calendar coordination are implementation options, not built-in capabilities.</li>
+</ul>
+<hr />
+<h2 id="vertical-adaptation">Vertical adaptation</h2>
+<p>The logical pattern is stable across verticals. What changes is the change vocabulary, execution tooling, simulation or staging environment, policy rules, and verification criteria.</p>
+<table>
+<thead>
+<tr>
+<th>Vertical</th>
+<th>Example process</th>
+<th>Adaptation focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network operations</td>
+<td>VLAN provisioning, routing changes, ACL updates, interface configuration</td>
+<td>Network inventory, simulator fidelity, CLI/API execution, pre/post checks</td>
+</tr>
+<tr>
+<td>Cloud / DevOps</td>
+<td>Terraform plan approval, security group updates, IAM policy changes</td>
+<td>IaC plan review, staging workspace, cloud provider state queries</td>
+</tr>
+<tr>
+<td>IT operations</td>
+<td>Server configuration changes, patch deployment, firewall rule updates</td>
+<td>Ansible or configuration management execution, health checks, maintenance windows</td>
+</tr>
+<tr>
+<td>Healthcare IT</td>
+<td>Network segmentation, medical device isolation, clinical system configuration</td>
+<td>Stronger data classification, compliance audit trail, segmentation policy</td>
+</tr>
+<tr>
+<td>Financial services</td>
+<td>Trading network changes, firewall policy updates, DR validation</td>
+<td>Change freeze windows, stronger audit retention, stricter approval controls</td>
+</tr>
+<tr>
+<td>Telecommunications</td>
+<td>Circuit provisioning, VPN updates, core network changes</td>
+<td>OSS/BSS context, service catalog lookup, customer impact and circuit dependency modeling</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="full-reference-architecture">Full reference architecture</h2>
+<p>The complete PDF includes fit criteria, logical and technical architecture, component responsibilities, plan validation model, policy guardrail engine, rollback architecture, failure modes, security and governance considerations, implementation options, auditability model, demonstration scenarios, and vertical adaptation notes.</p>
+<p><a href="../../assets/reference-architectures/plan-approve-execute-verify/paev-reference-architecture.pdf">Download the full reference architecture PDF</a></p>
+<hr />
+<p><em>Requires adaptation before implementation. Attribution requested.</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

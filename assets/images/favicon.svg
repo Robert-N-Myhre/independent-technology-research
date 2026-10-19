@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Robert Myhre architecture portfolio">
+  <rect width="64" height="64" rx="14" fill="#071426"/>
+  <path d="M16 20 32 12l16 8v24l-16 8-16-8Z" fill="none" stroke="#45b8ff" stroke-width="3"/>
+  <circle cx="32" cy="12" r="4" fill="#8bd7ff"/>
+  <circle cx="16" cy="20" r="4" fill="#45b8ff"/>
+  <circle cx="48" cy="20" r="4" fill="#45b8ff"/>
+  <circle cx="16" cy="44" r="4" fill="#45b8ff"/>
+  <circle cx="48" cy="44" r="4" fill="#45b8ff"/>
+  <circle cx="32" cy="52" r="4" fill="#8bd7ff"/>
+  <circle cx="32" cy="32" r="5" fill="#f4f8fc"/>
+  <path d="M19 22 28 29M45 22 36 29M19 42l9-7M45 42l-9-7M32 17v10M32 37v10" stroke="#45b8ff" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

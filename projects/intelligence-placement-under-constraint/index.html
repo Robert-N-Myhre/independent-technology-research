@@ -1,0 +1,1743 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Independent investigations into AI systems, human–AI collaboration, distributed systems, networking, security, automation, and emerging technology.">
+      
+      
+        <meta name="author" content="Robert N. Myhre">
+      
+      
+        <link rel="canonical" href="https://robert-n-myhre.github.io/independent-technology-research/projects/intelligence-placement-under-constraint/">
+      
+      
+        <link rel="prev" href="../prompt-guardrail-single-gpu/">
+      
+      
+        <link rel="next" href="../project-bridging/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Intelligence Placement Under Constraint - Robert N. Myhre | Independent Technology Research</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/styles/print.css">
+    
+      <link rel="stylesheet" href="../../assets/styles/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <meta name="author" content="Robert N. Myhre">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Robert N. Myhre | Independent Technology Research">
+  <meta property="og:title" content="Intelligence Placement Under Constraint | Robert N. Myhre | Independent Technology Research">
+  
+  <meta property="og:description" content="Independent investigations into AI systems, human–AI collaboration, distributed systems, networking, security, automation, and emerging technology.">
+  
+  <meta property="og:url" content="https://robert-n-myhre.github.io/independent-technology-research/projects/intelligence-placement-under-constraint/">
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Intelligence Placement Under Constraint | Robert N. Myhre | Independent Technology Research">
+  <meta name="twitter:description" content="Independent investigations into AI systems, human–AI collaboration, distributed systems, networking, security, automation, and emerging technology.">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intelligence-placement-under-constraint-a-framework-for-distributed-ai" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Robert N. Myhre | Independent Technology Research" class="md-header__button md-logo" aria-label="Robert N. Myhre | Independent Technology Research" data-md-component="logo">
+      
+  <img src="../../assets/images/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Robert N. Myhre | Independent Technology Research
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Intelligence Placement Under Constraint
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Robert N. Myhre | Independent Technology Research" class="md-nav__button md-logo" aria-label="Robert N. Myhre | Independent Technology Research" data-md-component="logo">
+      
+  <img src="../../assets/images/favicon.svg" alt="logo">
+
+    </a>
+    Robert N. Myhre | Independent Technology Research
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Investigations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Investigations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experimental & Prototype Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Experimental & Prototype Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-boundary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Boundary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu-communication-boundaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Communication Boundaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moe-routing-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoE Routing Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-platform-case-study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Platform Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompt-guardrail-single-gpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Security Guardrails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architectural Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architectural Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intelligence Placement Under Constraint
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intelligence Placement Under Constraint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intelligence-placement-as-an-architecture-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intelligence Placement as an Architecture Decision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Intelligence Placement as an Architecture Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#device-or-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Device or endpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-or-gateway-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local or gateway infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise core
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model factory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-system-is-defined-by-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The System Is Defined by Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-becomes-a-continuous-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Becomes a Continuous Property
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#silent-failure-and-decision-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Silent Failure and Decision Observability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraints-as-forcing-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints as Forcing Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constraints as Forcing Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#latency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Latency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-locality-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data locality and governance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operational-complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operational complexity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vendor-and-platform-dependency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vendor and platform dependency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trust
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architectural-finding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architectural Finding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-framework-demonstrates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Framework Demonstrates
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptual Investigations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Conceptual Investigations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Bridging
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project Bridging
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-bridging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/project-bridging/ai-as-a-scaffold-for-human-connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paper 1 — Conceptual Framework
+  
+
+    
+      <br>
+      <small>A Framework for Discovery and Communication</small>
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--Independent research working paper; not peer reviewed"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/project-bridging/empowerment-preserving-ai-mediation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paper 2 — Research Concept
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference-architectures/monitor-classify-escalate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitor → Classify → Escalate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference-architectures/plan-approve-execute-verify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan → Approve → Execute → Verify
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research-Derived Architectures
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research-Derived Architectures
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference-architectures/governed-agentic-infrastructure-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governed Agentic Infrastructure Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research-methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intelligence-placement-as-an-architecture-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Intelligence Placement as an Architecture Decision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Intelligence Placement as an Architecture Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#device-or-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Device or endpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-or-gateway-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local or gateway infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise core
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-factory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model factory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-system-is-defined-by-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The System Is Defined by Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-becomes-a-continuous-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Becomes a Continuous Property
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#silent-failure-and-decision-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Silent Failure and Decision Observability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraints-as-forcing-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constraints as Forcing Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constraints as Forcing Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#latency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Latency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-locality-and-governance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data locality and governance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cost
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operational-complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operational complexity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vendor-and-platform-dependency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vendor and platform dependency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trust
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architectural-finding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architectural Finding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-framework-demonstrates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Framework Demonstrates
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="intelligence-placement-under-constraint-a-framework-for-distributed-ai">Intelligence Placement Under Constraint: A Framework for Distributed AI</h1>
+<p><strong>Context:</strong> Independent architecture research<br>
+<strong>Status:</strong> Framework retained from a retired white paper<br>
+<strong>Domain:</strong> Distributed AI, intelligence placement, decision flow, governance, observability, failure modes</p>
+<blockquote>
+<p>This framework originated in a broader white paper exploring distributed intelligence in enterprise environments. The original paper was later retired as the industry moved faster than parts of its framing, but several architectural concepts remained useful: intelligence placement, context and decision flow, silent failure, distributed control boundaries, and constraint-driven architecture.</p>
+</blockquote>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>As AI moves into enterprise operations, the architecture problem becomes larger than deciding where to host a model.</p>
+<p>Intelligence may execute across endpoints, local or edge infrastructure, enterprise platforms, and centralized model environments. Each location offers different advantages and constraints.</p>
+<p>The useful architectural question is therefore not:</p>
+<blockquote>
+<p>Where should the AI platform live?</p>
+</blockquote>
+<p>It is:</p>
+<blockquote>
+<p><strong>Where should a particular form of intelligence execute, given the constraints of the environment?</strong></p>
+</blockquote>
+<p>Those constraints can include latency, data locality, governance, cost, resilience, operational complexity, and trust.</p>
+<p>The framework treats centralized and distributed intelligence as complementary patterns rather than competing architectures.</p>
+<hr />
+<h2 id="intelligence-placement-as-an-architecture-decision">Intelligence Placement as an Architecture Decision</h2>
+<p>A useful way to reason about distributed AI is as a set of execution layers.</p>
+<h3 id="device-or-endpoint">Device or endpoint</h3>
+<p>The closest layer to the user, sensor, or source of data.</p>
+<p>This layer is useful when:</p>
+<ul>
+<li>latency must be very low</li>
+<li>connectivity may be unreliable</li>
+<li>sensitive data should remain local</li>
+<li>filtering or preprocessing can reduce what must travel upstream</li>
+</ul>
+<h3 id="local-or-gateway-infrastructure">Local or gateway infrastructure</h3>
+<p>A site-local or regional layer with more compute and broader context than an endpoint.</p>
+<p>This layer can:</p>
+<ul>
+<li>aggregate signals from multiple sources</li>
+<li>provide local inference or enrichment</li>
+<li>reduce dependence on centralized connectivity</li>
+<li>retain data closer to its source</li>
+</ul>
+<h3 id="enterprise-core">Enterprise core</h3>
+<p>The enterprise layer is likely to remain the primary execution point for many complex AI workflows.</p>
+<p>It provides:</p>
+<ul>
+<li>broader organizational context</li>
+<li>access to enterprise systems and data</li>
+<li>stronger governance and audit controls</li>
+<li>more efficient shared compute</li>
+<li>integration across multiple workflows and models</li>
+</ul>
+<h3 id="model-factory">Model factory</h3>
+<p>Training, fine-tuning, evaluation, and model lifecycle activities form another layer.</p>
+<p>The model factory is not necessarily the center of the operational system. It supplies models and capabilities to the layers where intelligence is actually consumed.</p>
+<p>The architecture emerges from how responsibilities are divided across these layers.</p>
+<hr />
+<h2 id="the-system-is-defined-by-flow">The System Is Defined by Flow</h2>
+<p>Component placement alone does not describe the behavior of a distributed AI system.</p>
+<p>The more useful model is flow.</p>
+<p><strong>Context flows upstream.</strong></p>
+<p>Signals are captured, filtered, enriched, retrieved, and combined as they move toward systems with broader awareness.</p>
+<p><strong>Decisions flow downstream.</strong></p>
+<p>Recommendations, policies, outputs, and constraints move back toward users, applications, or execution environments.</p>
+<figure style="width: 65%; margin: 1.5rem auto;">
+  <img
+    src="../assets/projects/intelligence-placement-under-constraint/system-defined-by-flow.png"
+    alt="Context flows upstream through the operational layers while decisions flow downstream toward action."
+    style="width: 100%; height: auto;"
+  >
+    <figcaption style="font-size: 0.7rem; line-height: 1.35; text-align: center; margin-top: 0.4rem;">
+    Context flows upstream toward broader awareness, while decisions flow downstream toward action.
+    </figcaption>
+</figure>
+
+<p>There can also be lateral flows between models, agents, tools, or systems operating at the same layer.</p>
+<p>This creates an architecture defined not only by connectivity, but by:</p>
+<ul>
+<li>where context is gathered</li>
+<li>where decisions are made</li>
+<li>what information is permitted at each stage</li>
+<li>how decisions are constrained</li>
+<li>where trust boundaries exist</li>
+<li>how failure propagates through the decision process</li>
+</ul>
+<p>For infrastructure architects, this is a familiar way of thinking applied to a new object.</p>
+<p>Networks have long been understood through flows, constraints, and failure domains.</p>
+<p>Distributed AI adds <strong>decision flow</strong> to that model.</p>
+<hr />
+<h2 id="security-becomes-a-continuous-property">Security Becomes a Continuous Property</h2>
+<p>Traditional infrastructure security often focuses on boundaries: who can connect, what can cross a zone, and which systems can communicate.</p>
+<p>AI-driven systems introduce additional questions.</p>
+<p>A request may influence data retrieval, model reasoning, external tools, or infrastructure actions.</p>
+<p>Security therefore has to consider:</p>
+<ul>
+<li><strong>Intent</strong> — what is the request attempting to accomplish?</li>
+<li><strong>Context</strong> — what information may be accessed?</li>
+<li><strong>Action</strong> — what is the system permitted to do?</li>
+<li><strong>Outcome</strong> — how is the resulting output validated?</li>
+</ul>
+<p>Controls may need to exist at multiple points in the system rather than at one centralized boundary.</p>
+<p>That can include:</p>
+<ul>
+<li>prompt and intent controls</li>
+<li>dynamic context scoping</li>
+<li>tool and action authorization</li>
+<li>deterministic policy enforcement</li>
+<li>output validation</li>
+<li>auditing and traceability</li>
+</ul>
+<p>The security architecture increasingly follows the decision flow itself.</p>
+<hr />
+<h2 id="silent-failure-and-decision-observability">Silent Failure and Decision Observability</h2>
+<p>One of the more important differences between traditional infrastructure and AI-driven systems is that a system can be technically healthy while producing a degraded decision.</p>
+<p>Consider a system that successfully answers a request but was unable to retrieve part of the required operational context.</p>
+<p>Traditional monitoring may report:</p>
+<ul>
+<li>the service is available</li>
+<li>latency is normal</li>
+<li>the request completed</li>
+<li>no dependency reported an outage</li>
+</ul>
+<p>Yet the recommendation may have been generated from incomplete information.</p>
+<p>The system is operational, but its <strong>decision conditions are degraded</strong>.</p>
+<p>This creates a class of silent failures that normal infrastructure monitoring does not fully expose.</p>
+<p>A useful distinction is:</p>
+<blockquote>
+<p><strong>Infrastructure observability asks whether the system is functioning.</strong></p>
+<p><strong>Decision observability asks under what conditions the decision was made.</strong></p>
+</blockquote>
+<p>Meaningful AI observability may therefore need to include:</p>
+<ul>
+<li>context completeness</li>
+<li>data lineage</li>
+<li>decision traceability</li>
+<li>model confidence</li>
+<li>confidence in the data used by the model</li>
+<li>visibility into degraded decision conditions</li>
+</ul>
+<p>Availability alone is not enough.</p>
+<hr />
+<h2 id="constraints-as-forcing-functions">Constraints as Forcing Functions</h2>
+<p>Distributed AI architecture is not determined only by technical possibility.</p>
+<p>Several forces shape where intelligence can realistically execute.</p>
+<h3 id="latency">Latency</h3>
+<p>Some decisions benefit from local execution because centralized inference introduces unacceptable delay.</p>
+<h3 id="data-locality-and-governance">Data locality and governance</h3>
+<p>Policy, privacy, regulatory, or operational boundaries may limit where information can move.</p>
+<h3 id="cost">Cost</h3>
+<p>Centralized infrastructure can provide higher utilization and simpler operations. Distributed execution may improve locality or resilience while increasing infrastructure and management cost.</p>
+<h3 id="operational-complexity">Operational complexity</h3>
+<p>Every additional execution environment creates lifecycle, observability, support, and coordination requirements.</p>
+<h3 id="vendor-and-platform-dependency">Vendor and platform dependency</h3>
+<p>Enterprise AI systems will often combine internal systems with external models, platforms, and managed services. Those dependencies can reduce visibility or architectural control.</p>
+<h3 id="trust">Trust</h3>
+<p>A technically capable system may still fail operationally if the people responsible for outcomes cannot understand or trust its behavior.</p>
+<p>These constraints do not produce one ideal architecture.</p>
+<p>They determine which combination of centralized and distributed patterns is practical.</p>
+<hr />
+<h2 id="architectural-finding">Architectural Finding</h2>
+<blockquote>
+<p><strong>Centralized and distributed intelligence are not opposing architecture choices.</strong></p>
+</blockquote>
+<p>Centralization often provides:</p>
+<ul>
+<li>operational simplicity</li>
+<li>stronger governance</li>
+<li>shared infrastructure efficiency</li>
+<li>easier auditing and lifecycle management</li>
+</ul>
+<p>Distribution can provide:</p>
+<ul>
+<li>lower latency</li>
+<li>stronger locality</li>
+<li>resilience to connectivity constraints</li>
+<li>tighter control over sensitive information</li>
+</ul>
+<p>Most enterprise architectures will likely combine both.</p>
+<p>The architectural task is to determine <strong>which intelligence belongs where, under which constraints, and with which control boundaries</strong>.</p>
+<hr />
+<h2 id="what-this-framework-demonstrates">What This Framework Demonstrates</h2>
+<p>This work was not intended as a prediction of a particular distributed-AI product architecture.</p>
+<p>It was an attempt to create a reusable way to reason about systems whose correctness increasingly depends on more than moving data successfully.</p>
+<p>The durable questions are:</p>
+<ul>
+<li>Where is intelligence placed?</li>
+<li>What context is available at each layer?</li>
+<li>How do context and decisions move?</li>
+<li>Where are authority and control applied?</li>
+<li>What failures remain invisible to normal monitoring?</li>
+<li>Which constraints determine whether distribution is actually justified?</li>
+</ul>
+<p>Technologies and platforms will continue to change.</p>
+<p>Those questions remain useful because they focus on the structure and behavior of the system rather than on a particular implementation.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

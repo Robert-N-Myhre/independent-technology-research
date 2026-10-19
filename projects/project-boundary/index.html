@@ -1,0 +1,1802 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Architecture case study on using implementation to test how enterprise AI can consume governed context and influence consequential infrastructure under deterministic evidence, authority, and recovery controls.">
+      
+      
+        <meta name="author" content="Robert N. Myhre">
+      
+      
+        <link rel="canonical" href="https://robert-n-myhre.github.io/independent-technology-research/projects/project-boundary/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../gpu-communication-boundaries/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Project Boundary — Governing Consequential Automation - Robert N. Myhre | Independent Technology Research</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/styles/print.css">
+    
+      <link rel="stylesheet" href="../../assets/styles/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <meta name="author" content="Robert N. Myhre">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Robert N. Myhre | Independent Technology Research">
+  <meta property="og:title" content="Project Boundary | Robert N. Myhre | Independent Technology Research">
+  
+  <meta property="og:description" content="Architecture case study on using implementation to test how enterprise AI can consume governed context and influence consequential infrastructure under deterministic evidence, authority, and recovery controls.">
+  
+  <meta property="og:url" content="https://robert-n-myhre.github.io/independent-technology-research/projects/project-boundary/">
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Project Boundary | Robert N. Myhre | Independent Technology Research">
+  <meta name="twitter:description" content="Architecture case study on using implementation to test how enterprise AI can consume governed context and influence consequential infrastructure under deterministic evidence, authority, and recovery controls.">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#project-boundary-governing-consequential-automation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Robert N. Myhre | Independent Technology Research" class="md-header__button md-logo" aria-label="Robert N. Myhre | Independent Technology Research" data-md-component="logo">
+      
+  <img src="../../assets/images/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Robert N. Myhre | Independent Technology Research
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Project Boundary — Governing Consequential Automation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Robert N. Myhre | Independent Technology Research" class="md-nav__button md-logo" aria-label="Robert N. Myhre | Independent Technology Research" data-md-component="logo">
+      
+  <img src="../../assets/images/favicon.svg" alt="logo">
+
+    </a>
+    Robert N. Myhre | Independent Technology Research
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Investigations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Investigations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experimental & Prototype Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Experimental & Prototype Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Boundary
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Boundary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#two-questions-before-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two questions before implementation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-the-implementation-stopped-expressing-the-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When the implementation stopped expressing the architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture at a glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#four-architecture-turns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Four architecture turns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Four architecture turns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-deterministic-gate-can-still-be-blind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A deterministic gate can still be blind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-trusted-system-does-not-make-every-field-trustworthy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A trusted system does not make every field trustworthy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopping-safely-is-not-enough-if-the-operator-is-stranded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stopping safely is not enough if the operator is stranded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-enterprise-grants-the-ai-its-autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The enterprise grants the AI its autonomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-implementation-demonstrated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the implementation demonstrated
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-i-stopped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why I stopped
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-collaboration-and-architecture-decision-accountability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI collaboration and architecture decision accountability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claims-and-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claims and limits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-applies-beyond-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What applies beyond Boundary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gpu-communication-boundaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU Communication Boundaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moe-routing-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MoE Routing Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mcp-platform-case-study/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Platform Case Study
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompt-guardrail-single-gpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prompt Security Guardrails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architectural Research
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architectural Research
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intelligence-placement-under-constraint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intelligence Placement Under Constraint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conceptual Investigations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Conceptual Investigations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Bridging
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project Bridging
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-bridging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/project-bridging/ai-as-a-scaffold-for-human-connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paper 1 — Conceptual Framework
+  
+
+    
+      <br>
+      <small>A Framework for Discovery and Communication</small>
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--Independent research working paper; not peer reviewed"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/project-bridging/empowerment-preserving-ai-mediation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paper 2 — Research Concept
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference-architectures/monitor-classify-escalate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monitor → Classify → Escalate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference-architectures/plan-approve-execute-verify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan → Approve → Execute → Verify
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research-Derived Architectures
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research-Derived Architectures
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference-architectures/governed-agentic-infrastructure-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governed Agentic Infrastructure Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research-methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#two-questions-before-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two questions before implementation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-the-implementation-stopped-expressing-the-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When the implementation stopped expressing the architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture at a glance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#four-architecture-turns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Four architecture turns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Four architecture turns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-deterministic-gate-can-still-be-blind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A deterministic gate can still be blind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-trusted-system-does-not-make-every-field-trustworthy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A trusted system does not make every field trustworthy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopping-safely-is-not-enough-if-the-operator-is-stranded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stopping safely is not enough if the operator is stranded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-enterprise-grants-the-ai-its-autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The enterprise grants the AI its autonomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-implementation-demonstrated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the implementation demonstrated
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-i-stopped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why I stopped
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-collaboration-and-architecture-decision-accountability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI collaboration and architecture decision accountability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#claims-and-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claims and limits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-applies-beyond-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What applies beyond Boundary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="project-boundary-governing-consequential-automation">Project Boundary — Governing Consequential Automation</h1>
+<p><strong>Context:</strong> Independent architecture research<br />
+<strong>Status:</strong> Research prototype complete for its intended investigation; production concerns remain open<br />
+<strong>Architecture domains:</strong> Agentic AI · Infrastructure Automation · Security &amp; Context Integrity · Authority &amp; Authorization · Evidence &amp; Provenance · Recovery &amp; Operational Safety · Policy &amp; Governance</p>
+<p class="boundary-lede"><strong>I used implementation to test and evolve a Reference Architecture for a consequential form of enterprise AI: systems whose reasoning may influence production infrastructure.</strong></p>
+
+<div class="boundary-question-grid" role="group" aria-label="The two architecture questions that shaped Boundary">
+  <section class="boundary-question-card boundary-question-card--input">
+    <p class="boundary-question-card__eyebrow">Input / Context integrity</p>
+    <h3>What do I trust the model to consume?</h3>
+    <p>Which information is safe, attributable, and sufficiently governed to influence probabilistic reasoning?</p>
+    <p class="boundary-question-card__concepts">provenance · screening · field trust · acquisition</p>
+  </section>
+  <section class="boundary-question-card boundary-question-card--consequence">
+    <p class="boundary-question-card__eyebrow">Consequence / Authority</p>
+    <h3>What do I trust the model's reasoning to influence?</h3>
+    <p>Where does probabilistic judgment end, and where must deterministic control and accountable authority begin?</p>
+    <p class="boundary-question-card__concepts">verification · authorization · blast radius · recovery</p>
+  </section>
+</div>
+
+<h2 id="two-questions-before-implementation">Two questions before implementation</h2>
+<p>I wanted to explore a different class of enterprise AI use: not assisting with documents, communications, or other knowledge work, but influencing changes to production infrastructure. Server patching became the proving ground.</p>
+<p>I created a Reference Architecture before I wrote any code. As it evolved in the days before implementation, the two questions above came to dominate the design.</p>
+<p>Those questions protected opposite sides of the reasoning path.</p>
+<p>On the consequence side, the architecture separated reasoning, control, and authority. Models could interpret, analyze, propose, and record. Deterministic orchestration governed progression. Human decisions and policy governed what the system was allowed to cause. Agents did not own estate mutation.</p>
+<p>On the input side, the architecture treated model context as a security boundary of its own. Free-form content could be malformed, misleading, or adversarial even when it arrived through a legitimate workflow. By the final pre-implementation version of the Reference Architecture, that concern had become an explicit <strong>context-integrity plane</strong> alongside the <strong>patch-safety plane</strong>.</p>
+<p>The second question mattered enough that, before implementation began, I had already run a small supporting experiment to see whether a dedicated security/classification model and the reasoning model could coexist on the same GPU. I wanted to know semantic screening was a practical control before relying on it in the design.</p>
+<p>The screener itself was narrow by design: bounded output, no tools, no memory, and no mutation authority. It contributed risk evidence about content entering reasoning and had no say in what the system did with it.</p>
+<p>By the time implementation began, the architecture protected two things separately: the integrity of information entering reasoning, and the authority governing what that reasoning could cause.</p>
+<p>Then I built enough of that architecture to try to break its assumptions.</p>
+<div class="boundary-research-strip" aria-label="Architecture research method">
+  <div class="boundary-research-strip__flow">
+    <span>Reference Architecture</span>
+    <span aria-hidden="true">→</span>
+    <span>Implementation</span>
+    <span aria-hidden="true">→</span>
+    <span>Evidence</span>
+    <span aria-hidden="true">→</span>
+    <span>Revise / Preserve / Stop</span>
+  </div>
+  <p><strong>Implementation was the research instrument, not the destination.</strong></p>
+</div>
+
+<h2 id="when-the-implementation-stopped-expressing-the-architecture">When the implementation stopped expressing the architecture</h2>
+<p>The first implementation exercised the architecture one vertical slice at a time. It confirmed several principles early:</p>
+<ul>
+<li>models should produce artifacts rather than actions;</li>
+<li>screening results should contribute evidence without owning consequence;</li>
+<li>model output should not create affirmative safety;</li>
+<li>human approval needs explicit scope;</li>
+<li>ambiguous outcomes should reconcile before another mutation;</li>
+<li>validation must mean more than "the automation job completed."</li>
+</ul>
+<p>But local fixes accumulated. Each one could be defended individually, while the system as a whole became harder to reason about, so I restarted the implementation.</p>
+<p>I kept the code, tests, findings, and failed assumptions as evidence, and dropped any obligation to preserve an implementation because effort had already gone into it. The second build carried forward the architectural invariants that had survived and restarted from a thin end-to-end walking skeleton.</p>
+<p>The question behind that restart recurred throughout Boundary:</p>
+<blockquote>
+<p><strong>I preserved the evidence and restarted the implementation. The question was: is the problem in the architecture, or only in the way I realized it?</strong></p>
+</blockquote>
+<h2 id="architecture-at-a-glance">Architecture at a glance</h2>
+<p>The evolved architecture retained the two-sided protection model, but both sides became more explicit.</p>
+<div class="boundary-architecture" role="img" aria-label="Flow showing operator and enterprise information entering through governed preparation or acquisition, including a deterministic evidence floor, then provenance, field classification, and screening before probabilistic reasoning. A proposal is deterministically verified before an independent authority boundary. Work without mutation authority becomes Advisory; transaction or standing authorization can proceed to controlled consequence, conditional governed recovery, and validation.">
+  <section class="boundary-architecture__zone boundary-architecture__zone--context">
+    <p class="boundary-architecture__zone-label">Context</p>
+    <div class="boundary-architecture__node boundary-architecture__node--source">
+      <strong>Operator Input · Enterprise Sources · External Content</strong>
+    </div>
+    <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
+    <div class="boundary-architecture__node boundary-architecture__node--control">
+      <span class="boundary-architecture__eyebrow">Governed context entry / acquisition</span>
+      <strong>Prepared Input · Deterministic Source Access</strong>
+      <span>includes the gate-required acquisition floor</span>
+    </div>
+    <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
+    <div class="boundary-architecture__node boundary-architecture__node--boundary">
+      <span class="boundary-architecture__eyebrow">Context integrity boundary</span>
+      <strong>Provenance · Field Classification · Screening</strong>
+    </div>
+  </section>
+
+  <div class="boundary-architecture__connector" aria-hidden="true">↓</div>
+
+  <section class="boundary-architecture__zone boundary-architecture__zone--reasoning">
+    <p class="boundary-architecture__zone-label">Reasoning &amp; deterministic control</p>
+    <div class="boundary-architecture__node boundary-architecture__node--reasoning">
+      <span class="boundary-architecture__eyebrow">Probabilistic</span>
+      <strong>Reasoning</strong>
+    </div>
+    <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
+    <div class="boundary-architecture__node">
+      <strong>Plan / Proposal</strong>
+    </div>
+    <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
+    <div class="boundary-architecture__node boundary-architecture__node--control">
+      <span class="boundary-architecture__eyebrow">Deterministic</span>
+      <strong>Deterministic Verification</strong>
+    </div>
+  </section>
+
+  <div class="boundary-architecture__connector" aria-hidden="true">↓</div>
+
+  <section class="boundary-architecture__zone boundary-architecture__zone--authority">
+    <p class="boundary-architecture__zone-label">Authority &amp; consequence</p>
+    <div class="boundary-architecture__node boundary-architecture__node--authority-boundary">
+      <span class="boundary-architecture__eyebrow">Independent authority boundary</span>
+      <strong>What is the system allowed to cause?</strong>
+      <span>Human act or prior governed policy supplies authority; model judgment does not.</span>
+    </div>
+
+    <div class="boundary-authority-split">
+      <div class="boundary-authority-stop">
+        <span class="boundary-authority-branch-label">No applicable mutation authority</span>
+        <div class="boundary-authority-lane boundary-authority-lane--advisory">
+          <strong>Advisory</strong>
+          <span>Human-usable outcome</span>
+          <span>No automated consequence</span>
+        </div>
+      </div>
+
+      <div class="boundary-authority-go">
+        <span class="boundary-authority-branch-label">Governed mutation authority exists</span>
+        <div class="boundary-authority-lanes">
+          <div class="boundary-authority-lane boundary-authority-lane--authorized">
+            <span class="boundary-architecture__eyebrow">Exact human act</span>
+            <strong>Transaction Authorization</strong>
+          </div>
+          <div class="boundary-authority-lane boundary-authority-lane--authorized">
+            <span class="boundary-architecture__eyebrow">Prior governed act</span>
+            <strong>Standing Policy Authorization</strong>
+          </div>
+        </div>
+
+        <div class="boundary-authorized-flow">
+          <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
+          <div class="boundary-architecture__node boundary-architecture__node--consequence">
+            <strong>Controlled Consequence</strong>
+          </div>
+          <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
+          <div class="boundary-post-consequence">
+            <div class="boundary-post-consequence__path">
+              <span class="boundary-architecture__eyebrow">Normal completion</span>
+              <strong>Continue to validation</strong>
+            </div>
+            <div class="boundary-post-consequence__path boundary-post-consequence__path--recovery">
+              <span class="boundary-architecture__eyebrow">Stop / recovery path</span>
+              <strong>Governed Stop / Recovery</strong>
+              <span>separate authority when recovery mutates state</span>
+            </div>
+          </div>
+          <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
+          <div class="boundary-architecture__node boundary-architecture__node--validation">
+            <strong>Deterministic Validation</strong>
+            <span>built / tested · not operator-accepted</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<p>The prototype demonstrated that path through controlled execution and governed recovery in a simulated estate. Deterministic validation was built and tested but did not complete its operator acceptance walk. Later anomaly validation, final outcome/learning, and the real execution adapter remained open.</p>
+<p class="boundary-evidence-key" aria-label="Architecture evidence-depth summary">
+  <strong>Evidence depth:</strong>
+  demonstrated through governed recovery · deterministic validation built/tested but not operator-accepted · later anomaly/final-outcome/learning stages remained open
+</p>
+
+<p>That distinction between architectural intent and demonstrated depth is part of the result.</p>
+<h2 id="four-architecture-turns">Four architecture turns</h2>
+<p class="boundary-turn__label">Architecture turn 01</p>
+
+<h3 id="a-deterministic-gate-can-still-be-blind">A deterministic gate can still be blind</h3>
+<p>The original architecture was right that consequential decisions should be owned by deterministic controls. What it missed was that a deterministic decision is only as good as the evidence it is guaranteed to receive.</p>
+<p>In one implementation path, a reasoning agent decided which operational evidence to retrieve. A deterministic verifier then evaluated the proposal using the evidence that happened to be available. On paper, the final decision was deterministic.</p>
+<p>In practice, one specimen exposed the flaw. A governed source and current observed state disagreed, but the agent retrieved only one side of the comparison. The conflict gate worked exactly as designed and still missed the conflict because the evidence required to trigger it never arrived.</p>
+<p>A second case showed the same weakness from another direction. The agent could spend its retrieval attempts on useful but nonessential context and still fail to collect the minimum facts the control required.</p>
+<p>So I changed the architecture. For every gate-required input, the deterministic side became responsible for obtaining a minimum evidence set before probabilistic reasoning could proceed. The model could still investigate beyond that floor, but it no longer decided whether the control received the evidence necessary to enforce its own rule.</p>
+<p>I called that minimum the <strong>Deterministic Acquisition Floor</strong>.</p>
+<blockquote>
+<p><strong>A control must own reliable access to the evidence required to enforce itself.</strong></p>
+</blockquote>
+<p>The project exposed a broader lesson: authority can leak through evidence dependencies even when the final decision point is deterministic.</p>
+<p class="boundary-turn__label">Architecture turn 02</p>
+
+<h3 id="a-trusted-system-does-not-make-every-field-trustworthy">A trusted system does not make every field trustworthy</h3>
+<p>The second question, whether I trust the information going into the model, did not disappear once a screener existed. Implementation made it harder.</p>
+<p>The pre-implementation design treated unstructured natural language as an injection surface and gave the screener several points where hostile content could enter reasoning. As new context paths appeared, I kept asking the same question: could content entering here be malicious or malformed, and so unsafe to treat as instruction?</p>
+<p>The first implementation reinforced one boundary quickly. A conservative screening result could not be allowed to become its own authority path. The screener could classify risk, but deterministic policy still had to own the consequence.</p>
+<p>The deeper problem was the architecture's original source-level trust model. Structured enterprise systems were treated as trusted and typed, while free-form material was screened. That distinction was useful, but too coarse. A governed system may tightly control an identifier, lifecycle state, or policy value while also carrying operator-entered notes, imported descriptions, or script-generated prose.</p>
+<p>Calling the whole source "trusted" collapses two different questions: who is authorized to write into the system, and whether a specific field is safe to admit into a reasoning context.</p>
+<p>The architecture moved from source-level trust to field/content-level trust. Typed, enumerable fields could follow the governed structured path. Free-form prose from any source, including an otherwise governed enterprise system, followed a screened, provenance-preserving path.</p>
+<div class="boundary-trust-evolution" role="img" aria-label="Trust evolution from pre-implementation screening of unstructured content, through the discovery that governed sources contain mixed-trust fields, to field-level trust enforced by governed acquisition, provenance, screening, withholding, and explicit evidence gaps.">
+  <div class="boundary-trust-step">
+    <span class="boundary-trust-step__label">Pre-implementation</span>
+    <strong>Unstructured content is an injection surface</strong>
+    <span>Screen potentially hostile natural-language context before it influences reasoning.</span>
+  </div>
+  <div class="boundary-trust-arrow" aria-hidden="true">→</div>
+  <div class="boundary-trust-step boundary-trust-step--pressure">
+    <span class="boundary-trust-step__label">Implementation pressure</span>
+    <strong>A governed source can still contain untrusted prose</strong>
+    <span>Source authority and semantic trust are different properties.</span>
+  </div>
+  <div class="boundary-trust-arrow" aria-hidden="true">→</div>
+  <div class="boundary-trust-step boundary-trust-step--revision">
+    <span class="boundary-trust-step__label">Architecture revision</span>
+    <strong>Trust follows the field / content</strong>
+    <span>Typed fields and free-form prose take different governed paths.</span>
+  </div>
+  <div class="boundary-trust-arrow" aria-hidden="true">→</div>
+  <div class="boundary-trust-step boundary-trust-step--operationalized">
+    <span class="boundary-trust-step__label">Operationalized</span>
+    <strong>Context Acquisition Gateway</strong>
+    <span>Classify · preserve provenance · screen prose · withhold flagged content · record the gap.</span>
+  </div>
+  <p class="boundary-trust-evolution__caption"><strong>Screening remained a control; the architecture around trust became broader.</strong></p>
+</div>
+
+<p>The change also moved acquisition behind a governed boundary. The <strong>Context Acquisition Gateway</strong> controlled the tool surface, classified returned fields, preserved provenance, screened prose, and withheld flagged content. When it withheld something, it recorded the gap explicitly.</p>
+<blockquote>
+<p><strong>Governance of a system establishes write authority. Semantic trust in each field it contains has to be established separately.</strong></p>
+</blockquote>
+<p>Screening remained important, now as one mechanism inside a broader context-integrity architecture.</p>
+<p>I later generalized that work into a separate Reasoning Context Admission architecture. The abstraction came after Boundary, using the project's evidence as the basis for that generalization.</p>
+<p class="boundary-turn__label">Architecture turn 03</p>
+
+<h3 id="stopping-safely-is-not-enough-if-the-operator-is-stranded">Stopping safely is not enough if the operator is stranded</h3>
+<p>Boundary was designed to fail closed. If evidence was insufficient or authority was missing, the system should stop. That remained correct.</p>
+<p>Operator use of the live prototype exposed that a safe stop could still be operationally incomplete. A workflow could refuse to proceed for the right reason and leave the human with no clear, governed next step.</p>
+<p>That changed the design in two ways.</p>
+<p>First, Advisory had been a terminal label and became an operating outcome. When automation lacked authority, the system needed to hand a human enough verified context to understand the proposed work, why automation stopped, what evidence existed, and what legitimate action could follow.</p>
+<p>Second, once the prototype could change simulated state, recovery exposed the same issue on the other side of consequence. The original approval covered the planned action only. Calling a new mutation "recovery" did not bring it under that approval, so I treated recovery as a separate governed authority event. A human could authorize a recovery strategy already bound to the verified plan, but could not invent a new recovery action at the stop.</p>
+<p>The prototype exercised three different outcomes: recovery refused because mutation could not be proven, recovery completed under separate authorization, and recovery itself failed and stopped without further mutation.</p>
+<blockquote>
+<p><strong>If recovery can change consequential state, it needs its own scope, evidence, identity, and accountable authorization.</strong></p>
+</blockquote>
+<p>Fail-closed behavior was necessary, and governed recovery made it usable.</p>
+<p class="boundary-turn__label">Architecture turn 04</p>
+
+<h3 id="the-enterprise-grants-the-ai-its-autonomy">The enterprise grants the AI its autonomy</h3>
+<p>The original architecture treated autonomy as tiered and earned. Implementation forced that idea into a more explicit authority model.</p>
+<p>Boundary separated four things:</p>
+<ul>
+<li><strong>workload tier:</strong> the maximum authority a class of work may receive;</li>
+<li><strong>current autonomy lane:</strong> its present operating posture;</li>
+<li><strong>transaction authorization:</strong> a human authorizes this exact plan;</li>
+<li><strong>standing authorization:</strong> a prior governed act authorizes a bounded class of operations.</li>
+</ul>
+<p>The model owns none of those.</p>
+<p>A later test exposed another weakness. One standing-policy envelope could govern one class correctly, but it could not represent several workload classes operating under different authority postures at the same time. The design moved to a non-overlapping policy portfolio.</p>
+<p>With the portfolio, one orchestrator could demonstrate three different outcomes at once:</p>
+<ul>
+<li>a workload operating under prior standing authority;</li>
+<li>a workload producing a human-usable Advisory outcome;</li>
+<li>a workload with no applicable authority refusing before execution.</li>
+</ul>
+<p>A simple automatic/manual switch cannot express that.</p>
+<p>The test also exposed a limitation. If lower-authority operation is supposed to help a workload earn greater autonomy later, those lower-authority paths must produce the evidence future promotion policy will consume. Boundary did not complete that evidence-production loop.</p>
+<p>The project demonstrated governed autonomy lanes and explicit promotion authority, but not a complete earned-autonomy lifecycle.</p>
+<blockquote>
+<p><strong>Autonomy is a governed operating posture over bounded work. Promotion is an enterprise authorization decision made on evidence.</strong></p>
+</blockquote>
+<h2 id="what-the-implementation-demonstrated">What the implementation demonstrated</h2>
+<p>Boundary exercised evidence on both sides of reasoning.</p>
+<div class="boundary-question-grid boundary-question-grid--compact" role="group" aria-label="Evidence questions exercised by the implementation">
+  <section class="boundary-question-card boundary-question-card--input">
+    <p class="boundary-question-card__eyebrow">Before consequence</p>
+    <p><strong>What information is safe enough, well-enough classified, and sufficiently evidenced to influence reasoning?</strong></p>
+  </section>
+  <section class="boundary-question-card boundary-question-card--consequence">
+    <p class="boundary-question-card__eyebrow">Across / after consequence</p>
+    <p><strong>What evidence must exist before that reasoning is allowed to influence action, and what proves what happened afterward?</strong></p>
+  </section>
+</div>
+
+<p>The semantic screener was the first real model path implemented in the original build, with adversarial canaries used to test the bounded contract. Later work showed both its value and its limits: screening could contribute useful risk evidence, but it did not make source trust simple, it could miss hostile content, and its verdict still had to remain subordinate to deterministic policy.</p>
+<p>Execution exposed a parallel evidence problem after action. I ran real execution probes before defining the execution contract. Those probes showed that automation-tool status fields could not be treated as self-interpreting evidence. In one case, a result reported that change had occurred even though the attempted rollback had failed before changing the host. Other probes exposed similar ambiguity around reachability, transaction identity, and rollback behavior.</p>
+<p>So I built the execution contract around the semantics I had measured.</p>
+<div class="boundary-evidence-key" aria-label="Evidence status key">
+  <span class="boundary-evidence-chip"><strong>Demonstrated</strong> — exercised through the working prototype / accepted path</span>
+  <span class="boundary-evidence-chip"><strong>Probed</strong> — semantics derived from operator-run real probes</span>
+  <span class="boundary-evidence-chip"><strong>Built / Tested</strong> — implemented and tested, but not fully operator-accepted</span>
+  <span class="boundary-evidence-chip"><strong>Open</strong> — target or production obligation, not demonstrated</span>
+</div>
+
+<div class="boundary-evidence-table" role="region" aria-label="Boundary implementation evidence status" tabindex="0">
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Area</th>
+      <th scope="col">Status</th>
+      <th scope="col">Evidence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>semantic screening / governed context controls</td><td><strong>Demonstrated</strong></td><td>exercised with real-model canaries; refined through field-level trust and governed acquisition</td></tr>
+    <tr><td>deterministic evidence floor</td><td><strong>Demonstrated</strong></td><td>executable and mutation-tested guards</td></tr>
+    <tr><td>transaction and standing authorization</td><td><strong>Demonstrated</strong></td><td>exercised end to end</td></tr>
+    <tr><td>multi-lane autonomy + Advisory</td><td><strong>Demonstrated</strong></td><td>exercised end to end</td></tr>
+    <tr><td>execution-result semantics</td><td><strong>Probed</strong></td><td>derived from operator-run real probes</td></tr>
+    <tr><td>controlled execution + governed recovery</td><td><strong>Demonstrated</strong></td><td>exercised end to end in the simulated estate</td></tr>
+    <tr><td>deterministic validation</td><td><strong>Built / Tested</strong></td><td>implemented and tested; not operator-accepted</td></tr>
+    <tr><td>anomaly validation / final outcome / learning</td><td><strong>Open</strong></td><td>not built</td></tr>
+    <tr><td>production HA, policy lifecycle, evidence custody, segregation of duties</td><td><strong>Open</strong></td><td>production obligations not demonstrated</td></tr>
+  </tbody>
+</table>
+</div>
+
+<blockquote>
+<p><strong>Related artifacts:</strong> <a href="https://github.com/Robert-N-Myhre/project-boundary-evidence" rel="noopener noreferrer" target="_blank">Inspect the evidence</a> supporting the claims above, or <a href="../../reference-architectures/governed-agentic-infrastructure-operations/">read the distilled Project Boundary Reference Architecture</a> that captures the reusable architecture resulting from the investigation.</p>
+</blockquote>
+<p>A successful run proves that a path occurred. A mutation test can show that removing a guard changes the result. A canary can show that a screening path reacts to a known specimen. None of those establishes production reliability, operational rates, model accuracy, or production safety.</p>
+<h2 id="why-i-stopped">Why I stopped</h2>
+<p>I continued building while the next increment still had an architecture question worth answering. Execution and recovery met that test. They exposed new questions about evidence, consequence, and recovery authority, so I built them.</p>
+<p>By October 8, the remaining work was still legitimate engineering: complete operator acceptance of deterministic validation, build the later validation/learning stages, integrate a real execution adapter, and address production concerns such as HA, policy lifecycle, evidence custody, and segregation of duties. But those increments were about completing the product, and they no longer challenged the architecture.</p>
+<blockquote>
+<p><strong>I stopped when the next increments were increasingly about completing the product rather than challenging the architecture.</strong></p>
+</blockquote>
+<p>I ended the project when further implementation was no longer likely to falsify or change the design. Boundary is unfinished as a production automation platform. As an architecture investigation, it had reached diminishing returns.</p>
+<h2 id="ai-collaboration-and-architecture-decision-accountability">AI collaboration and architecture decision accountability</h2>
+<p>AI models and coding agents were involved throughout Boundary. They helped surface defects, challenge assumptions, develop alternatives, implement experiments, and generate tests.</p>
+<p>I treated AI participation and architecture decision accountability as separate things. The project distinguished discovering a problem, developing alternatives, selecting the governing direction, implementing the response, and validating the result.</p>
+<p>Where the surviving record supports explicit ownership, I use it. Where it does not, I do not reconstruct certainty after the fact.</p>
+<p>Boundary's own architecture makes the same separation. Being able to propose or implement something is different from being accountable for deciding what should govern consequential behavior.</p>
+<h2 id="claims-and-limits">Claims and limits</h2>
+<div class="boundary-claims-grid">
+  <section class="boundary-claim-panel boundary-claim-panel--demonstrates">
+    <h3>What Boundary demonstrates</h3>
+    <ul>
+      <li>probabilistic reasoning can be separated from consequence-bearing authority;</li>
+      <li>untrusted natural-language context can be screened through a bounded function without granting that function decision authority;</li>
+      <li>trust can be governed at field/content level;</li>
+      <li>deterministic controls can own the evidence required to enforce themselves;</li>
+      <li>autonomy can be represented as an enterprise authority posture;</li>
+      <li>safe stops can remain operable without widening authority;</li>
+      <li>recovery can be governed as a separate consequential act;</li>
+      <li>implementation can be used to falsify an architecture as well as realize it.</li>
+    </ul>
+  </section>
+  <section class="boundary-claim-panel boundary-claim-panel--limits">
+    <h3>What Boundary does not establish</h3>
+    <ul>
+      <li>reliable detection of all hostile or misleading content;</li>
+      <li>production-grade HA;</li>
+      <li>enterprise policy lifecycle, evidence custody, or segregation of duties;</li>
+      <li>statistically justified autonomy thresholds;</li>
+      <li>production model accuracy;</li>
+      <li>complete validation / outcome / learning depth;</li>
+      <li>a universal enterprise operating model for agentic automation.</li>
+    </ul>
+  </section>
+</div>
+
+<h2 id="what-applies-beyond-boundary">What applies beyond Boundary</h2>
+<div class="boundary-closing-questions" role="group" aria-label="The two questions Boundary carries forward">
+  <p><strong>What do I trust the model to consume?</strong></p>
+  <p><strong>What do I trust the model's reasoning to influence?</strong></p>
+</div>
+
+<p>The implementation context was agentic infrastructure automation, but the architectural conclusions are broader:</p>
+<ol>
+<li>Capability and authority are different properties.</li>
+<li>Source authority and content trust are different properties.</li>
+<li>A control must own the evidence required to enforce itself.</li>
+<li>Autonomy is a governed operating posture over bounded work.</li>
+<li>Safe failure is incomplete without governed recovery.</li>
+</ol>
+<p>The project also reinforced a working method I use beyond AI systems:</p>
+<blockquote>
+<p><strong>Implementation is useful architecture work when it is built deeply enough to make assumptions falsifiable.</strong></p>
+</blockquote>
+<p>Boundary did not become valuable because I kept making the automation platform more complete. It became valuable because implementation forced me to get more precise about both sides of the reasoning boundary: what I was willing to let shape the model's judgment, and what I was willing to let that judgment cause.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

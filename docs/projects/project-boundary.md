@@ -1,442 +1,235 @@
 ---
-title: "Project Boundary — Governing Consequential Automation"
-description: "Architecture case study on using implementation to test how enterprise AI can consume governed context and influence consequential infrastructure under deterministic evidence, authority, and recovery controls."
+title: "Project Boundary: Where AI Reasoning Ends and Operational Authority Begins"
+description: "An architecture research case study in context integrity, deterministic evidence, governed authority, and recovery for consequential AI infrastructure operations."
 ---
 
-# Project Boundary — Governing Consequential Automation
+# Project Boundary: Where AI reasoning ends and operational authority begins
 
-**Context:** Independent architecture research  
-**Status:** Research prototype complete for its intended investigation; production concerns remain open  
-**Architecture domains:** Agentic AI · Infrastructure Automation · Security & Context Integrity · Authority & Authorization · Evidence & Provenance · Recovery & Operational Safety · Policy & Governance
-
-<p class="boundary-lede"><strong>I used implementation to test and evolve a Reference Architecture for a consequential form of enterprise AI: systems whose reasoning may influence production infrastructure.</strong></p>
-
-<div class="boundary-question-grid" role="group" aria-label="The two architecture questions that shaped Boundary">
-  <section class="boundary-question-card boundary-question-card--input">
-    <p class="boundary-question-card__eyebrow">Input / Context integrity</p>
-    <h3>What do I trust the model to consume?</h3>
-    <p>Which information is safe, attributable, and sufficiently governed to influence probabilistic reasoning?</p>
-    <p class="boundary-question-card__concepts">provenance · screening · field trust · acquisition</p>
-  </section>
-  <section class="boundary-question-card boundary-question-card--consequence">
-    <p class="boundary-question-card__eyebrow">Consequence / Authority</p>
-    <h3>What do I trust the model's reasoning to influence?</h3>
-    <p>Where does probabilistic judgment end, and where must deterministic control and accountable authority begin?</p>
-    <p class="boundary-question-card__concepts">verification · authorization · blast radius · recovery</p>
-  </section>
-</div>
-
-## Two questions before implementation
-
-I wanted to explore a different class of enterprise AI use: not assisting with documents, communications, or other knowledge work, but influencing changes to production infrastructure. Server patching became the proving ground.
-
-I created a Reference Architecture before I wrote any code. As it evolved in the days before implementation, the two questions above came to dominate the design.
-
-Those questions protected opposite sides of the reasoning path.
-
-On the consequence side, the architecture separated reasoning, control, and authority. Models could interpret, analyze, propose, and record. Deterministic orchestration governed progression. Human decisions and policy governed what the system was allowed to cause. Agents did not own estate mutation.
-
-On the input side, the architecture treated model context as a security boundary of its own. Free-form content could be malformed, misleading, or adversarial even when it arrived through a legitimate workflow. By the final pre-implementation version of the Reference Architecture, that concern had become an explicit **context-integrity plane** alongside the **patch-safety plane**.
-
-The second question mattered enough that, before implementation began, I had already run a small supporting experiment to see whether a dedicated security/classification model and the reasoning model could coexist on the same GPU. I wanted to know semantic screening was a practical control before relying on it in the design.
-
-The screener itself was narrow by design: bounded output, no tools, no memory, and no mutation authority. It contributed risk evidence about content entering reasoning and had no say in what the system did with it.
-
-By the time implementation began, the architecture protected two things separately: the integrity of information entering reasoning, and the authority governing what that reasoning could cause.
-
-Then I built enough of that architecture to try to break its assumptions.
-
-<div class="boundary-research-strip" aria-label="Architecture research method">
-  <div class="boundary-research-strip__flow">
-    <span>Reference Architecture</span>
-    <span aria-hidden="true">→</span>
-    <span>Implementation</span>
-    <span aria-hidden="true">→</span>
-    <span>Evidence</span>
-    <span aria-hidden="true">→</span>
-    <span>Revise / Preserve / Stop</span>
-  </div>
-  <p><strong>Implementation was the research instrument, not the destination.</strong></p>
-</div>
-
-## When the implementation stopped expressing the architecture
-
-The first implementation exercised the architecture one vertical slice at a time. It confirmed several principles early:
-
-- models should produce artifacts rather than actions;
-- screening results should contribute evidence without owning consequence;
-- model output should not create affirmative safety;
-- human approval needs explicit scope;
-- ambiguous outcomes should reconcile before another mutation;
-- validation must mean more than "the automation job completed."
-
-But local fixes accumulated. Each one could be defended individually, while the system as a whole became harder to reason about, so I restarted the implementation.
-
-I kept the code, tests, findings, and failed assumptions as evidence, and dropped any obligation to preserve an implementation because effort had already gone into it. The second build carried forward the architectural invariants that had survived and restarted from a thin end-to-end walking skeleton.
-
-The question behind that restart recurred throughout Boundary:
-
-> **I preserved the evidence and restarted the implementation. The question was: is the problem in the architecture, or only in the way I realized it?**
-
-## Architecture at a glance
-
-The evolved architecture retained the two-sided protection model, but both sides became more explicit.
-
-<div class="boundary-architecture" role="img" aria-label="Flow showing operator and enterprise information entering through governed preparation or acquisition, including a deterministic evidence floor, then provenance, field classification, and screening before probabilistic reasoning. A proposal is deterministically verified before an independent authority boundary. Work without mutation authority becomes Advisory; transaction or standing authorization can proceed to controlled consequence, conditional governed recovery, and validation.">
-  <section class="boundary-architecture__zone boundary-architecture__zone--context">
-    <p class="boundary-architecture__zone-label">Context</p>
-    <div class="boundary-architecture__node boundary-architecture__node--source">
-      <strong>Operator Input · Enterprise Sources · External Content</strong>
-    </div>
-    <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
-    <div class="boundary-architecture__node boundary-architecture__node--control">
-      <span class="boundary-architecture__eyebrow">Governed context entry / acquisition</span>
-      <strong>Prepared Input · Deterministic Source Access</strong>
-      <span>includes the gate-required acquisition floor</span>
-    </div>
-    <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
-    <div class="boundary-architecture__node boundary-architecture__node--boundary">
-      <span class="boundary-architecture__eyebrow">Context integrity boundary</span>
-      <strong>Provenance · Field Classification · Screening</strong>
-    </div>
-  </section>
-
-  <div class="boundary-architecture__connector" aria-hidden="true">↓</div>
-
-  <section class="boundary-architecture__zone boundary-architecture__zone--reasoning">
-    <p class="boundary-architecture__zone-label">Reasoning &amp; deterministic control</p>
-    <div class="boundary-architecture__node boundary-architecture__node--reasoning">
-      <span class="boundary-architecture__eyebrow">Probabilistic</span>
-      <strong>Reasoning</strong>
-    </div>
-    <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
-    <div class="boundary-architecture__node">
-      <strong>Plan / Proposal</strong>
-    </div>
-    <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
-    <div class="boundary-architecture__node boundary-architecture__node--control">
-      <span class="boundary-architecture__eyebrow">Deterministic</span>
-      <strong>Deterministic Verification</strong>
-    </div>
-  </section>
-
-  <div class="boundary-architecture__connector" aria-hidden="true">↓</div>
-
-  <section class="boundary-architecture__zone boundary-architecture__zone--authority">
-    <p class="boundary-architecture__zone-label">Authority &amp; consequence</p>
-    <div class="boundary-architecture__node boundary-architecture__node--authority-boundary">
-      <span class="boundary-architecture__eyebrow">Independent authority boundary</span>
-      <strong>What is the system allowed to cause?</strong>
-      <span>Human act or prior governed policy supplies authority; model judgment does not.</span>
-    </div>
-
-    <div class="boundary-authority-split">
-      <div class="boundary-authority-stop">
-        <span class="boundary-authority-branch-label">No applicable mutation authority</span>
-        <div class="boundary-authority-lane boundary-authority-lane--advisory">
-          <strong>Advisory</strong>
-          <span>Human-usable outcome</span>
-          <span>No automated consequence</span>
-        </div>
-      </div>
-
-      <div class="boundary-authority-go">
-        <span class="boundary-authority-branch-label">Governed mutation authority exists</span>
-        <div class="boundary-authority-lanes">
-          <div class="boundary-authority-lane boundary-authority-lane--authorized">
-            <span class="boundary-architecture__eyebrow">Exact human act</span>
-            <strong>Transaction Authorization</strong>
-          </div>
-          <div class="boundary-authority-lane boundary-authority-lane--authorized">
-            <span class="boundary-architecture__eyebrow">Prior governed act</span>
-            <strong>Standing Policy Authorization</strong>
-          </div>
-        </div>
-
-        <div class="boundary-authorized-flow">
-          <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
-          <div class="boundary-architecture__node boundary-architecture__node--consequence">
-            <strong>Controlled Consequence</strong>
-          </div>
-          <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
-          <div class="boundary-post-consequence">
-            <div class="boundary-post-consequence__path">
-              <span class="boundary-architecture__eyebrow">Normal completion</span>
-              <strong>Continue to validation</strong>
-            </div>
-            <div class="boundary-post-consequence__path boundary-post-consequence__path--recovery">
-              <span class="boundary-architecture__eyebrow">Stop / recovery path</span>
-              <strong>Governed Stop / Recovery</strong>
-              <span>separate authority when recovery mutates state</span>
-            </div>
-          </div>
-          <div class="boundary-architecture__arrow" aria-hidden="true">↓</div>
-          <div class="boundary-architecture__node boundary-architecture__node--validation">
-            <strong>Deterministic Validation</strong>
-            <span>built / tested · not operator-accepted</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-The prototype demonstrated that path through controlled execution and governed recovery in a simulated estate. Deterministic validation was built and tested but did not complete its operator acceptance walk. Later anomaly validation, final outcome/learning, and the real execution adapter remained open.
-
-<p class="boundary-evidence-key" aria-label="Architecture evidence-depth summary">
-  <strong>Evidence depth:</strong>
-  demonstrated through governed recovery · deterministic validation built/tested but not operator-accepted · later anomaly/final-outcome/learning stages remained open
-</p>
-
-That distinction between architectural intent and demonstrated depth is part of the result.
-
-## Four architecture turns
+*Exploring how AI agents can participate in consequential infrastructure operations without inheriting uncontrolled authority over the systems they influence.*
 
-<p class="boundary-turn__label">Architecture turn 01</p>
-
-### A deterministic gate can still be blind
-
-The original architecture was right that consequential decisions should be owned by deterministic controls. What it missed was that a deterministic decision is only as good as the evidence it is guaranteed to receive.
-
-In one implementation path, a reasoning agent decided which operational evidence to retrieve. A deterministic verifier then evaluated the proposal using the evidence that happened to be available. On paper, the final decision was deterministic.
+Enterprise infrastructure automation is something we've been doing for decades. We have mature tools for deploying configurations, provisioning infrastructure, applying software updates, and performing operational tasks across thousands of systems. The questions change when we introduce AI into the decisions surrounding those operations.
 
-In practice, one specimen exposed the flaw. A governed source and current observed state disagreed, but the agent retrieved only one side of the comparison. The conflict gate worked exactly as designed and still missed the conflict because the evidence required to trigger it never arrived.
+An AI agent can interpret information from multiple sources, identify relationships, evaluate alternatives, and recommend a course of action. Those capabilities could be valuable in enterprise operations, particularly where engineers spend considerable time investigating conditions before deciding what automation should do. But recommending an action is different from having the authority to execute it.
 
-A second case showed the same weakness from another direction. The agent could spend its retrieval attempts on useful but nonessential context and still fail to collect the minimum facts the control required.
+That difference became the foundation for Project Boundary, an independent architecture research project exploring how probabilistic AI reasoning could participate in infrastructure operations while remaining subject to deterministic controls and enterprise governance.
 
-So I changed the architecture. For every gate-required input, the deterministic side became responsible for obtaining a minimum evidence set before probabilistic reasoning could proceed. The model could still investigate beyond that floor, but it no longer decided whether the control received the evidence necessary to enforce its own rule.
+The project began with a hypothetical enterprise Linux patching scenario, with no customer environment or production deployment involved. The scenario was realistic enough to investigate the architectural decisions that come into play once AI can influence consequential infrastructure changes. My objective was to determine what kind of architecture would make AI participation in those operations governable.
 
-I called that minimum the **Deterministic Acquisition Floor**.
+As the investigation developed, two questions came to define almost everything that followed:
 
-> **A control must own reliable access to the evidence required to enforce itself.**
+**What do I trust the model to consume?**
 
-The project exposed a broader lesson: authority can leak through evidence dependencies even when the final decision point is deterministic.
+**What do I trust the model's reasoning to influence?**
 
-<p class="boundary-turn__label">Architecture turn 02</p>
+These sound like straightforward questions. In practice, they led to some of the project's more useful architectural findings.
 
-### A trusted system does not make every field trustworthy
+## Starting with the architecture
 
-The second question, whether I trust the information going into the model, did not disappear once a screener existed. Implementation made it harder.
+I chose Linux patching because it illustrates a familiar operational problem. Tools such as Ansible Automation Platform can execute patching workflows reliably, package management systems can identify available updates, and monitoring systems can provide operational telemetry. None of those capabilities resolves the surrounding decisions. Which systems should be patched together? What application dependencies exist? Could taking a particular group of servers offline affect service availability? What evidence should establish that the operation succeeded? And if something goes wrong, how does the system decide what happens next?
 
-The pre-implementation design treated unstructured natural language as an injection surface and gave the screener several points where hostile content could enter reasoning. As new context paths appeared, I kept asking the same question: could content entering here be malicious or malformed, and so unsafe to treat as instruction?
+These questions frequently require information from multiple enterprise systems, along with operational knowledge that may not be represented in a single authoritative source. This is where AI reasoning could help. Working alongside existing automation, an agent might interpret operational context, identify dependencies, recommend maintenance groups, or investigate unexpected outcomes. Allowing an agent to perform that reasoning does not mean it should also decide what actions are authorized.
 
-The first implementation reinforced one boundary quickly. A conservative screening result could not be allowed to become its own authority path. The screener could classify risk, but deterministic policy still had to own the consequence.
+I began by developing a Reference Architecture that separated three responsibilities. AI components capable of interpreting context and developing proposals would handle reasoning. Deterministic orchestration would handle control, verifying evidence, enforcing constraints, and governing workflow progression. Authority would remain with explicitly governed human decisions or previously approved enterprise policies. The execution systems would continue performing the actual infrastructure changes.
 
-The deeper problem was the architecture's original source-level trust model. Structured enterprise systems were treated as trusted and typed, while free-form material was screened. That distinction was useful, but too coarse. A governed system may tightly control an identifier, lifecycle state, or policy value while also carrying operator-entered notes, imported descriptions, or script-generated prose.
+This separation established an architectural principle that remained consistent throughout the investigation:
 
-Calling the whole source "trusted" collapses two different questions: who is authorized to write into the system, and whether a specific field is safe to admit into a reasoning context.
+**AI may make decisions within an authorized boundary, but it cannot independently define, expand, or waive that boundary.**
 
-The architecture moved from source-level trust to field/content-level trust. Typed, enumerable fields could follow the governed structured path. Free-form prose from any source, including an otherwise governed enterprise system, followed a screened, provenance-preserving path.
+The principle carries particular weight with probabilistic systems. A model can produce a technically plausible recommendation that is incomplete, incorrect, or based on misleading information. Improving the model may reduce those risks, but it doesn't eliminate the need for independent operational controls. The architecture therefore needed to treat AI output as something to evaluate rather than something that automatically carried authority.
 
-<div class="boundary-trust-evolution" role="img" aria-label="Trust evolution from pre-implementation screening of unstructured content, through the discovery that governed sources contain mixed-trust fields, to field-level trust enforced by governed acquisition, provenance, screening, withholding, and explicit evidence gaps.">
-  <div class="boundary-trust-step">
-    <span class="boundary-trust-step__label">Pre-implementation</span>
-    <strong>Unstructured content is an injection surface</strong>
-    <span>Screen potentially hostile natural-language context before it influences reasoning.</span>
-  </div>
-  <div class="boundary-trust-arrow" aria-hidden="true">→</div>
-  <div class="boundary-trust-step boundary-trust-step--pressure">
-    <span class="boundary-trust-step__label">Implementation pressure</span>
-    <strong>A governed source can still contain untrusted prose</strong>
-    <span>Source authority and semantic trust are different properties.</span>
-  </div>
-  <div class="boundary-trust-arrow" aria-hidden="true">→</div>
-  <div class="boundary-trust-step boundary-trust-step--revision">
-    <span class="boundary-trust-step__label">Architecture revision</span>
-    <strong>Trust follows the field / content</strong>
-    <span>Typed fields and free-form prose take different governed paths.</span>
-  </div>
-  <div class="boundary-trust-arrow" aria-hidden="true">→</div>
-  <div class="boundary-trust-step boundary-trust-step--operationalized">
-    <span class="boundary-trust-step__label">Operationalized</span>
-    <strong>Context Acquisition Gateway</strong>
-    <span>Classify · preserve provenance · screen prose · withhold flagged content · record the gap.</span>
-  </div>
-  <p class="boundary-trust-evolution__caption"><strong>Screening remained a control; the architecture around trust became broader.</strong></p>
-</div>
+## The other side of the problem: what enters the model?
 
-The change also moved acquisition behind a governed boundary. The **Context Acquisition Gateway** controlled the tool surface, classified returned fields, preserved provenance, screened prose, and withheld flagged content. When it withheld something, it recorded the gap explicitly.
-
-> **Governance of a system establishes write authority. Semantic trust in each field it contains has to be established separately.**
-
-Screening remained important, now as one mechanism inside a broader context-integrity architecture.
-
-I later generalized that work into a separate Reasoning Context Admission architecture. The abstraction came after Boundary, using the project's evidence as the basis for that generalization.
-
-<p class="boundary-turn__label">Architecture turn 03</p>
-
-### Stopping safely is not enough if the operator is stranded
-
-Boundary was designed to fail closed. If evidence was insufficient or authority was missing, the system should stop. That remained correct.
-
-Operator use of the live prototype exposed that a safe stop could still be operationally incomplete. A workflow could refuse to proceed for the right reason and leave the human with no clear, governed next step.
-
-That changed the design in two ways.
-
-First, Advisory had been a terminal label and became an operating outcome. When automation lacked authority, the system needed to hand a human enough verified context to understand the proposed work, why automation stopped, what evidence existed, and what legitimate action could follow.
+Much of the early architecture focused on what an AI agent should be allowed to do. As I worked through the design, I became increasingly interested in what the agent was being allowed to know, or more precisely, what information it was allowed to use as the basis for operational reasoning.
 
-Second, once the prototype could change simulated state, recovery exposed the same issue on the other side of consequence. The original approval covered the planned action only. Calling a new mutation "recovery" did not bring it under that approval, so I treated recovery as a separate governed authority event. A human could authorize a recovery strategy already bound to the verified plan, but could not invent a new recovery action at the stop.
+Enterprise AI systems rarely operate on carefully curated prompts alone. They consume tickets, inventory records, runbooks, monitoring results, application descriptions, configuration details, and information retrieved through tools. Some of that information is structured and governed. Some is free-form text. Some may be outdated or contradictory, and some could contain malicious instructions intended to change the behavior of the model.
 
-The prototype exercised three different outcomes: recovery refused because mutation could not be proven, recovery completed under separate authorization, and recovery itself failed and stopped without further mutation.
+An agent could therefore reach an unsafe conclusion without ever receiving direct authority to execute an action. The architecture might correctly prevent the model from calling an execution tool, yet still permit the model to influence the inputs used by the system that makes the final decision. I began treating the information entering AI reasoning as a separate security boundary.
 
-> **If recovery can change consequential state, it needs its own scope, evidence, identity, and accountable authorization.**
+The initial design included a dedicated semantic screening function to evaluate potentially hostile natural-language content before admitting it into the reasoning context. Before implementing the larger architecture, I also conducted a small supporting experiment to investigate whether a dedicated screening model and a reasoning model could coexist on the same GPU. The purpose was to explore the practicality of model-based screening as an architectural component.
 
-Fail-closed behavior was necessary, and governed recovery made it usable.
+The results were encouraging, with some qualifications. On the tested NVIDIA RTX 4000 Ada, the two models occupied 16,559 MiB of the GPU's measured 20,475 MiB total, leaving 3,916 MiB free on that basis. Co-residency was practical, but it didn't provide useful parallel inference in the tested configuration. Across a 17-case comparison, the pipelined arrangement was about 1.2% slower per case than sequential execution. That gave me a workable basis for local semantic screening without requiring a separate GPU for each model. The [single-GPU guardrail research](https://github.com/Robert-N-Myhre/prompt-guardrail-single-gpu) includes the measurements and their limitations.
 
-<p class="boundary-turn__label">Architecture turn 04</p>
+The screening function was intentionally constrained, with bounded outputs, no operational tools, no persistent memory, and no authority to modify infrastructure. It could contribute evidence about potentially unsafe content, but it could not decide what operational consequences should follow. That limit mattered from the beginning, and implementation would make it matter more.
 
-### The enterprise grants the AI its autonomy
+## Using implementation to challenge the architecture
 
-The original architecture treated autonomy as tiered and earned. Implementation forced that idea into a more explicit authority model.
+After developing the Reference Architecture, I began implementing it through a series of vertical slices. I wanted enough working functionality to test whether the architectural boundaries behaved the way I expected them to, and a complete enterprise automation platform was never the intention.
 
-Boundary separated four things:
+That approach produced useful findings early. The implementation reinforced the need for AI models to produce proposals and evidence rather than executable commands. It also demonstrated why safety decisions could not depend solely on affirmative judgments from an AI model. Human authorization needed to bind to a specific operation, ambiguous execution outcomes needed to be reconciled before another mutation, and validation needed to establish more than whether an automation job returned a successful status. Each of these findings influenced the implementation.
 
-- **workload tier:** the maximum authority a class of work may receive;
-- **current autonomy lane:** its present operating posture;
-- **transaction authorization:** a human authorizes this exact plan;
-- **standing authorization:** a prior governed act authorizes a bounded class of operations.
+Eventually I encountered a different problem. The first implementation had accumulated a series of local changes. Each change addressed a legitimate issue, but the combined result was becoming increasingly difficult to reason about. I could have continued fixing it, but I was no longer confident that doing so was the best way to evaluate the architecture, so I restarted.
 
-The model owns none of those.
+I preserved the code, tests, findings, and failed assumptions from the first implementation as research evidence. The second implementation began with a thinner end-to-end path, carrying forward the architectural principles that had survived the first investigation.
 
-A later test exposed another weakness. One standing-policy envelope could govern one class correctly, but it could not represent several workload classes operating under different authority postures at the same time. The design moved to a non-overlapping policy portfolio.
+This became one of the project's clearer methodological lessons. An implementation can fail to express an architecture without necessarily proving the architecture itself is wrong. Conversely, successfully executing a workflow does not establish that the intended architectural controls are actually present. The responsibility is to tell those conditions apart and revise the appropriate part of the system. For Boundary, implementation was a research instrument, and preserving the architecture's testability mattered more than preserving every line of code.
 
-With the portfolio, one orchestrator could demonstrate three different outcomes at once:
+## When a deterministic control doesn't have enough evidence
 
-- a workload operating under prior standing authority;
-- a workload producing a human-usable Advisory outcome;
-- a workload with no applicable authority refusing before execution.
+One of the project's main findings involved evidence acquisition. The architecture already required deterministic verification before an operation could proceed. The reasoning agents could propose actions, but a separate control component would determine whether the necessary conditions had been satisfied. That seemed like a reasonable separation of responsibilities. The problem appeared when I examined how the evidence reached the verifier.
 
-A simple automatic/manual switch cannot express that.
+In one implementation path, the reasoning agent was responsible for deciding which operational information to retrieve. The deterministic verifier then evaluated the proposal against the information that had been collected. The decision itself was deterministic, but the evidence available to make that decision depended on the agent's earlier choices.
 
-The test also exposed a limitation. If lower-authority operation is supposed to help a workload earn greater autonomy later, those lower-authority paths must produce the evidence future promotion policy will consume. Boundary did not complete that evidence-production loop.
+A test involving a simulated server, app-db-02, exposed the weakness. The governed Source of Truth reported RHEL 9.2, while the current observed state reported RHEL 9.4. The architecture contained a deterministic control intended to identify precisely that kind of conflict, but the agent retrieved only the Source-of-Truth record. The control accepted the scope because it never received the live facts needed to identify the disagreement.
 
-The project demonstrated governed autonomy lanes and explicit promotion authority, but not a complete earned-autonomy lifecycle.
+The problem went beyond retrieval quality. It was architectural:
 
-> **Autonomy is a governed operating posture over bounded work. Promotion is an enterprise authorization decision made on evidence.**
-
-## What the implementation demonstrated
-
-Boundary exercised evidence on both sides of reasoning.
-
-<div class="boundary-question-grid boundary-question-grid--compact" role="group" aria-label="Evidence questions exercised by the implementation">
-  <section class="boundary-question-card boundary-question-card--input">
-    <p class="boundary-question-card__eyebrow">Before consequence</p>
-    <p><strong>What information is safe enough, well-enough classified, and sufficiently evidenced to influence reasoning?</strong></p>
-  </section>
-  <section class="boundary-question-card boundary-question-card--consequence">
-    <p class="boundary-question-card__eyebrow">Across / after consequence</p>
-    <p><strong>What evidence must exist before that reasoning is allowed to influence action, and what proves what happened afterward?</strong></p>
-  </section>
-</div>
-
-The semantic screener was the first real model path implemented in the original build, with adversarial canaries used to test the bounded contract. Later work showed both its value and its limits: screening could contribute useful risk evidence, but it did not make source trust simple, it could miss hostile content, and its verdict still had to remain subordinate to deterministic policy.
-
-Execution exposed a parallel evidence problem after action. I ran real execution probes before defining the execution contract. Those probes showed that automation-tool status fields could not be treated as self-interpreting evidence. In one case, a result reported that change had occurred even though the attempted rollback had failed before changing the host. Other probes exposed similar ambiguity around reachability, transaction identity, and rollback behavior.
-
-So I built the execution contract around the semantics I had measured.
-
-<div class="boundary-evidence-key" aria-label="Evidence status key">
-  <span class="boundary-evidence-chip"><strong>Demonstrated</strong> — exercised through the working prototype / accepted path</span>
-  <span class="boundary-evidence-chip"><strong>Probed</strong> — semantics derived from operator-run real probes</span>
-  <span class="boundary-evidence-chip"><strong>Built / Tested</strong> — implemented and tested, but not fully operator-accepted</span>
-  <span class="boundary-evidence-chip"><strong>Open</strong> — target or production obligation, not demonstrated</span>
-</div>
+**A deterministic decision is not necessarily a trustworthy decision if a probabilistic component controls whether the required evidence is available.**
 
-<div class="boundary-evidence-table" role="region" aria-label="Boundary implementation evidence status" tabindex="0">
-<table>
-  <thead>
-    <tr>
-      <th scope="col">Area</th>
-      <th scope="col">Status</th>
-      <th scope="col">Evidence</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>semantic screening / governed context controls</td><td><strong>Demonstrated</strong></td><td>exercised with real-model canaries; refined through field-level trust and governed acquisition</td></tr>
-    <tr><td>deterministic evidence floor</td><td><strong>Demonstrated</strong></td><td>executable and mutation-tested guards</td></tr>
-    <tr><td>transaction and standing authorization</td><td><strong>Demonstrated</strong></td><td>exercised end to end</td></tr>
-    <tr><td>multi-lane autonomy + Advisory</td><td><strong>Demonstrated</strong></td><td>exercised end to end</td></tr>
-    <tr><td>execution-result semantics</td><td><strong>Probed</strong></td><td>derived from operator-run real probes</td></tr>
-    <tr><td>controlled execution + governed recovery</td><td><strong>Demonstrated</strong></td><td>exercised end to end in the simulated estate</td></tr>
-    <tr><td>deterministic validation</td><td><strong>Built / Tested</strong></td><td>implemented and tested; not operator-accepted</td></tr>
-    <tr><td>anomaly validation / final outcome / learning</td><td><strong>Open</strong></td><td>not built</td></tr>
-    <tr><td>production HA, policy lifecycle, evidence custody, segregation of duties</td><td><strong>Open</strong></td><td>production obligations not demonstrated</td></tr>
-  </tbody>
-</table>
-</div>
+I revised the architecture to introduce what I called the *Deterministic Acquisition Floor*. Under this model, the deterministic side of the system becomes responsible for obtaining a minimum required set of evidence before consequential reasoning can proceed. Agents may still investigate additional information. They can retrieve context, explore relationships, and develop more informed recommendations. What they cannot do is determine whether the mandatory evidence required by a governing control will exist. This creates a clearer separation between discretionary investigation and required verification.
 
-> **Related artifacts:** [Inspect the evidence](https://github.com/Robert-N-Myhre/project-boundary-evidence){ target="_blank" rel="noopener noreferrer" } supporting the claims above, or [read the distilled Project Boundary Reference Architecture](../reference-architectures/governed-agentic-infrastructure-operations.md) that captures the reusable architecture resulting from the investigation.
+After introducing the floor, I repeated the conflict scenario. This time, the orchestrator acquired both records before the agent began reasoning, and the control correctly referred the disagreement for human review. Additional runs showed that a missing host produced an insufficient-evidence referral, while a clean, corroborated record could still proceed normally. The [before-and-after evidence](https://github.com/Robert-N-Myhre/project-boundary-evidence/tree/main/evidence/acquisition-floor) is published with the project's supporting research.
 
-A successful run proves that a path occurred. A mutation test can show that removing a guard changes the result. A canary can show that a screening path reacts to a known specimen. None of those establishes production reliability, operational rates, model accuracy, or production safety.
+The broader lesson extends beyond infrastructure automation. Whenever an AI agent participates in a governed decision, we need to examine who makes the final decision and who controls the information required to make it correctly. A control that doesn't own its evidence dependencies may have less authority than its architecture suggests.
 
-## Why I stopped
+## A trusted enterprise system can contain untrusted information
 
-I continued building while the next increment still had an architecture question worth answering. Execution and recovery met that test. They exposed new questions about evidence, consequence, and recovery authority, so I built them.
+The next finding developed from the other governing question: what information should the model be allowed to consume? The early context-integrity architecture distinguished between structured information from governed enterprise systems and unstructured natural-language content. Structured information could follow a trusted, typed path, while free-form content would pass through additional screening. This was a useful starting point, but implementation exposed a limitation: a governed enterprise system does not necessarily contain uniformly trustworthy information.
 
-By October 8, the remaining work was still legitimate engineering: complete operator acceptance of deterministic validation, build the later validation/learning stages, integrate a real execution adapter, and address production concerns such as HA, policy lifecycle, evidence custody, and segregation of duties. But those increments were about completing the product, and they no longer challenged the architecture.
+Consider a configuration management database. Its identifiers, lifecycle states, or controlled classification fields might be governed through established enterprise processes, and those fields can have meaningful authority within the systems that use them. The same record might also contain an operator-entered description, imported notes, or text populated by an external integration. Those fields do not automatically inherit the same semantic trust as the structured data around them.
 
-> **I stopped when the next increments were increasingly about completing the product rather than challenging the architecture.**
+**The authority to write information into a system is not the same as establishing that the information is safe for an AI model to interpret as context.**
 
-I ended the project when further implementation was no longer likely to falsify or change the design. Boundary is unfinished as a production automation platform. As an architecture investigation, it had reached diminishing returns.
+This changed the context-integrity architecture. Rather than assigning trust primarily at the source level, Boundary moved toward classifying information at the field and content level. Governed typed fields could follow an appropriate structured path. Free-form natural-language content, even when retrieved from a governed source, required additional handling.
 
-## AI collaboration and architecture decision accountability
+The Context Acquisition Gateway served as the governed entry point for information retrieved from enterprise systems and external sources. It constrained available acquisition mechanisms and preserved provenance. The architecture distinguished governed typed fields from free-form prose, with the latter requiring additional handling and screening where appropriate.
 
-AI models and coding agents were involved throughout Boundary. They helped surface defects, challenge assumptions, develop alternatives, implement experiments, and generate tests.
+The gateway was implemented and exercised in selected prototype paths, including the deterministic acquisition floor. The intake path also distinguished structured operator declarations from model-inferred fields and recorded their provenance. These results establish specific acquisition and provenance behaviors. The published evidence does not independently establish comprehensive field-level classification across every gateway source and content type.
 
-I treated AI participation and architecture decision accountability as separate things. The project distinguished discovering a problem, developing alternatives, selecting the governing direction, implementing the response, and validating the result.
+The semantic screener remained useful, but its role became more narrowly defined. It was one mechanism within a broader context-integrity architecture, not a general-purpose authority capable of declaring content safe.
 
-Where the surviving record supports explicit ownership, I use it. Where it does not, I do not reconstruct certainty after the fact.
+The first real-model screening evaluation used four test inputs, or canaries, consisting of three deliberately constructed malicious examples and one clean control. These inputs had known expected outcomes, allowing me to examine how the screening model and its surrounding controls responded to suspicious and legitimate content.
 
-Boundary's own architecture makes the same separation. Being able to propose or implement something is different from being accountable for deciding what should govern consequential behavior.
+Using Cisco's Foundation-Sec 1.1 8B security-focused language model, all three malicious examples were identified as suspicious through model judgment. However, the clean example produced no model verdict and was conservatively classified as suspicious by the deterministic fail-safe.
 
-## Claims and limits
+Subsequent implementation work exposed a different problem. An integration defect caused the web-intake screening path to evaluate a hardcoded test fixture rather than the operator-submitted input. That defect was corrected, and a deliberately suspicious input was used to verify the wiring. The earlier four-canary evaluation had exercised the model directly, before this later intake defect was encountered; its results did not depend on the faulty web path. A screener can produce a plausible verdict while evaluating the wrong information.
 
-<div class="boundary-claims-grid">
-  <section class="boundary-claim-panel boundary-claim-panel--demonstrates">
-    <h3>What Boundary demonstrates</h3>
-    <ul>
-      <li>probabilistic reasoning can be separated from consequence-bearing authority;</li>
-      <li>untrusted natural-language context can be screened through a bounded function without granting that function decision authority;</li>
-      <li>trust can be governed at field/content level;</li>
-      <li>deterministic controls can own the evidence required to enforce themselves;</li>
-      <li>autonomy can be represented as an enterprise authority posture;</li>
-      <li>safe stops can remain operable without widening authority;</li>
-      <li>recovery can be governed as a separate consequential act;</li>
-      <li>implementation can be used to falsify an architecture as well as realize it.</li>
-    </ul>
-  </section>
-  <section class="boundary-claim-panel boundary-claim-panel--limits">
-    <h3>What Boundary does not establish</h3>
-    <ul>
-      <li>reliable detection of all hostile or misleading content;</li>
-      <li>production-grade HA;</li>
-      <li>enterprise policy lifecycle, evidence custody, or segregation of duties;</li>
-      <li>statistically justified autonomy thresholds;</li>
-      <li>production model accuracy;</li>
-      <li>complete validation / outcome / learning depth;</li>
-      <li>a universal enterprise operating model for agentic automation.</li>
-    </ul>
-  </section>
-</div>
+These findings reinforced why screening couldn't serve as an independent authority boundary. The model's judgment, the integrity of the path delivering its inputs, and the deterministic handling of its results all required separate consideration. They also shaped subsequent research into how information should be evaluated and admitted into an AI system's reasoning context.
 
-## What applies beyond Boundary
+## When failing safely leaves the operator stranded
 
-<div class="boundary-closing-questions" role="group" aria-label="The two questions Boundary carries forward">
-  <p><strong>What do I trust the model to consume?</strong></p>
-  <p><strong>What do I trust the model's reasoning to influence?</strong></p>
-</div>
+Another architectural lesson appeared when the prototype began exercising stop conditions and recovery behavior. Boundary was designed to fail closed. If a required condition was not satisfied, evidence was missing, or appropriate authority could not be established, the system should not proceed with an infrastructure change. That principle remained sound. But working with the prototype exposed an operational problem: stopping safely did not always leave the operator with a useful next step. A workflow could correctly refuse to proceed while providing little help in understanding how the situation should be resolved. From the perspective of preventing unauthorized changes, the control was working. From the perspective of operating an enterprise system, it was incomplete.
 
-The implementation context was agentic infrastructure automation, but the architectural conclusions are broader:
+This led to a more explicit treatment of the *Advisory* outcome. Advisory had been simply a label indicating that automation would not proceed. It became a legitimate operating outcome that needed to produce useful information for a human. When automated mutation was not authorized, the system could still provide a verified description of the proposed operation, the evidence available, the reasons automation could not continue, and the legitimate next actions. The human remained responsible for any subsequent operational decision. This preserved the security boundary while making the system more usable.
 
-1. Capability and authority are different properties.
-2. Source authority and content trust are different properties.
-3. A control must own the evidence required to enforce itself.
-4. Autonomy is a governed operating posture over bounded work.
-5. Safe failure is incomplete without governed recovery.
+Recovery exposed a related issue. Once Boundary could change state within its simulated infrastructure environment, I needed to determine what should happen when a controlled operation failed or produced an uncertain result. The original authorization covered the planned action. It did not automatically authorize a second action simply because that action was described as rollback or recovery. Recovery may be intended to restore a system to a safer state, but it can still involve consequential infrastructure mutation, so it requires its own scope, evidence, identity, and authorization.
 
-The project also reinforced a working method I use beyond AI systems:
+I revised the design so recovery could occur under a separate governed authority event. A human could authorize an eligible recovery strategy already bound to the verified operation, but could not invent an unrestricted new recovery action at the point of failure.
 
-> **Implementation is useful architecture work when it is built deeply enough to make assumptions falsifiable.**
+The prototype exercised several recovery conditions. In one case, recovery was refused because the system could not prove that the original operation had changed anything. In another, a separately authorized recovery operation completed. A third case exercised recovery failure, where the system stopped without submitting the later undo step. These were simulated-estate tests, not evidence of production recovery reliability, but they were sufficient to exercise the difference between a safe stop and an authorized recovery action.
 
-Boundary did not become valuable because I kept making the automation platform more complete. It became valuable because implementation forced me to get more precise about both sides of the reasoning boundary: what I was willing to let shape the model's judgment, and what I was willing to let that judgment cause.
+The resulting principle was straightforward:
 
+**A safe stop prevents an unauthorized consequence. Governed recovery provides a controlled way forward without weakening that protection.**
+
+Enterprise AI systems need both.
+
+## Autonomy is something the enterprise grants
+
+One of the original goals of Boundary was to explore whether agents could eventually operate with greater autonomy as the system accumulated evidence of reliable behavior. It is tempting to think of autonomy as a property of the model. A more capable model might appear to deserve greater freedom to act, while a less capable model might require more human oversight. But model capability and operational authority are different properties. An enterprise might permit a particular class of routine, low-risk maintenance to proceed under standing authorization while requiring explicit approval for changes involving critical systems. That difference may have little to do with the model itself. It depends on the operation, its risk, its governing policy, and the evidence available to support a decision.
+
+Boundary therefore modeled autonomy as a governed operating posture associated with bounded classes of work, and several concepts needed to remain separate. A workload tier established the maximum level of authority permitted for a class of operations. An autonomy lane represented the current operating posture. Transaction authorization allowed a human to approve a specific verified operation. Standing authorization represented a prior governed decision allowing a defined class of operations to proceed without a new approval for every qualifying transaction. The AI model could propose work within those arrangements, but could not independently assign itself a different tier, promote its authority, or create a new policy.
+
+Implementation also demonstrated why one global autonomy setting was insufficient. An early design could apply a standing-policy envelope to a single class of work, but it was less effective when several workload classes needed to operate under different authority conditions simultaneously. I revised the architecture around a non-overlapping policy portfolio.
+
+The resulting prototype exercised multiple authority outcomes through the same orchestrator. One workload could operate under valid standing authorization. Another could produce an Advisory outcome for human consideration. A third, lacking applicable authority, would refuse to execute. Each outcome followed its own governing conditions, which offered a more expressive model than treating automation as simply manual or automatic.
+
+There was still a limitation. The architecture could represent different autonomy postures and enforce their authority boundaries, but it did not complete the full evidence-production and promotion lifecycle required for a workload to earn greater autonomy over time. That would require representative operational evidence, explicit promotion criteria, and accountable enterprise governance. The intended direction remained clear: autonomy should increase when evidence justifies a governed decision, and an agent's assertion that it is ready is no such evidence.
+
+## What did the implementation actually demonstrate?
+
+As Boundary developed, I tried to keep architectural ideas, implemented mechanisms, observed behavior, and unfinished capabilities clearly separate. This became particularly important because different parts of the architecture reached different levels of validation.
+
+The semantic screening path was exercised using Foundation-Sec and the canary inputs described earlier. Those tests helped evaluate the bounded screening contract, but did not establish complete protection against prompt injection. The Deterministic Acquisition Floor was exercised in before-and-after prototype runs and published executable negative-path tests, including cases where required evidence was missing or conflicting. Transaction authorization, standing authorization, multi-lane operation, and Advisory behavior were exercised through the working prototype. The simulated estate also supported controlled execution and governed recovery.
+
+Execution semantics required a separate investigation. Before defining the execution contract, I ran isolated probes of Ansible execution and rollback behavior to understand what its returned results actually represented. These were distinct from the integrated Boundary prototype, which used a simulated infrastructure estate to exercise orchestration, authorization, execution, and recovery.
+
+One probe showed that a result could report that a change had occurred even though an attempted rollback failed before making the corresponding change to the host. Other probes exposed ambiguity involving reachability, transaction identity, and rollback behavior. Those observations reinforced why an orchestration system should not treat a tool's returned status as authoritative evidence of the actual infrastructure outcome without understanding its semantics. The execution contract was subsequently designed around those observed behaviors, but the production execution adapter was not built.
+
+The last operator-accepted integrated prototype milestone was M6.3, the controlled-execution and governed-recovery checkpoint, which exercised those paths in the simulated estate. In this context, operator acceptance means that I personally conducted an integrated prototype acceptance walk, submitting operations and reviewing their behavior against the expected results. It does not imply acceptance by an independent operator or production organization.
+
+The next checkpoint, M6.4, implemented and tested deterministic post-operation validation, but its operator acceptance walk was never completed. The remaining validation and learning stages were not built. The following table summarizes where the research stopped.
+
+\| Architectural area | Evidence status |
+
+\|---|---|
+
+\| Semantic screening | Exercised using Foundation-Sec and four canary inputs; full screening corpus not public |
+
+\| Context Acquisition Gateway | Selected acquisition and provenance paths exercised; complete field-classification coverage not publicly established |
+
+\| Deterministic Acquisition Floor | Integrated before-and-after runs and published executable negative-path tests |
+
+\| Transaction and standing authorization | Both authorization paths exercised within the integrated prototype |
+
+\| Multiple autonomy lanes and Advisory | Three policy outcomes demonstrated: standing authorization, Advisory, and refusal when no policy applied |
+
+\| Execution-result semantics | Investigated through real execution probes |
+
+\| Controlled execution and governed recovery | Simulated-estate acceptance walk; recovery-decision tests and 14 mutation probes reported in the M6.3 record |
+
+\| Deterministic post-operation validation | Implemented and tested, but not operator-accepted |
+
+\| Anomaly validation, final outcome recording, and learning | Not started |
+
+\| Production HA, policy lifecycle, evidence custody, and segregation of duties | Open architectural and engineering obligations |
+
+Each kind of evidence supports a limited claim. A successful prototype execution establishes that a particular path was exercised under particular conditions. A mutation test can demonstrate that a control changes the outcome when removed or altered. An adversarial canary can show that a screening mechanism responds to a particular class of malicious input. None of those independently establishes production reliability, statistically meaningful detection rates, or operational safety across an enterprise environment. Boundary demonstrated several architectural mechanisms, but it did not establish a production-ready autonomous infrastructure platform.
+
+## Why I stopped building
+
+As the project developed, I periodically considered what additional implementation would contribute to the architectural investigation. Some additions were clearly worthwhile. Execution and recovery, for example, exposed questions that could not be answered adequately through diagrams or design discussions alone, and I needed to exercise those paths to understand the relationships among evidence, authorization, actual mutation, and recovery. Other work would have improved the completeness of the implementation without necessarily providing substantial new architectural insight.
+
+By October 8, 2026, the remaining work was still meaningful engineering. Deterministic validation needed to complete operator acceptance. The later anomaly validation, final outcome recording, and learning stages had not been started. A real execution adapter, high availability, enterprise policy management, evidence custody, and segregation of duties would all require additional work before contemplating production use. These were legitimate requirements, but they increasingly represented the work of completing a product rather than testing the assumptions that had motivated the research. I had reached a point where further implementation was unlikely to materially change my understanding of the architectural boundaries, so I stopped.
+
+This reflects how I approach independent architecture research. A research prototype does not need to become a finished product to accomplish its purpose. Sometimes the useful result is an implementation that demonstrates an architectural principle. Sometimes it is a test that exposes a flawed assumption. Sometimes it is the discovery that an apparently reasonable design does not enforce the boundary it claims to enforce. Boundary had produced all three kinds of evidence, and continuing to build simply because more functionality could be added would not necessarily have improved the research.
+
+## The role of AI in the research itself
+
+The research involved AI both as the subject of investigation and as a collaborator in developing the implementation. I used AI models and coding agents to help examine assumptions, develop alternatives, implement experiments, generate tests, and identify potential defects. That collaboration contributed to the project's progress, but it also raised a familiar question about accountability.
+
+Identifying a potential architectural problem is different from deciding how the architecture should change. Generating an implementation does not establish that it conforms to the intended design, and a successful test result does not automatically validate the claim that motivated the test. Throughout the project, I attempted to keep those activities separate.
+
+The surviving research record does not always establish precise authorship for every idea or intermediate decision, and I don't think it would be appropriate to reconstruct certainty where that evidence doesn't exist. What mattered was maintaining accountability for the architectural direction and using implementation evidence to evaluate whether the resulting system behaved as intended.
+
+This closely mirrors the problem Boundary was investigating. In both cases, AI can contribute analysis, identify possibilities, and generate technically useful artifacts. The ability to contribute does not, by itself, establish the authority to make consequential decisions.
+
+## What Boundary taught me about enterprise AI
+
+The most useful results of Boundary were not specific to Linux patching. The patching scenario provided the operational context needed to investigate a broader architectural problem: how to introduce probabilistic reasoning into environments where authority, evidence, and operational consequences must remain accountable.
+
+Capability and authority must remain separate, because a model's ability to recommend an action does not establish that the action is permitted. Source authority and content trust are also different properties, and a governed enterprise system may contain information that requires additional validation before entering an AI reasoning context.
+
+Deterministic controls need dependable evidence. A control cannot reliably enforce its requirements if another component can decide whether the evidence needed to trigger it is acquired.
+
+Boundary demonstrated how different workloads could operate under distinct, governed authority conditions. It also established an architectural direction for earned autonomy, where future promotion would depend on representative operational evidence and explicit enterprise authorization. That promotion lifecycle remains unvalidated.
+
+Recovery was another tested authority boundary. The simulated-estate runs exercised refusal, separately authorized recovery, and recovery failure without permitting uncontrolled additional mutation. Those results support the narrower recovery-control claim, not a claim of production recoverability.
+
+The conclusion that interests me most concerns the relationship between architecture and implementation. Drawing a diagram that shows AI reasoning separated from deterministic controls is easy. Establishing that the separation holds is considerably harder when information is incomplete, sources disagree, tools return ambiguous results, or an operation fails halfway through. Those conditions reveal dependencies and assumptions that are not always visible in a conceptual design. Boundary reinforced the value of implementing enough of an architecture to challenge its assumptions and to determine whether it actually expresses the properties we expect it to have, even if the result never becomes a finished application.
+
+## Where the investigation leaves us
+
+I expect organizations to keep exploring ways to give AI systems more responsibility for operational activities. Some of those applications will be low consequence. Others will involve infrastructure, security controls, financial operations, or systems where an incorrect action can have serious effects. As those use cases develop, I suspect the architectural conversation will need to extend beyond how capable individual AI models have become. We will need to consider what information those models consume, how their conclusions are verified, which authority boundaries govern their actions, and what happens when observations differ from expectations.
+
+Boundary is no universal solution to those problems. It is a proposed architectural approach, supported by bounded prototype evidence, for separating reasoning from authority and keeping consequential actions subject to independently governed controls.
+
+Looking back at the investigation, I keep returning to the two questions that came to define the work.
+
+**What do I trust the model to consume?**
+
+**What do I trust the model's reasoning to influence?**
+
+For consequential enterprise AI, I think those are two of the most useful questions an architect can ask before deciding what to build.
+
+---
+
+## Supporting research
+
+The following links provide selected supporting evidence and the reusable Reference Architecture. The evidence repository is a curated subset, not the complete engineering archive: the full Boundary screening corpus, isolated Ansible probe captures, and complete mutation-test records remain unpublished. Measurements from the earlier GPU experiment are public in its separate repository. Some archived artifacts retain the project's former working name, Project Sentinel.
+
+- [Project Boundary: Selected Supporting Evidence](https://github.com/Robert-N-Myhre/project-boundary-evidence)
+
+- [Reference Architecture for Governed Agentic Infrastructure Operations](https://github.com/Robert-N-Myhre/independent-technology-research/blob/main/docs/reference-architectures/governed-agentic-infrastructure-operations.md)
+- [Single-GPU Prompt Security Guardrails Research](https://github.com/Robert-N-Myhre/prompt-guardrail-single-gpu)
+
+*Project Boundary is independent architecture research. Its prototype findings should not be interpreted as evidence of production deployment, complete operational validation, or generalized AI safety.*

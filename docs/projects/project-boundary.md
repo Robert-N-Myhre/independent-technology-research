@@ -149,29 +149,29 @@ The last operator-accepted integrated prototype milestone was M6.3, the controll
 
 The next checkpoint, M6.4, implemented and tested deterministic post-operation validation, but its operator acceptance walk was never completed. The remaining validation and learning stages were not built. The following table summarizes where the research stopped.
 
-\| Architectural area | Evidence status |
+| Architectural area | Evidence status |
 
-\|---|---|
+|---|---|
 
-\| Semantic screening | Exercised using Foundation-Sec and four canary inputs; full screening corpus not public |
+| Semantic screening | Exercised using Foundation-Sec and four canary inputs; full screening corpus not public |
 
-\| Context Acquisition Gateway | Selected acquisition and provenance paths exercised; complete field-classification coverage not publicly established |
+| Context Acquisition Gateway | Selected acquisition and provenance paths exercised; complete field-classification coverage not publicly established |
 
-\| Deterministic Acquisition Floor | Integrated before-and-after runs and published executable negative-path tests |
+| Deterministic Acquisition Floor | Integrated before-and-after runs and published executable negative-path tests |
 
-\| Transaction and standing authorization | Both authorization paths exercised within the integrated prototype |
+| Transaction and standing authorization | Both authorization paths exercised within the integrated prototype |
 
-\| Multiple autonomy lanes and Advisory | Three policy outcomes demonstrated: standing authorization, Advisory, and refusal when no policy applied |
+| Multiple autonomy lanes and Advisory | Three policy outcomes demonstrated: standing authorization, Advisory, and refusal when no policy applied |
 
-\| Execution-result semantics | Investigated through real execution probes |
+| Execution-result semantics | Investigated through real execution probes |
 
-\| Controlled execution and governed recovery | Simulated-estate acceptance walk; recovery-decision tests and 14 mutation probes reported in the M6.3 record |
+| Controlled execution and governed recovery | Simulated-estate acceptance walk; recovery-decision tests and 14 mutation probes reported in the M6.3 record |
 
-\| Deterministic post-operation validation | Implemented and tested, but not operator-accepted |
+| Deterministic post-operation validation | Implemented and tested, but not operator-accepted |
 
-\| Anomaly validation, final outcome recording, and learning | Not started |
+| Anomaly validation, final outcome recording, and learning | Not started |
 
-\| Production HA, policy lifecycle, evidence custody, and segregation of duties | Open architectural and engineering obligations |
+| Production HA, policy lifecycle, evidence custody, and segregation of duties | Open architectural and engineering obligations |
 
 Each kind of evidence supports a limited claim. A successful prototype execution establishes that a particular path was exercised under particular conditions. A mutation test can demonstrate that a control changes the outcome when removed or altered. An adversarial canary can show that a screening mechanism responds to a particular class of malicious input. None of those independently establishes production reliability, statistically meaningful detection rates, or operational safety across an enterprise environment. Boundary demonstrated several architectural mechanisms, but it did not establish a production-ready autonomous infrastructure platform.
 

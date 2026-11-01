@@ -1,0 +1,87 @@
+@media print {
+    body {
+      font-size: 10.25px;
+      line-height: 1.30;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+  
+    .md-header, .md-footer, nav, .md-sidebar, .md-nav, .md-banner {
+      display: none !important;
+    }
+  
+    .md-main__inner {
+      padding: 0 !important;
+      margin: 0 auto !important;
+      max-width: 100% !important;
+    }
+  
+    .md-typeset {
+      padding: 1rem !important;
+    }
+
+    .md-typeset * {
+      page-break-after: avoid;
+      page-break-inside: avoid;
+    }
+    
+    .md-typeset ul li {
+      margin-bottom: 0.1em !important;
+    }
+
+    #ccie-logo {
+      width: 75px !important;
+      max-width: 75px !important;
+      height: auto !important;
+    }
+  
+    h1 {
+      font-size: 20px !important;
+      margin-bottom: 0.4em;
+    }
+
+    .md-content .md-typeset > h1 {
+      color: #172334 !important;
+      background: none !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      font-size: 20px !important;
+    }
+
+    .md-content .md-typeset > h1::after {
+      display: none !important;
+    }
+  
+    h2 {
+      font-size: 16px !important;
+      margin-top: 0.6em !important;
+      margin-bottom: 0.2em !important;
+    }
+  
+    h3 {
+      font-size: 13px !important;
+      margin-top: 0.5em !important;
+      margin-bottom: 0.2em !important;
+    }
+  
+    ul {
+      margin: 0.3em 0 0.5em 1.2em;
+    }
+  
+    hr {
+      margin: 1rem 0;
+    }
+  
+    p {
+      margin-top: 0.2em !important;
+      margin-bottom: 0.2em !important;
+    }
+
+    /* Page size & margin */
+    @page {
+      size: A4;
+      margin: 0.45in 0.5in 0.4in 0.5in; /* Top Right Bottom Left */
+    }
+  }
+  
